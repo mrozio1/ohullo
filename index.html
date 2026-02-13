@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mark Johnson - Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Importing Google Fonts: Inter for UI and 'Caveat' for the handwritten feel -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "handwriting": ["Caveat", "cursive"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom parallax-like floating animation */
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+        @keyframes float-medium {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-15px) translateX(10px); }
+        }
+        @keyframes float-fast {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
+        .animate-float-medium { animation: float-medium 6s ease-in-out infinite; }
+        .animate-float-fast { animation: float-fast 4s ease-in-out infinite; }
+        
+        /* Scroll indicator bounce */
+        @keyframes bounce-subtle {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        .animate-bounce-subtle { animation: bounce-subtle 2s infinite; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display selection:bg-primary/30 selection:text-primary overflow-x-hidden">
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 right-0 z-50 px-6 py-6 md:px-12 flex justify-between items-center backdrop-blur-sm bg-background-light/80 dark:bg-background-dark/80 supports-[backdrop-filter]:bg-background-light/50">
+<a class="text-xl font-bold tracking-tight hover:text-primary transition-colors duration-300" href="#">
+            Mark J<span class="text-primary">.</span>
+</a>
+<div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600 dark:text-slate-400">
+<a class="hover:text-primary transition-colors duration-300" href="#work">Work</a>
+<a class="hover:text-primary transition-colors duration-300" href="#about">About</a>
+<a class="hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
+</div>
+<button class="md:hidden text-slate-800 dark:text-white">
+<span class="material-icons-outlined">menu</span>
+</button>
+</nav>
+<!-- Hero Section -->
+<header class="relative w-full h-screen flex flex-col justify-center items-center overflow-hidden">
+<!-- Parallax Background Elements (Abstract Shapes) -->
+<div class="absolute inset-0 z-0 pointer-events-none opacity-40 dark:opacity-20">
+<!-- Top Right Circle -->
+<div class="absolute top-1/4 right-[10%] w-64 h-64 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-3xl animate-float-slow"></div>
+<!-- Bottom Left Blob -->
+<div class="absolute bottom-1/4 left-[5%] w-96 h-96 rounded-full bg-gradient-to-tr from-primary/5 to-slate-200/50 dark:from-primary/10 dark:to-slate-800/50 blur-3xl animate-float-medium"></div>
+<!-- Tiny accents -->
+<div class="absolute top-[20%] left-[20%] w-4 h-4 rounded-full bg-primary/20 animate-float-fast"></div>
+<div class="absolute bottom-[30%] right-[25%] w-6 h-6 border-2 border-slate-200 dark:border-slate-700 rounded-full animate-float-slow delay-1000"></div>
+<div class="absolute top-[40%] left-[80%] text-9xl text-slate-100 dark:text-slate-800 font-bold opacity-20 -z-10 select-none transform -rotate-12 translate-x-20">
+                Hi
+            </div>
+</div>
+<!-- Main Content -->
+<div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+<h1 class="text-5xl md:text-7xl lg:text-9xl font-handwriting text-slate-900 dark:text-white leading-tight mb-6 transform -rotate-2 origin-center">
+                ohullo<span class="text-primary">.</span> <br class="hidden md:block"/>
+<span class="block md:inline mt-4 md:mt-0">I'm Mark Johnson,</span>
+<span class="block mt-2">welcome<span class="text-primary">.</span></span>
+</h1>
+<p class="mt-8 text-sm md:text-base tracking-widest uppercase text-slate-500 dark:text-slate-400 font-medium animate-pulse">
+                Creative Developer <span class="text-primary px-2">•</span> UI Designer
+            </p>
+</div>
+<!-- Social Icons (Anchored Bottom Left) -->
+<div class="absolute bottom-12 left-6 md:left-12 flex flex-col space-y-4 z-20 hidden md:flex">
+<a aria-label="Github" class="text-slate-400 hover:text-primary transition-colors duration-300 transform hover:scale-110" href="#">
+<svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+</a>
+<a aria-label="LinkedIn" class="text-slate-400 hover:text-primary transition-colors duration-300 transform hover:scale-110" href="#">
+<svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce-subtle z-20 cursor-pointer opacity-80 hover:opacity-100 transition-opacity">
+<span class="text-xs font-semibold tracking-widest text-slate-400 dark:text-slate-500 uppercase mb-2">Scroll</span>
+<div class="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
+</div>
+</header>
+<!-- Content Placeholder for Scrolling Effect -->
+<section class="py-24 px-6 md:px-12 max-w-7xl mx-auto" id="work">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+<div>
+<span class="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">Latest Work</span>
+<h2 class="text-4xl font-bold text-slate-900 dark:text-white mb-6">Redefining Digital Experiences</h2>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                    Focusing on clean lines and user-centric design, I build applications that are not just functional, but delightful to use. Here's a glimpse into my recent projects.
+                </p>
+<a class="inline-flex items-center text-primary font-semibold hover:underline decoration-2 underline-offset-4 group" href="#">
+                    View Case Study 
+                    <span class="material-icons-outlined text-sm ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-blue-400 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+<div class="relative bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-xl aspect-video">
+<!-- Placeholder for portfolio item -->
+<div class="w-full h-full bg-slate-100 dark:bg-slate-900 flex items-center justify-center relative overflow-hidden group">
+<!-- Abstract pattern background -->
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#13a4ec 1px, transparent 1px); background-size: 20px 20px;">
+</div>
+<span class="material-icons-outlined text-6xl text-slate-300 dark:text-slate-700 group-hover:scale-110 transition-transform duration-500">dashboard</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+	<br>
+	<br>
+<!-- Cover Letter Download CTA -->
+<div class="mt-20 flex flex-col items-center justify-center text-center">
+<p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Need this in plain text?</p>
+<button class="group relative inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white transition-all duration-200 bg-primary rounded-lg hover:bg-sky-500 hover:shadow-lg hover:shadow-primary/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+<span class="material-icons mr-2 group-hover:-translate-y-0.5 transition-transform duration-200">download</span>
+                    Download Cover Letter
+                    <div class="absolute inset-0 rounded-lg ring-2 ring-white/20 group-hover:ring-white/40"></div>
+</button>
+<br>
+<br>
+<br>
+<br>
+<!-- Scroll Indicator -->
+<div class="left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce-subtle z-20 cursor-pointer opacity-80 hover:opacity-100 transition-opacity">
+<span class="text-xs font-semibold tracking-widest text-slate-400 dark:text-slate-500 uppercase mb-2">Scroll</span>
+<div class="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
+</div>
+</body>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mark Johnson - Experience</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom parallax-like movement for demo purposes without JS */
+        .parallax-bg {
+            background-image: radial-gradient(#13a4ec 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display antialiased selection:bg-primary/30 selection:text-primary transition-colors duration-300">
+<!-- Main Container -->
+<main class="relative min-h-screen overflow-hidden flex flex-col justify-center py-24">
+<!-- Decorative Parallax Elements (Simulated positioning) -->
+<!-- Shape 1: Large Circle -->
+<div class="absolute top-20 right-[10%] w-64 h-64 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-3xl -z-10 animate-pulse" style="animation-duration: 4s;"></div>
+<!-- Shape 2: Small Square -->
+<div class="absolute bottom-40 left-[5%] w-32 h-32 rounded-3xl rotate-12 bg-primary/5 border border-primary/20 -z-10"></div>
+<!-- Shape 3: Dotted Pattern -->
+<div class="absolute top-1/3 left-1/4 w-48 h-48 opacity-20 parallax-bg -z-20 mask-image-gradient"></div>
+<div class="container mx-auto px-6 lg:px-12 relative z-10">
+<!-- Section Header -->
+<header class="mb-20 max-w-4xl">
+<span class="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-semibold tracking-wide uppercase mb-4">
+                    Career Path
+                </span>
+<h2 class="text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
+                    Work <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">Experience</span>
+</h2>
+<p class="text-xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
+                    A timeline of my professional journey, focusing on product design, leadership, and solving complex user problems.
+                </p>
+</header>
+<!-- Timeline Container -->
+<div class="relative border-l-2 border-slate-200 dark:border-slate-800 ml-3 md:ml-6 space-y-16 pb-12">
+<!-- Job Entry 1 -->
+<div class="relative pl-8 md:pl-12 group">
+<!-- Timeline Dot -->
+<div class="absolute -left-[9px] top-2 w-[18px] h-[18px] rounded-full bg-background-light dark:bg-background-dark border-4 border-primary shadow-[0_0_0_4px_rgba(19,164,236,0.2)] transition-all duration-300 group-hover:scale-110"></div>
+<div class="grid md:grid-cols-12 gap-6 items-start">
+<!-- Date & Company Column -->
+<div class="md:col-span-4 lg:col-span-3">
+<span class="block text-sm font-bold text-primary mb-1 uppercase tracking-wider">Present</span>
+<span class="text-sm text-slate-400 dark:text-slate-500 font-medium">2021 — Now</span>
+<div class="mt-3 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-slate-100 dark:border-slate-700">
+<span class="material-icons text-primary">layers</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">TechFlow</h4>
+<span class="text-xs text-slate-500 dark:text-slate-400">San Francisco, CA</span>
+</div>
+</div>
+</div>
+<!-- Content Column -->
+<div class="md:col-span-8 lg:col-span-9 bg-white dark:bg-slate-800/50 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Senior Product Designer</h3>
+<p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                                Leading the design system initiative "FlowUI" and managing a team of 4 designers. Responsible for the end-to-end design of the enterprise dashboard product.
+                            </p>
+<ul class="space-y-3 mb-6">
+<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
+<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
+<span>Established a unified design system reducing dev handoff time by 40%.</span>
+</li>
+<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
+<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
+<span>Mentored 2 junior designers to mid-level roles within 18 months.</span>
+</li>
+<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
+<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
+<span>Led user research sessions for the new analytics module.</span>
+</li>
+</ul>
+<!-- Tags -->
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Design Systems</span>
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Team Leadership</span>
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Figma</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Job Entry 2 -->
+<div class="relative pl-8 md:pl-12 group">
+<!-- Timeline Dot -->
+<div class="absolute -left-[9px] top-2 w-[18px] h-[18px] rounded-full bg-slate-200 dark:bg-slate-700 border-4 border-white dark:border-background-dark group-hover:bg-primary group-hover:border-primary/30 transition-all duration-300"></div>
+<div class="grid md:grid-cols-12 gap-6 items-start">
+<!-- Date & Company Column -->
+<div class="md:col-span-4 lg:col-span-3">
+<span class="block text-sm font-bold text-slate-900 dark:text-white mb-1 uppercase tracking-wider">2018 — 2021</span>
+<span class="text-sm text-slate-400 dark:text-slate-500 font-medium">3 Years</span>
+<div class="mt-3 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-slate-100 dark:border-slate-700">
+<span class="material-icons text-primary">bolt</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Creative Pulse</h4>
+<span class="text-xs text-slate-500 dark:text-slate-400">Remote</span>
+</div>
+</div>
+</div>
+<!-- Content Column -->
+<div class="md:col-span-8 lg:col-span-9 bg-white dark:bg-slate-800/50 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">UI/UX Designer</h3>
+<p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                                Spearheaded the redesign of the main e-commerce platform for a major retail client. Focused on mobile-first methodology and accessibility standards.
+                            </p>
+<ul class="space-y-3 mb-6">
+<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
+<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
+<span>Achieved a 20% conversion lift post-redesign launch.</span>
+</li>
+<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
+<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
+<span>Implemented WCAG 2.1 AA accessibility standards across 50+ pages.</span>
+</li>
+</ul>
+<!-- Tags -->
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">E-commerce</span>
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Accessibility</span>
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Mobile Design</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Job Entry 3 -->
+<div class="relative pl-8 md:pl-12 group">
+<!-- Timeline Dot -->
+<div class="absolute -left-[9px] top-2 w-[18px] h-[18px] rounded-full bg-slate-200 dark:bg-slate-700 border-4 border-white dark:border-background-dark group-hover:bg-primary group-hover:border-primary/30 transition-all duration-300"></div>
+<div class="grid md:grid-cols-12 gap-6 items-start">
+<!-- Date & Company Column -->
+<div class="md:col-span-4 lg:col-span-3">
+<span class="block text-sm font-bold text-slate-900 dark:text-white mb-1 uppercase tracking-wider">2016 — 2018</span>
+<span class="text-sm text-slate-400 dark:text-slate-500 font-medium">2 Years</span>
+<div class="mt-3 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-slate-100 dark:border-slate-700">
+<span class="material-icons text-primary">rocket_launch</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">StartUp Inc.</h4>
+<span class="text-xs text-slate-500 dark:text-slate-400">Austin, TX</span>
+</div>
+</div>
+</div>
+<!-- Content Column -->
+<div class="md:col-span-8 lg:col-span-9 bg-white dark:bg-slate-800/50 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Junior Designer</h3>
+<p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                                Created marketing assets for social media campaigns and assisted the lead developer with frontend implementation using HTML/CSS.
+                            </p>
+<ul class="space-y-3 mb-6">
+<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
+<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
+<span>Designed over 200 marketing assets for Instagram and LinkedIn.</span>
+</li>
+<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
+<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
+<span>Refactored legacy CSS code to use SCSS variables.</span>
+</li>
+</ul>
+<!-- Tags -->
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Graphic Design</span>
+<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Frontend Dev</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Resume Download CTA -->
+<div class="mt-20 flex flex-col items-center justify-center text-center">
+<p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Want the full details?</p>
+<button class="group relative inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white transition-all duration-200 bg-primary rounded-lg hover:bg-sky-500 hover:shadow-lg hover:shadow-primary/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+<span class="material-icons mr-2 group-hover:-translate-y-0.5 transition-transform duration-200">download</span>
+                    Download Resume
+                    <div class="absolute inset-0 rounded-lg ring-2 ring-white/20 group-hover:ring-white/40"></div>
+</button>
+</div>
+</div>
+</html>
