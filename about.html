@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Mark Johnson - Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#ffffff","background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "handwriting": ["Caveat", "cursive"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+        .animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
+        @keyframes bounce-subtle {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        .animate-bounce-subtle { animation: bounce-subtle 2s infinite; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display selection:bg-primary/30 selection:text-primary overflow-x-hidden">
+<nav class="fixed top-0 left-0 right-0 z-50 px-6 py-6 md:px-12 flex justify-between items-center backdrop-blur-sm bg-background-light/80 dark:bg-background-dark/80 supports-[backdrop-filter]:bg-background-light/50">
+<a class="text-xl font-bold tracking-tight hover:text-primary transition-colors duration-300" href="#">
+        Mark J<span class="text-primary">.</span>
+</a>
+<div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600 dark:text-slate-400">
+<a class="hover:text-primary transition-colors duration-300" href="#work">Work</a>
+<a class="text-primary font-semibold transition-colors duration-300" href="#about">About</a>
+<a class="hover:text-primary transition-colors duration-300" href="#contact">Contact</a>
+</div>
+<button class="md:hidden text-slate-800 dark:text-white">
+<span class="material-icons-outlined">menu</span>
+</button>
+</nav>
+<main class="relative min-h-screen w-full flex items-center pt-24 pb-12 overflow-hidden" id="about">
+<div class="absolute inset-0 z-0 pointer-events-none">
+<div class="absolute top-[15%] right-[-5%] w-[40vw] h-[70vh] md:w-[35vw] md:h-[80vh] opacity-20 dark:opacity-10 grayscale mix-blend-multiply dark:mix-blend-luminosity">
+<img alt="Mark Johnson Portrait" class="w-full h-full object-cover object-center rounded-l-3xl animate-float-slow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcWenI82vegCi8JbC5OkM1jdbVH335wlcPfs9bIj3ifJKr5Zr4HsBX02lYSIzk1xI18Dytj5FW6z0oRNilfhmgo42QK-UC-gyc2LIYul9WURjBN92njZi-flCZc4tVUzOS6e4PsYMG-DNFv0u3_vlwqXX2O9Pz7zEHVB3_Bo4FCOEXqsKfy2Icvw4kFO01rNoQMero6IJbumsXS46lbMTNf3pzj4NmRSGyTt5W4faPP2GEhT8KMchbejjr1G3_I7BsPfyeJxbFhQU" style="mask-image: linear-gradient(to left, black 60%, transparent 100%); -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);"/>
+</div>
+<div class="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-slate-100 dark:bg-slate-800 rounded-full blur-3xl opacity-60"></div>
+</div>
+<div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12">
+<div class="mb-16 md:mb-24">
+<h1 class="text-6xl md:text-8xl lg:text-9xl font-handwriting text-black dark:text-white leading-[0.9] transform -rotate-1 origin-left">
+                The story<br/>
+<span class="ml-12 md:ml-24">so far<span class="text-primary">.</span></span>
+</h1>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-20">
+<div class="md:col-span-7 lg:col-span-6 space-y-8">
+<div class="prose prose-lg dark:prose-invert text-slate-600 dark:text-slate-300 font-light">
+<p class="text-xl md:text-2xl text-slate-800 dark:text-slate-100 font-medium mb-6">
+                        I craft digital experiences that merge functionality with artistic expression.
+                    </p>
+<p class="mb-6">
+                        My journey began over a decade ago when I discovered that lines of code could build worlds. Since then, I've worked with startups and Fortune 500 companies alike, always bringing a detail-oriented, user-first philosophy to the table.
+                    </p>
+<p>
+                        I believe that good design is invisible—it just works. My approach is rooted in minimalism, stripping away the non-essential to reveal the core purpose of a product. Whether it's a complex dashboard or a simple landing page, I strive for clarity, speed, and emotion.
+                    </p>
+</div>
+<div class="pt-8 border-t border-slate-200 dark:border-slate-800">
+<div class="flex flex-wrap gap-4">
+<span class="px-4 py-2 border border-slate-300 dark:border-slate-700 rounded-full text-sm uppercase tracking-wider text-slate-500 hover:border-primary hover:text-primary transition-colors cursor-default">UI/UX Design</span>
+<span class="px-4 py-2 border border-slate-300 dark:border-slate-700 rounded-full text-sm uppercase tracking-wider text-slate-500 hover:border-primary hover:text-primary transition-colors cursor-default">Frontend Dev</span>
+<span class="px-4 py-2 border border-slate-300 dark:border-slate-700 rounded-full text-sm uppercase tracking-wider text-slate-500 hover:border-primary hover:text-primary transition-colors cursor-default">Strategy</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-5 lg:col-span-5 lg:col-start-8 flex flex-col justify-center space-y-12">
+<div>
+<h3 class="text-sm font-bold uppercase tracking-widest text-primary mb-6">Core Values</h3>
+<ul class="space-y-4">
+<li class="flex items-start group">
+<span class="material-icons-outlined text-slate-400 group-hover:text-primary transition-colors mr-3 mt-1">check_circle</span>
+<div>
+<h4 class="font-medium text-slate-900 dark:text-white">Simplicity First</h4>
+<p class="text-sm text-slate-500 mt-1">Less is usually more. Clarity over clutter.</p>
+</div>
+</li>
+<li class="flex items-start group">
+<span class="material-icons-outlined text-slate-400 group-hover:text-primary transition-colors mr-3 mt-1">check_circle</span>
+<div>
+<h4 class="font-medium text-slate-900 dark:text-white">Pixel Perfection</h4>
+<p class="text-sm text-slate-500 mt-1">Details aren't just details; they make the design.</p>
+</div>
+</li>
+<li class="flex items-start group">
+<span class="material-icons-outlined text-slate-400 group-hover:text-primary transition-colors mr-3 mt-1">check_circle</span>
+<div>
+<h4 class="font-medium text-slate-900 dark:text-white">Empathy</h4>
+<p class="text-sm text-slate-500 mt-1">Understanding the user is the first step to solving their problem.</p>
+</div>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-bold uppercase tracking-widest text-primary mb-6">Offline Mode</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                        When I'm not pushing pixels, you can find me exploring analog photography, brewing the perfect pour-over coffee, or hiking the trails of the Pacific Northwest.
+                    </p>
+<div class="flex space-x-4 text-slate-400">
+<span class="material-icons-outlined hover:text-slate-800 dark:hover:text-white transition-colors cursor-help" title="Photography">camera_alt</span>
+<span class="material-icons-outlined hover:text-slate-800 dark:hover:text-white transition-colors cursor-help" title="Coffee">coffee</span>
+<span class="material-icons-outlined hover:text-slate-800 dark:hover:text-white transition-colors cursor-help" title="Hiking">landscape</span>
+<span class="material-icons-outlined hover:text-slate-800 dark:hover:text-white transition-colors cursor-help" title="Music">headphones</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-12 left-6 md:left-12 flex flex-col space-y-4 z-50 hidden md:flex">
+<a aria-label="Github" class="text-slate-400 hover:text-primary transition-colors duration-300 transform hover:scale-110" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 24 24" width="24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+</a>
+<a aria-label="LinkedIn" class="text-slate-400 hover:text-primary transition-colors duration-300 transform hover:scale-110" href="#">
+<svg fill="currentColor" height="24" viewBox="0 0 24 24" width="24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+</div>
+<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce-subtle z-20 cursor-pointer opacity-40 hover:opacity-100 transition-opacity">
+<span class="text-xs font-semibold tracking-widest text-slate-400 dark:text-slate-500 uppercase mb-2">Resume</span>
+<div class="w-[1px] h-8 bg-gradient-to-b from-primary to-transparent"></div>
+</div>
+</main>
+
+</body></html>
