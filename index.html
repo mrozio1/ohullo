@@ -1,507 +1,788 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Mark Johnson - Portfolio</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Importing Google Fonts: Inter for UI and 'Caveat' for the handwritten feel -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#13a4ec",
-                        "background-light": "#f6f7f8",
-                        "background-dark": "#101c22",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"],
-                        "handwriting": ["Caveat", "cursive"]
-                    },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-                },
-            },
-        }
-    </script>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mark Johnson · ohullo</title>
+<meta name="description" content="Mark Johnson — operations and marketing leader. Twenty years of making things work, told as a short book.">
+<meta name="theme-color" content="#24272c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Literata:ital,opsz,wght@0,7..72,300..800;1,7..72,300..700&display=swap" rel="stylesheet">
 <style>
-        /* Custom parallax-like floating animation */
-        @keyframes float-slow {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
-        @keyframes float-medium {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(-15px) translateX(10px); }
-        }
-        @keyframes float-fast {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
-        .animate-float-medium { animation: float-medium 6s ease-in-out infinite; }
-        .animate-float-fast { animation: float-fast 4s ease-in-out infinite; }
-        
-        /* Scroll indicator bounce */
-        @keyframes bounce-subtle {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-        .animate-bounce-subtle { animation: bounce-subtle 2s infinite; }
-    </style>
+:root{
+  --paper:#f3f4f1;
+  --paper-2:#e7e9e5;
+  --desk:#cfd3cf;
+  --graphite:#24272c;
+  --pencil:#6c727a;
+  --rule:#c9cdc8;
+  --ink:#13a4ec;
+  --ink-deep:#0a6a9c;
+  --cover:#1f2a33;
+  --serif:"Literata",Georgia,serif;
+  --hand:"Caveat","Bradley Hand",cursive;
+  --measure:62ch;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--desk);color:var(--graphite);font-family:var(--serif);font-size:clamp(1.02rem,.96rem + .3vw,1.16rem);line-height:1.65;font-optical-sizing:auto;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--ink-deep);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--ink)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px}
+::selection{background:rgba(19,164,236,.25)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:1rem;top:-4rem;z-index:100;background:var(--graphite);color:var(--paper);padding:.6rem 1rem;border-radius:4px}
+.skip:focus{top:1rem}
+
+/* ---------- running head ---------- */
+.head{position:fixed;inset:0 0 auto 0;z-index:40;display:flex;align-items:center;gap:1.25rem;padding:.85rem clamp(1rem,3vw,2.25rem);transition:background .4s,color .4s,box-shadow .4s;color:var(--paper)}
+.head.on-paper{background:rgba(243,244,241,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--graphite);box-shadow:0 1px 0 var(--rule)}
+.brand{font-family:var(--hand);font-weight:700;font-size:2.1rem;line-height:1;color:inherit;text-decoration:none}
+.brand span{color:var(--ink)}
+.running{font-style:italic;font-size:.95rem;color:inherit;opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1}
+.head nav{display:flex;gap:1.25rem;align-items:center;font-size:.95rem}
+.head nav a{color:inherit;text-decoration:none}
+.head nav a:hover{color:var(--ink)}
+.toc-btn{font:inherit;font-size:.95rem;color:inherit;background:none;border:1px solid currentColor;border-radius:999px;padding:.3rem .9rem;cursor:pointer;opacity:.9}
+.toc-btn:hover{color:var(--ink)}
+@media (max-width:720px){.head nav a.hide-sm{display:none}.running{display:none}}
+
+/* bookmark ribbon = reading progress */
+.ribbon{position:fixed;top:0;right:clamp(1rem,4vw,3.5rem);z-index:41;width:22px;height:calc(var(--prog,0) * 82vh + 28px);background:var(--ink);pointer-events:none;transition:height .15s linear;filter:drop-shadow(0 2px 2px rgba(0,0,0,.18))}
+.ribbon::after{content:"";position:absolute;left:0;bottom:-11px;border-left:11px solid var(--ink);border-right:11px solid var(--ink);border-bottom:11px solid transparent}
+.head{padding-right:calc(clamp(1rem,4vw,3.5rem) + 38px)}
+@media (max-width:720px){.ribbon{right:0;width:5px;filter:none}.ribbon::after{display:none}.head{padding-right:1rem}}
+
+/* ---------- contents drawer ---------- */
+.toc{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:rgba(31,42,51,.55);opacity:0;pointer-events:none;transition:opacity .3s}
+.toc.open{opacity:1;pointer-events:auto}
+.toc-card{background:var(--paper) var(--grain);width:min(92vw,520px);padding:2.4rem 2.4rem 2rem;box-shadow:0 30px 60px rgba(0,0,0,.35);transform:translateY(16px) rotate(-.6deg);transition:transform .35s}
+.toc.open .toc-card{transform:none}
+.toc-card h2{font-weight:400;font-style:italic;font-size:2rem;margin:0 0 1.2rem}
+.toc-card ol{list-style:none;margin:0;padding:0;counter-reset:c}
+.toc-card li a{display:grid;grid-template-columns:3.2rem 1fr auto;align-items:baseline;gap:.5rem;padding:.55rem 0;color:var(--graphite);text-decoration:none;border-bottom:1px dotted var(--rule)}
+.toc-card li a:hover{color:var(--ink-deep)}
+.toc-card .num{font-family:var(--hand);font-size:1.35rem;color:var(--ink)}
+.toc-card .pg{font-variant-numeric:oldstyle-nums;color:var(--pencil)}
+.toc-card .close{margin-top:1.4rem;font:inherit;background:none;border:0;color:var(--pencil);cursor:pointer;padding:0}
+.toc-card .hint{font-family:var(--hand);font-weight:600;color:var(--ink-deep);font-size:1.5rem;margin-top:.6rem}
+
+/* ---------- the cover ---------- */
+.opening{height:260vh;position:relative;background:radial-gradient(120% 90% at 50% 40%,#3a4651 0%,var(--cover) 55%,#141b21 100%)}
+.stage{position:sticky;top:0;height:100vh;height:100svh;display:grid;place-items:center;perspective:2200px;overflow:hidden}
+.book3d{position:relative;width:min(88vw,calc(78vh * .74),560px);aspect-ratio:.74;transform-style:preserve-3d;transform:translateX(calc(var(--open,0) * 50%)) rotateX(calc((1 - var(--open,0)) * 4deg));will-change:transform}
+@media (max-width:900px){.book3d{transform:translateX(calc(var(--open,0) * 6%))}}
+.titlepage{position:absolute;inset:0;background:var(--paper) var(--grain);box-shadow:0 30px 70px rgba(0,0,0,.45),inset 18px 0 30px -18px rgba(0,0,0,.25);display:grid;grid-template-rows:1fr auto;padding:8% 9% 7%;overflow:hidden}
+.sketch{position:relative;align-self:center;justify-self:center;width:78%;aspect-ratio:800/1001}
+.sketch img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+.sketch .ghost{filter:grayscale(1) contrast(2.6) brightness(1.25);opacity:calc(.12 + var(--draw,0) * .25)}
+.sketch .drawn{-webkit-mask-image:linear-gradient(170deg,#000 calc(var(--draw,0)*120% - 20%),transparent calc(var(--draw,0)*120% + 2%));mask-image:linear-gradient(170deg,#000 calc(var(--draw,0)*120% - 20%),transparent calc(var(--draw,0)*120% + 2%));filter:grayscale(calc(1 - var(--tie,0)))}
+.titlepage .caption{text-align:center}
+.titlepage .caption .hi{font-family:var(--hand);font-weight:700;font-size:clamp(2rem,4.4vh,2.9rem);line-height:1.1;color:var(--graphite)}
+.titlepage .caption .sub{font-style:italic;color:var(--pencil);font-size:.92rem;margin-top:.2rem}
+.cover{position:absolute;inset:0;transform-origin:left center;transform:rotateY(calc(var(--open,0) * -172deg));transform-style:preserve-3d;will-change:transform}
+.cover-front,.cover-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.cover-front{background:
+  linear-gradient(90deg,rgba(0,0,0,.35) 0,rgba(255,255,255,.06) 3.5%,rgba(0,0,0,.18) 5%,transparent 9%),
+  var(--grain),
+  linear-gradient(160deg,#2a3a47,#1c2731 60%,#17212a);
+  box-shadow:0 40px 80px rgba(0,0,0,.55);border-radius:2px 6px 6px 2px;color:#e9ecef;display:flex;flex-direction:column;justify-content:space-between;padding:12% 10% 10% 15%}
+.cover-front::after{content:"";position:absolute;inset:4.5% 5% 4.5% 9%;border:1px solid rgba(233,236,239,.18);pointer-events:none}
+.cover-back{transform:rotateY(180deg);background:var(--paper-2) var(--grain);border-radius:6px 2px 2px 6px;box-shadow:inset -18px 0 30px -18px rgba(0,0,0,.3);display:grid;place-items:center;padding:12%}
+.cover-back p{font-family:var(--hand);font-weight:600;font-size:clamp(1.6rem,3.4vh,2.2rem);color:var(--ink-deep);transform:rotate(-3deg);text-align:center;line-height:1.25}
+.cover .logo{font-family:var(--hand);font-weight:700;font-size:clamp(4rem,11vh,7.2rem);line-height:.9;letter-spacing:-.01em;color:#f4f6f8}
+.cover .logo span{color:var(--ink)}
+.cover h1{font-weight:400;font-style:italic;font-size:clamp(1.25rem,2.9vh,1.8rem);line-height:1.25;margin:0;max-width:16ch;color:#dfe5ea}
+.cover .author{font-size:.95rem;letter-spacing:.04em;color:#aeb8c1}
+.cover .author b{display:block;font-weight:500;color:#e9ecef;font-size:1.1rem;letter-spacing:0}
+.open-cue{position:absolute;bottom:4vh;left:50%;transform:translateX(-50%);color:#c8d0d7;font-style:italic;font-size:.95rem;text-align:center;opacity:calc(1 - var(--open,0) * 4);transition:opacity .2s}
+.open-cue i{display:block;width:1px;height:42px;margin:.6rem auto 0;background:linear-gradient(var(--ink),transparent);animation:drip 2.4s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- the open book ---------- */
+.book{position:relative;max-width:1240px;margin:0 auto;background:var(--paper) var(--grain);box-shadow:0 0 0 1px rgba(0,0,0,.04),-6px 0 0 -2px #e4e6e2,-10px 0 0 -3px #dadcd8,6px 0 0 -2px #e4e6e2,10px 0 0 -3px #dadcd8,0 30px 80px rgba(0,0,0,.18)}
+@media (min-width:960px){.book::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:70px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(0,0,0,.07) 42%,rgba(0,0,0,.16) 50%,rgba(0,0,0,.07) 58%,transparent);pointer-events:none;z-index:1}}
+.chapter{position:relative;padding:clamp(4.5rem,9vw,8rem) 0 clamp(3rem,6vw,5rem);scroll-margin-top:3rem}
+.spread{display:grid;grid-template-columns:1fr;gap:0 clamp(4rem,8vw,7.5rem);padding:0 clamp(1.4rem,6vw,5.5rem)}
+@media (min-width:960px){.spread{grid-template-columns:1fr 1fr}}
+.verso,.recto{min-width:0;position:relative}
+.folio{display:flex;justify-content:space-between;padding:2.5rem clamp(1.4rem,6vw,5.5rem) 0;color:var(--pencil);font-size:.85rem;font-variant-numeric:oldstyle-nums;font-style:italic}
+.folio span:only-child{margin-left:auto}
+
+.ch-num{font-family:var(--hand);font-weight:600;color:var(--ink);font-size:clamp(1.9rem,2.8vw,2.5rem);line-height:1;display:block;margin-bottom:.4rem}
+.ch-title{font-weight:300;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.02em;margin:0 0 1.6rem;font-variation-settings:"opsz" 72}
+.ch-title em{font-weight:400}
+.lede{font-size:clamp(1.2rem,1.05rem + .6vw,1.5rem);line-height:1.45;font-weight:350;margin:0 0 1.4rem;max-width:30ch}
+.prose{max-width:var(--measure)}
+.prose p{margin:0 0 1.05em;hyphens:auto}
+.dropcap::first-letter{float:left;font-size:4.4em;line-height:.82;padding:.06em .1em 0 0;font-weight:300;color:var(--ink-deep);font-variation-settings:"opsz" 72}
+
+/* margin notes: blue pen */
+.note{font-family:var(--hand);font-weight:600;color:var(--ink-deep);font-size:1.8rem;line-height:1.1;display:inline-block;transform:rotate(-2.5deg)}
+.note svg{display:inline-block;vertical-align:middle;margin-left:.3rem}
+.note.r{transform:rotate(2deg)}
+
+/* ---------- Chapter I ---------- */
+.hello-big{font-family:var(--hand);font-weight:700;font-size:clamp(5rem,13vw,10.5rem);line-height:.82;margin:0 0 1rem;letter-spacing:-.01em;color:var(--graphite)}
+.hello-big span{color:var(--ink)}
+.traits{list-style:none;padding:0;margin:2rem 0 0;display:grid;gap:.15rem}
+.traits li{font-style:italic;font-size:1.25rem;border-bottom:1px solid var(--rule);padding:.5rem 0;display:flex;justify-content:space-between;align-items:baseline}
+.traits li b{font-weight:600;font-style:normal;font-family:var(--hand);color:var(--ink-deep);font-size:1.6rem}
+
+/* ---------- Chapter II: ledger ---------- */
+.ledger{list-style:none;margin:0;padding:0;border-top:2px solid var(--graphite)}
+.ledger li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem;align-items:end;padding:1.15rem 0 1rem;border-bottom:1px solid var(--rule);background-image:linear-gradient(90deg,var(--ink) 0,var(--ink) 100%);background-size:0 2px;background-repeat:no-repeat;background-position:0 100%;transition:background-size 1.2s cubic-bezier(.2,.7,.2,1)}
+.ledger li.seen{background-size:100% 2px}
+.ledger .what{font-size:1.02rem;line-height:1.4}
+.ledger .what small{display:block;color:var(--pencil);font-style:italic;font-size:.88rem;margin-top:.15rem}
+.ledger .fig{font-weight:300;font-size:clamp(2.4rem,4.6vw,3.6rem);line-height:.95;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.02em;text-align:right;white-space:nowrap;font-variation-settings:"opsz" 72}
+.ledger .fig .u{font-size:.5em;margin-left:.06em;color:var(--pencil)}
+.ledger-total{display:flex;justify-content:space-between;align-items:baseline;border-top:3px double var(--graphite);margin-top:.4rem;padding-top:.9rem}
+.ledger-total .note{font-size:1.6rem}
+
+/* ---------- Chapter III: the jobs ---------- */
+.career{position:relative}
+.career-line{display:none}
+@media (min-width:960px){
+  .career-line{display:block;position:absolute;top:0;bottom:0;left:50%;width:2px;transform:translateX(-50%);z-index:2}
+  .career-line::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(var(--rule) 0 6px,transparent 6px 12px)}
+  .career-line i{position:absolute;left:0;top:0;width:2px;height:calc(var(--line,0) * 100%);background:var(--ink)}
+}
+.job{position:relative;padding:3.2rem 0 3.4rem;border-top:1px solid var(--rule)}
+.job:first-child{border-top:0}
+.job .spread{align-items:start}
+.job .when{font-weight:300;font-size:clamp(2.2rem,4.2vw,3.4rem);line-height:1;letter-spacing:-.02em;font-variant-numeric:lining-nums;font-variation-settings:"opsz" 72;margin:0}
+.job .length{color:var(--pencil);font-style:italic;margin:.35rem 0 1.4rem;display:block}
+.job .org{font-family:var(--hand);font-weight:700;font-size:clamp(2.1rem,3.4vw,2.7rem);line-height:1;color:var(--graphite);margin:0}
+.job .org-full{display:block;font-size:.95rem;color:var(--pencil);margin-top:.35rem}
+.job .place{display:block;font-size:.95rem;color:var(--pencil)}
+.job .role{font-weight:500;font-size:clamp(1.35rem,1.2rem + .7vw,1.75rem);line-height:1.2;margin:.2rem 0 .8rem;letter-spacing:-.01em}
+.job .desc{margin:0 0 1.3rem;max-width:var(--measure)}
+.job ul.wins{list-style:none;margin:0 0 1.5rem;padding:0;display:grid;gap:.7rem}
+.job ul.wins li{position:relative;padding-left:2rem;max-width:var(--measure);font-size:.98em}
+.job ul.wins li::before{content:"";position:absolute;left:0;top:.35em;width:1.15rem;height:1rem;background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 20'%3E%3Cpath d='M2 11.5c2.2 1.4 4 3.6 5.6 6.2C10.8 10.4 15.6 4.6 22 1.6' fill='none' stroke='%230a6a9c' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.job .kit{display:flex;flex-wrap:wrap;gap:.45rem .5rem;margin:0;padding:0;list-style:none}
+.job .kit li{font-size:.82rem;line-height:1.3;padding:.3rem .65rem;border:1px solid var(--rule);border-radius:3px 6px 4px 5px;color:#454a51;background:rgba(255,255,255,.35)}
+.job.now .when{color:var(--ink-deep)}
+.job .pin{margin-top:.6rem}
+.job .verso{padding-bottom:1rem}
+
+/* ---------- Chapter IV: letter ---------- */
+.letter-wrap{padding:0 clamp(1rem,5vw,4rem);display:grid;place-items:center}
+.letter{position:relative;z-index:2;background:#fbfbf9;width:min(100%,760px);padding:clamp(2rem,6vw,4.5rem) clamp(1.5rem,6vw,4.75rem);box-shadow:0 1px 2px rgba(0,0,0,.08),0 18px 40px rgba(0,0,0,.12);transform:rotate(-.8deg);background-image:linear-gradient(transparent calc(100% - 1px),rgba(19,164,236,.12) 1px);background-size:100% 1.75em}
+.letter::before{content:"";position:absolute;top:-14px;left:50%;width:120px;height:30px;transform:translateX(-50%) rotate(2deg);background:rgba(207,211,207,.75);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.letter .salutation{font-style:italic;font-size:1.6rem;margin:0 0 1.2rem}
+.letter p{margin:0 0 1em;line-height:1.75em}
+.letter strong{font-weight:600}
+.sig{font-family:var(--hand);font-weight:700;font-size:clamp(2.6rem,6vw,3.6rem);color:var(--ink-deep);line-height:1;margin-top:1.5rem;display:inline-block;clip-path:inset(-10% 100% -10% 0);transition:clip-path 2.2s cubic-bezier(.6,.05,.3,1)}
+.sig.signed{clip-path:inset(-10% -5% -10% 0)}
+.sig-year{display:block;font-style:italic;color:var(--pencil);font-size:.95rem;margin-top:.3rem}
+
+/* ---------- Chapter V: choose ---------- */
+.choose-q{font-size:clamp(1.5rem,1.2rem + 1.2vw,2.1rem);font-weight:350;line-height:1.25;margin:0 0 1.4rem;max-width:22ch}
+.choices{display:grid;gap:.6rem;margin:0;padding:0;list-style:none}
+.choice{width:100%;text-align:left;font:inherit;font-size:1.05rem;color:var(--graphite);background:transparent;border:0;border-bottom:1px solid var(--rule);padding:.85rem 2.2rem .85rem 0;position:relative;cursor:pointer;line-height:1.35;transition:color .2s,padding .3s}
+.choice::after{content:"";position:absolute;right:.4rem;top:50%;width:1rem;height:1rem;margin-top:-.5rem;border:1.5px solid var(--pencil);border-radius:50%;transition:all .25s}
+.choice:hover{color:var(--ink-deep);padding-left:.4rem}
+.choice[aria-pressed="true"]{color:var(--ink-deep);font-style:italic}
+.choice[aria-pressed="true"]::after{background:var(--ink);border-color:var(--ink);box-shadow:0 0 0 4px rgba(19,164,236,.2)}
+.answer{position:relative;min-height:26rem}
+.answer-page{background:#fbfbf9;padding:clamp(1.6rem,4vw,2.6rem);box-shadow:0 1px 2px rgba(0,0,0,.08),0 14px 34px rgba(0,0,0,.1);transform-origin:left center;animation:turnIn .7s cubic-bezier(.2,.7,.2,1) both}
+@keyframes turnIn{from{opacity:0;transform:perspective(1400px) rotateY(-28deg) translateX(-10px)}to{opacity:1;transform:none}}
+.answer-page .for{font-family:var(--hand);font-weight:600;color:var(--ink-deep);font-size:1.8rem;line-height:1.1;margin:0 0 .4rem}
+.answer-page h3{font-weight:400;font-size:clamp(1.6rem,1.3rem + 1vw,2.2rem);line-height:1.15;margin:0 0 1rem;letter-spacing:-.01em}
+.answer-page ol{margin:0 0 1.4rem;padding:0;list-style:none;counter-reset:p;display:grid;gap:1rem}
+.answer-page ol li{counter-increment:p;display:grid;grid-template-columns:2rem 1fr;gap:.2rem;line-height:1.5}
+.answer-page ol li::before{content:counter(p);font-family:var(--hand);color:var(--ink);font-size:1.5rem;line-height:1}
+.answer-page ol li small{display:block;color:var(--pencil);font-style:italic;font-size:.88rem}
+.answer-empty{border:1.5px dashed var(--rule);padding:2.4rem;display:grid;place-items:center;text-align:center;min-height:22rem;color:var(--pencil)}
+.answer-empty .note{font-size:1.8rem}
+.btn{display:inline-flex;align-items:center;gap:.55rem;font:inherit;font-size:1rem;background:var(--graphite);color:var(--paper);text-decoration:none;padding:.8rem 1.35rem;border-radius:3px;border:0;cursor:pointer;transition:background .2s,transform .2s}
+.btn:hover{background:var(--ink-deep);color:#fff;transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--graphite);box-shadow:inset 0 0 0 1px var(--graphite)}
+.btn.ghost:hover{background:var(--graphite);color:var(--paper)}
+
+/* ---------- Chapter VI ---------- */
+.values{list-style:none;padding:0;margin:0;display:grid;gap:1.6rem}
+.values h3{font-weight:500;font-size:1.3rem;margin:0 0 .25rem}
+.values p{margin:0;color:#41464d;max-width:46ch}
+.polaroid{background:#fff;padding:.8rem .8rem 3.4rem;box-shadow:0 2px 4px rgba(0,0,0,.08),0 16px 32px rgba(0,0,0,.14);transform:rotate(2.2deg);position:relative;max-width:520px}
+.polaroid figcaption{position:absolute;left:0;right:0;bottom:.6rem;text-align:center;font-family:var(--hand);font-weight:600;font-size:1.85rem;color:var(--graphite)}
+.mottos{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;margin:2.2rem 0 0;padding:0;list-style:none}
+.mottos li{font-family:var(--hand);font-weight:600;font-size:2rem;color:var(--ink-deep)}
+.mottos li:nth-child(2){transform:rotate(-2deg)}
+.mottos li:nth-child(3){transform:rotate(1.5deg)}
+
+/* ---------- Epilogue ---------- */
+.epilogue{text-align:left}
+.blank{min-height:16rem;border-left:2px solid var(--ink);padding:.4rem 0 .4rem 1.4rem;margin:2rem 0 2.4rem}
+.typed{font-family:var(--hand);font-size:clamp(2.6rem,6vw,4.4rem);line-height:1;color:var(--graphite);min-height:1em}
+.caret{display:inline-block;width:2px;height:.85em;background:var(--ink);margin-left:4px;vertical-align:-.05em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.contact-list{list-style:none;padding:0;margin:0 0 2rem;display:grid;gap:.15rem}
+.contact-list li{display:grid;grid-template-columns:6.5rem 1fr;gap:1rem;border-bottom:1px solid var(--rule);padding:.65rem 0;align-items:baseline}
+.contact-list span{color:var(--pencil);font-style:italic;font-size:.95rem}
+.ctas{display:flex;flex-wrap:wrap;gap:.75rem}
+.end{text-align:center;padding:4rem 1rem 3rem;font-style:italic;color:var(--pencil)}
+.end .fin{font-family:var(--hand);font-size:2.6rem;color:var(--graphite);font-style:normal;display:block;margin-bottom:.4rem}
+footer.desk{text-align:center;padding:2.5rem 1rem 3rem;color:#4c535a;font-size:.88rem}
+footer.desk a{color:inherit}
+
+/* turn-hint toast */
+.turn-hint{position:fixed;left:50%;bottom:1.2rem;transform:translate(-50%,20px);z-index:30;background:var(--graphite);color:var(--paper);font-size:.9rem;padding:.5rem 1rem;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .4s,transform .4s}
+.turn-hint.show{opacity:1;transform:translate(-50%,0)}
+.turn-hint kbd{font-family:inherit;border:1px solid rgba(243,244,241,.4);border-radius:3px;padding:0 .35rem;margin:0 .1rem}
+@media (hover:none){.turn-hint{display:none}}
+
+/* reveal for in-flow pages (only where content enters) */
+.ink-in{opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .8s ease}
+.ink-in.seen{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .opening{height:auto}
+  .stage{position:relative;height:auto;padding:7rem 1rem 4rem}
+  .book3d{transform:none!important}
+  .cover{display:none}
+  .sketch{--draw:1;--tie:1}
+  .open-cue{display:none}
+  .ink-in{opacity:1;transform:none}
+  .sig{clip-path:none;transition:none}
+  .ledger li{transition:none}
+  .answer-page{animation:none}
+  .caret{animation:none}
+}
+@media print{.head,.ribbon,.toc,.turn-hint,.opening{display:none}.book{box-shadow:none}}
+</style>
 </head>
-<body class="background-image: radial-gradient(#13a4ec 1px, transparent 1px);
-   bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display selection:bg-primary/30 selection:text-primary overflow-x-hidden">
-<!-- Navbar -->
-<nav class="fixed top-0 left-0 right-0 z-50 px-6 py-6 md:px-12 flex justify-between items-center backdrop-blur-sm bg-background-light/80 dark:bg-background-dark/80 supports-[backdrop-filter]:bg-background-light/50">
-<a class="text-xl font-bold tracking-tight hover:text-primary transition-colors duration-300" href="#">
-            Mark J<span class="text-primary">.</span>
-</a>
-<div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600 dark:text-slate-400">
-<a class="hover:text-primary transition-colors duration-300" href="/work.html">Work</a>
-<a class="hover:text-primary transition-colors duration-300" href="/about.html">About</a>
-<a class="hover:text-primary transition-colors duration-300" href="/contact.html">Contact</a>
-</div>
-<button class="md:hidden text-slate-800 dark:text-white">
-<span class="material-icons-outlined">menu</span>
-</button>
-</nav>
-<!-- Hero Section -->
-<header class="relative w-full h-screen flex flex-col justify-center items-center overflow-hidden">
-<!-- Parallax Background Elements (Abstract Shapes) -->
-<div class="absolute inset-0 z-0 pointer-events-none opacity-40 dark:opacity-20">
-<!-- Top Right Circle -->
-<div class="absolute top-1/4 right-[10%] w-64 h-64 rounded-full bg-primary/20 animate-float-slow"></div>
-<!-- Bottom Left Blob -->
-<div class="absolute bottom-1/4 left-[5%] w-96 h-96 rounded-full bg-primary/20 animate-float-medium"></div>
-<!-- Tiny accents -->
-<div class="absolute top-[20%] left-[20%] w-4 h-4 rounded-full bg-primary/20 animate-float-fast"></div>
-<div class="absolute bottom-[30%] right-[25%] w-6 h-6 rounded-full bg-primary/20 animate-float-fast"></div>
-	<div class="absolute top-[60%] left-[30%] w-4 h-4 rounded-full bg-primary/20 animate-float-fast"></div>
-<div class="absolute bottom-[50%] right-[35%] w-10 h-10 rounded-full bg-primary/20 animate-float-fast"></div>
-	<div class="absolute top-[80%] left-[50%] w-14 h-14 rounded-full bg-primary/20 animate-float-fast"></div>
-<div class="absolute bottom-[70%] right-[55%] w-8 h-8 rounded-full bg-primary/20 animate-float-fast"></div>
-<div class="absolute top-[40%] left-[80%] text-9xl text-slate-100 dark:text-slate-800 font-bold opacity-20 -z-10 select-none transform -rotate-12 translate-x-20">
-                Hi
-            </div>
-</div>
-<!-- Main Content -->
-<div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
-<h1 class="text-5xl md:text-7xl lg:text-9xl font-handwriting text-slate-900 dark:text-white leading-tight mb-6 transform -rotate-2 origin-center">
-                ohullo<span class="text-primary">.</span> <br class="hidden md:block"/>
-<span class="block md:inline mt-4 md:mt-0">I'm Mark Johnson,</span>
-<span class="block mt-2">welcome<span class="text-primary">.</span></span>
-</h1>
-<p class="mt-8 text-sm md:text-base tracking-widest uppercase text-slate-500 dark:text-slate-400 font-medium animate-pulse">
-                Operational Mastery  <span class="text-primary px-2">•</span> Customer Advocate <span class="text-primary px-2">•</span> Your Best Decision
-            </p>
-</div>
-<!-- Social Icons (Anchored Bottom Left) -->
-<div class="absolute bottom-12 left-6 md:left-12 flex flex-col space-y-4 z-20 hidden md:flex">
-<a aria-label="Github" class="text-slate-400 hover:text-primary transition-colors duration-300 transform hover:scale-110" href="#">
-<svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
-</a>
-<a aria-label="LinkedIn" class="text-slate-400 hover:text-primary transition-colors duration-300 transform hover:scale-110" href="https://www.linkedin.com/in/mark-johnson-ohullo/">
-<svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
-</a>
-</div>
-<!-- Scroll Indicator -->
-<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce-subtle z-20 cursor-pointer opacity-80 hover:opacity-100 transition-opacity">
-<span class="text-xs font-semibold tracking-widest text-slate-400 dark:text-slate-500 uppercase mb-2">Scroll</span>
-<div class="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
-</div>
+<body>
+<a class="skip" href="#ch1">Skip to the story</a>
+
+<header class="head" id="head">
+  <a class="brand" href="#top" aria-label="ohullo, back to the cover">ohullo<span>.</span></a>
+  <span class="running" id="running" aria-live="polite"></span>
+  <nav aria-label="Site">
+    <a class="hide-sm" href="work.html">Work</a>
+    <a class="hide-sm" href="about.html">About</a>
+    <a class="hide-sm" href="contact.html">Contact</a>
+    <button class="toc-btn" id="tocBtn" aria-haspopup="dialog" aria-controls="toc">Contents</button>
+  </nav>
 </header>
-<!-- Content Placeholder for Scrolling Effect -->
-<section class="py-24 px-6 md:px-12 max-w-7xl mx-auto" id="work">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
-<div>
-<span class="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">Letter of introduction</span>
-<h2 class="text-4xl font-bold text-slate-900 dark:text-white mb-6">Fellow American,</h2>
-<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-I'm not a politician. I'll never run for office. I don't have a law degree or a family name that opens doors.
-What I have is over a decade of experience fixing broken systems, leading teams through crises, and delivering results when the stakes are real.
-I scaled operations 700%. I cut costs by $1.6M while improving quality. I managed teams across 8 countries. I kept operations running through a pandemic without shutting down once. I implemented AI that works, not AI that sounds good in a pitch deck.
-I learned that <span style="font-weight: bold;">process beats politics</span>. That <span style="font-weight: bold;">data trumps promises</span>. That <span style="font-weight: bold;">accountability matters more than excuses</span>. And that <span style="font-weight: bold;">leadership means showing up when things are hard, not just when cameras are rolling</span>.
-<br>
-<br>
-Companies don't need more speeches. They need better systems. Transparent metrics. Real accountability. Teams built for competence, not connections. Technology from this decade, not the 1970s.
-I'm not promising perfection. I'm promising discipline, transparency, and an employee that actually works.
-<br>
-<br>
-I'm Mark Johnson. Father of three girls. Devoted husband. Operations executive. Texan and Red Blooded American. I'm tired of watching capable people get buried by broken systems while others argue about who's to blame. Let's fix it together.
-<br>
-<span style="font-weight: bold;">- Mark Johnson 2026</span>
-                </p>
-<a class="inline-flex items-center text-primary font-semibold hover:underline decoration-2 underline-offset-4 group" href="#">
-                    Results. Not Rhetoric. 
-                    <span class="material-icons-outlined text-sm ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</a>
+<div class="ribbon" aria-hidden="true"></div>
+
+<div class="toc" id="toc" role="dialog" aria-modal="true" aria-labelledby="tocTitle">
+  <div class="toc-card">
+    <h2 id="tocTitle">Contents</h2>
+    <ol id="tocList"></ol>
+    <p class="hint">Tip: use ← and → to turn chapters.</p>
+    <button class="close" id="tocClose">Close contents</button>
+  </div>
 </div>
-<div class="relative group">
-<div class="absolute -inset-1 bg-gradient-to-r from-primary to-blue-400 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-<div class="relative bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-xl aspect-video">
-<!-- Placeholder for portfolio item -->
-<div class="w-full h-full bg-slate-100 dark:bg-slate-900 flex items-center justify-center relative overflow-hidden group">
-<!-- Abstract pattern background -->
-<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#13a4ec 1px, transparent 1px); background-size: 20px 20px;">
-</div>
-<span class="material-icons-outlined text-6xl text-slate-300 dark:text-slate-700 group-hover:scale-150 transition-transform duration-500"><img src="assets/me.PNG" width="520" height="800" alt=""/></span>
-</div>
-</div>
-</div>
-</div>
+
+<!-- ======= COVER ======= -->
+<section class="opening" id="top" aria-label="Cover">
+  <div class="stage">
+    <div class="book3d">
+      <div class="titlepage" aria-hidden="true">
+        <div class="sketch">
+          <img class="ghost" src="assets/charcoal.webp" alt="" width="800" height="1001">
+          <img class="drawn" src="assets/charcoal.webp" alt="" width="800" height="1001">
+        </div>
+        <div class="caption">
+          <div class="hi">Hi. I'm Mark.</div>
+          <div class="sub">Keep scrolling. I'll tell you the rest.</div>
+        </div>
+      </div>
+      <div class="cover">
+        <div class="cover-front">
+          <div class="logo">ohullo<span>.</span></div>
+          <h1>Twenty years of making things work</h1>
+          <div class="author"><b>Mark Johnson</b>Operations &amp; marketing leader, Wylie, Texas</div>
+        </div>
+        <div class="cover-back"><p>For whoever is reading this.<br>Your problem might be in here.</p></div>
+      </div>
+    </div>
+    <div class="open-cue">Scroll to open the book<i></i></div>
+  </div>
 </section>
-	<br>
-	<br>
-<!-- Cover Letter Download CTA -->
-<div class="mt-20 flex flex-col items-center justify-center text-center">
-<p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Need this in plain text?</p>
-<button class="group relative inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white transition-all duration-200 bg-primary rounded-lg hover:bg-sky-500 hover:shadow-lg hover:shadow-primary/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
-<span class="material-icons mr-2 group-hover:-translate-y-0.5 transition-transform duration-200">download</span>
-                    Download Cover Letter
-                    <div class="absolute inset-0 rounded-lg ring-2 ring-white/20 group-hover:ring-white/40"></div>
-</button>
-<br>
-<br>
-<br>
-<br>
-<!-- Scroll Indicator -->
-<div class="left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce-subtle z-20 cursor-pointer opacity-80 hover:opacity-100 transition-opacity">
-<span class="text-xs font-semibold tracking-widest text-slate-400 dark:text-slate-500 uppercase mb-2">Scroll</span>
-<div class="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
-</div>
+
+<main class="book" id="book">
+
+  <!-- ======= I ======= -->
+  <section class="chapter" id="ch1" data-title="Hello" aria-labelledby="t1">
+    <div class="spread">
+      <div class="verso">
+        <span class="ch-num">Chapter one</span>
+        <p class="hello-big" aria-hidden="true">ohullo<span>.</span></p>
+        <h2 class="ch-title" id="t1">I'm Mark Johnson, <em>welcome.</em></h2>
+        <ul class="traits">
+          <li>Operational mastery <b>20+ years</b></li>
+          <li>Customer advocate <b>always</b></li>
+          <li>Your best decision <b>see chapter five</b></li>
+        </ul>
+      </div>
+      <div class="recto prose">
+        <p class="lede">This is a short book about one long habit: figuring out how things work, then making them work better.</p>
+        <p class="dropcap">That habit started more than three decades ago, and it's taken me through startups and Fortune 500 companies alike. I've opened deployment centers on four continents, run the largest one-call center in the country, and, most recently, turned the same discipline toward marketing and the web.</p>
+        <p>I believe good design is invisible. It just works. Whether it's a multilayered global deployment or a simple dashboard that shows call metrics, I strip away what isn't essential until the core purpose is obvious to everyone who touches it.</p>
+        <p>The pages ahead cover the numbers, the jobs, a letter I wrote, and, in chapter five, a page that writes itself around whatever problem you came here with.</p>
+        <p class="note r" style="margin-top:1rem">Pick a chapter, or just keep reading
+          <svg width="34" height="22" viewBox="0 0 34 22" aria-hidden="true"><path d="M2 4c9 10 19 13 29 11m0 0-6-6m6 6-7 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </p>
+      </div>
+    </div>
+    <div class="folio"><span>ohullo</span><span>1</span></div>
+  </section>
+
+  <!-- ======= II ======= -->
+  <section class="chapter" id="ch2" data-title="By the numbers" aria-labelledby="t2">
+    <div class="spread">
+      <div class="verso prose">
+        <span class="ch-num">Chapter two</span>
+        <h2 class="ch-title" id="t2">By the <em>numbers</em></h2>
+        <p class="lede">Promises are cheap. Results leave a paper trail.</p>
+        <p>Every figure on this page came from a real operation with a real budget, a real deadline and real people depending on it. Scroll the ledger and watch it add up.</p>
+        <p class="note" style="margin-top:1.4rem">Process beats politics.<br>Data beats promises.</p>
+      </div>
+      <div class="recto">
+        <ol class="ledger" aria-label="Career results">
+          <li><div class="what">Growth in deployed units<small>Wireless CCTV, in two years</small></div><div class="fig"><span data-count="700">0</span><span class="u">%</span></div></li>
+          <li><div class="what">Configured tablets deployed for DoorDash<small>3MD, mid-pandemic, on budget and on time</small></div><div class="fig"><span data-count="800000">0</span><span class="u">+</span></div></li>
+          <li><div class="what">Countries with teams I opened and trained<small>US, UK, Mexico, Australia, Japan and more</small></div><div class="fig"><span data-count="8">0</span></div></li>
+          <li><div class="what">Costs cut while quality went up<small>Across vendor, process and workflow changes</small></div><div class="fig"><span class="u">$</span><span data-count="1.6" data-dec="1">0</span><span class="u">M</span></div></li>
+          <li><div class="what">Seconds a caller waits for an answer<small>Texas811, down from 57 with a front-end AI agent</small></div><div class="fig"><span data-count="0" data-from="57">57</span><span class="u">s</span></div></li>
+          <li><div class="what">Tickets checked by QA<small>Texas811, up from a 5% sample</small></div><div class="fig"><span data-count="100" data-from="5">5</span><span class="u">%</span></div></li>
+        </ol>
+        <div class="ledger-total"><span><i>Days the operation shut down during the pandemic</i></span><span class="note">zero</span></div>
+      </div>
+    </div>
+    <div class="folio"><span>2</span><span>By the numbers</span></div>
+  </section>
+
+  <!-- ======= III ======= -->
+  <section class="chapter" id="ch3" data-title="The chapters so far" aria-labelledby="t3">
+    <div class="spread">
+      <div class="verso">
+        <span class="ch-num">Chapter three</span>
+        <h2 class="ch-title" id="t3">The chapters <em>so far</em></h2>
+      </div>
+      <div class="recto prose">
+        <p class="lede">Five companies, one through-line: walk in, learn how the whole thing works, then build the systems that let it grow.</p>
+        <p>Read from the newest page back.</p>
+      </div>
+    </div>
+
+    <div class="career" id="career">
+      <div class="career-line" aria-hidden="true"><i></i></div>
+
+      <article class="job now ink-in">
+        <div class="spread">
+          <div class="verso">
+            <p class="when">2026 –</p>
+            <span class="length">Present, the current chapter</span>
+            <h3 class="org">MCDP</h3>
+            <span class="org-full">Motor City Dental Partners</span>
+            <span class="place">Dallas–Fort Worth, TX</span>
+            <p class="note pin">new chapter, same discipline</p>
+          </div>
+          <div class="recto">
+            <h4 class="role">Director of Marketing</h4>
+            <p class="desc">Lead marketing and patient outreach for a multi-practice dental and oral surgery group, owning the whole digital path from the first ad a patient sees to the website where they book.</p>
+            <ul class="wins">
+              <li>Manage online advertising across Google Ads and social platforms, tracking conversions and KPIs so spend moves to the campaigns that bring in patients.</li>
+              <li>Design and develop practice websites end to end, from ideation and code to brand alignment, user experience and online patient intake forms.</li>
+              <li>Transfer practice websites from legacy hosts to a centralized WordPress platform, consolidating management and keeping search visibility intact through each move.</li>
+              <li>Run mixed-media targeting that blends SEO, content marketing and paid advertising, aligned with operations so marketing promises match what each practice delivers.</li>
+            </ul>
+            <ul class="kit" aria-label="Tools and focus areas">
+              <li>Online Advertising ( Google Ads, Social )</li>
+              <li>Web Design &amp; Development ( WordPress, WP Engine )</li>
+              <li>Site Migrations ( hosting, DNS, SEO )</li>
+              <li>Analytics ( KPIs, conversion tracking, ROI )</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="job ink-in">
+        <div class="spread">
+          <div class="verso">
+            <p class="when">2025 – 2026</p>
+            <span class="length">1 year</span>
+            <h3 class="org">Texas811</h3>
+            <span class="place">Plano, TX</span>
+          </div>
+          <div class="recto">
+            <h4 class="role">Director of Operations</h4>
+            <p class="desc">Led call center operations for the largest one-call center in the US, managing lifecycle ticketing for homeowners, utility operators and excavators, including training, QA and facilities.</p>
+            <ul class="wins">
+              <li>Established a front-end AI agent that cut live-agent speed of answer from 57 seconds to 0 and reduced handle time by 7 minutes.</li>
+              <li>Designed workflows for a back-end AI agent that ran QA on 100% of tickets, up from 5% sampling.</li>
+              <li>Sourced, implemented and configured AI-driven automation to handle 30% of inbound volume.</li>
+            </ul>
+            <ul class="kit" aria-label="Tools and focus areas">
+              <li>AI Integration ( NiCE )</li>
+              <li>CRM Workflow ( FreshDesk )</li>
+              <li>Training Development ( EasyGenerator )</li>
+              <li>Customer Focus ( 24/7/365, 48 resolution )</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="job ink-in">
+        <div class="spread">
+          <div class="verso">
+            <p class="when">2023 – 2025</p>
+            <span class="length">2 years</span>
+            <h3 class="org">WCCTV</h3>
+            <span class="place">Richardson, TX</span>
+          </div>
+          <div class="recto">
+            <h4 class="role">Director of Operations</h4>
+            <p class="desc">Oversaw full lifecycle operations for mobile security solutions, from design and fabrication to 3PL, in-house and field support.</p>
+            <ul class="wins">
+              <li>Achieved 700% growth and a 14% cost reduction through strategic fabrication partnerships.</li>
+              <li>Established 3 locations in Texas and 2 in California for strategic deployment operations.</li>
+              <li>Introduced and configured Zoho CRM, cutting ticket error rates by 60% compared with spreadsheets.</li>
+            </ul>
+            <ul class="kit" aria-label="Tools and focus areas">
+              <li>Mobile Security ( AXIS, Mobotix, Hikvision )</li>
+              <li>3PL ( warehousing, last leg, return )</li>
+              <li>Vendor Management ( spare parts, 3rd party logistics )</li>
+              <li>Fabrication ( raw material purchases, design, licensing )</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="job ink-in">
+        <div class="spread">
+          <div class="verso">
+            <p class="when">2021 – 2023</p>
+            <span class="length">2 years</span>
+            <h3 class="org">ISG Technologies</h3>
+            <span class="place">Arlington, TX</span>
+          </div>
+          <div class="recto">
+            <h4 class="role">Director of Operations</h4>
+            <p class="desc">Responsible for all operations of a full-service, full-lifecycle mobile solution and repair hub specializing in wearables and rugged devices.</p>
+            <ul class="wins">
+              <li>Designed a customer reporting hub to increase visibility and self-service.</li>
+              <li>Directly involved in pre-sales initiatives and product sourcing.</li>
+              <li>Rewrote technical SOPs, reducing waste material by 30% and saving hours of labor.</li>
+            </ul>
+            <ul class="kit" aria-label="Tools and focus areas">
+              <li>Customer Management</li>
+              <li>Full P&amp;L Reporting</li>
+              <li>CRM ( Navision, NetSuite )</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="job ink-in">
+        <div class="spread">
+          <div class="verso">
+            <p class="when">2017 – 2021</p>
+            <span class="length">4 years</span>
+            <h3 class="org">3MD</h3>
+            <span class="place">Plano, TX</span>
+          </div>
+          <div class="recto">
+            <h4 class="role">Director of Configuration Services and Facilities</h4>
+            <p class="desc">Established and managed global distribution centers dedicated to managed-mobility lifecycle products.</p>
+            <ul class="wins">
+              <li>Reduced overhead costs by 15% through strategic vendor negotiations.</li>
+              <li>Implemented a new inventory tracking system that brought accuracy to 99%.</li>
+              <li>Opened, staffed and trained teams across the globe (US, UK, Mexico, Australia, Japan).</li>
+              <li>Created SOPs across every facet of the products we supported: receiving, configuration, packaging, shipping, repairs and returns.</li>
+              <li>Deployed over 800,000 uniquely configured tablets globally for DoorDash, within budget and timeline.</li>
+            </ul>
+            <ul class="kit" aria-label="Tools and focus areas">
+              <li>Customer Retention ( Amazon, Google, DoorDash, Zillow, American Airlines, Crossmark )</li>
+              <li>White Glove Services ( Amazon IDF/MDF installation )</li>
+              <li>CRM ( Cherwell )</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="folio"><span>3</span><span>The chapters so far</span></div>
+  </section>
+
+  <!-- ======= IV ======= -->
+  <section class="chapter" id="ch4" data-title="A letter" aria-labelledby="t4">
+    <div class="spread" style="margin-bottom:2.6rem">
+      <div class="verso">
+        <span class="ch-num">Chapter four</span>
+        <h2 class="ch-title" id="t4">A <em>letter</em></h2>
+      </div>
+      <div class="recto prose"><p class="lede">Tucked between the pages. It says what I believe better than a résumé can.</p></div>
+    </div>
+    <div class="letter-wrap">
+      <article class="letter">
+        <p class="salutation">Fellow American,</p>
+        <p>I'm not a politician. I'll never run for office. I don't have a law degree or a family name that opens doors. What I have is over a decade of experience fixing broken systems, leading teams through crises, and delivering results when the stakes are real.</p>
+        <p>I scaled operations 700%. I cut costs by $1.6M while improving quality. I managed teams across 8 countries. I kept operations running through a pandemic without shutting down once. I implemented AI that works, not AI that sounds good in a pitch deck.</p>
+        <p>I learned that <strong>process beats politics</strong>. That <strong>data trumps promises</strong>. That <strong>accountability matters more than excuses</strong>. And that <strong>leadership means showing up when things are hard, not just when cameras are rolling</strong>.</p>
+        <p>Companies don't need more speeches. They need better systems. Transparent metrics. Real accountability. Teams built for competence, not connections. Technology from this decade, not the 1970s. I'm not promising perfection. I'm promising discipline, transparency, and an employee that actually works.</p>
+        <p>I'm Mark Johnson. Father of three girls. Devoted husband. Operations executive. Texan and Red Blooded American. I'm tired of watching capable people get buried by broken systems while others argue about who's to blame. Let's fix it together.</p>
+        <span class="sig" id="sig">Mark Johnson</span>
+        <span class="sig-year">2026</span>
+        <p style="margin:2rem 0 0"><a class="btn ghost" href="assets/Mark_Johnson_Cover_Letter_2026web.docx" download>Download the cover letter</a></p>
+      </article>
+    </div>
+    <div class="folio"><span>4</span><span>A letter</span></div>
+  </section>
+
+  <!-- ======= V ======= -->
+  <section class="chapter" id="ch5" data-title="Your chapter" aria-labelledby="t5">
+    <div class="spread">
+      <div class="verso">
+        <span class="ch-num">Chapter five</span>
+        <h2 class="ch-title" id="t5">Your <em>chapter</em></h2>
+        <p class="choose-q">What's the problem you'd hand me first?</p>
+        <ul class="choices" id="choices" role="list"></ul>
+      </div>
+      <div class="recto">
+        <div class="answer" id="answer" aria-live="polite">
+          <div class="answer-empty">
+            <div>
+              <p class="note">Choose one, and this page<br>will write itself for you.</p>
+              <svg width="80" height="40" viewBox="0 0 80 40" aria-hidden="true" style="margin:1rem auto 0;color:var(--ink-deep)"><path d="M76 8C55 4 30 10 8 30m0 0 3-11m-3 11 11-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="folio"><span>5</span><span>Your chapter</span></div>
+  </section>
+
+  <!-- ======= VI ======= -->
+  <section class="chapter" id="ch6" data-title="Off the page" aria-labelledby="t6">
+    <div class="spread">
+      <div class="verso">
+        <span class="ch-num">Chapter six</span>
+        <h2 class="ch-title" id="t6">Off the <em>page</em></h2>
+        <ul class="values">
+          <li><h3>People first</h3><p>Understand what drives your organization and make sure those people are taken care of.</p></li>
+          <li><h3>Detailed simplicity</h3><p>Details should be clear and understood without narration.</p></li>
+          <li><h3>Empathy</h3><p>Understanding the customer, internal and external, is the first step to solving their problem.</p></li>
+        </ul>
+        <ul class="mottos" aria-label="Mottos"><li>stay involved</li><li>remember the mission</li><li>keep it fun</li></ul>
+      </div>
+      <div class="recto prose">
+        <figure class="polaroid ink-in" style="margin:0 0 2.2rem">
+          <img src="assets/me.webp" alt="Mark sitting on a white marble bench beneath the ohullo logo" width="804" height="396" loading="lazy">
+          <figcaption>the waiting room for good ideas</figcaption>
+        </figure>
+        <p>When I'm not improving workflows or opening deployment centers around the globe, you'll find me with my family, painting, or walking the local parks.</p>
+        <p>I also enjoy 3D printing, making rugs and digital design. Anything where I get to understand how a thing is put together, and then make one myself.</p>
+      </div>
+    </div>
+    <div class="folio"><span>6</span><span>Off the page</span></div>
+  </section>
+
+  <!-- ======= Epilogue ======= -->
+  <section class="chapter epilogue" id="ch7" data-title="The next chapter" aria-labelledby="t7">
+    <div class="spread">
+      <div class="verso">
+        <span class="ch-num">Epilogue</span>
+        <h2 class="ch-title" id="t7">The next chapter is <em>blank</em></h2>
+        <div class="blank" aria-hidden="true"><div class="typed"><span id="typed"></span><span class="caret"></span></div></div>
+      </div>
+      <div class="recto prose">
+        <p class="lede">I'm looking for my next challenge in operations, SaaS, customer engagement or marketing. Let's write it together.</p>
+        <ul class="contact-list">
+          <li><span>Email</span><a href="mailto:mark@ohullo.com">mark@ohullo.com</a></li>
+          <li><span>Phone</span><a href="tel:+14692430387">+1 (469) 243-0387</a></li>
+          <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/mark-johnson-ohullo/" rel="noopener">mark-johnson-ohullo</a></li>
+          <li><span>Based in</span>Wylie, Texas</li>
+        </ul>
+        <div class="ctas">
+          <a class="btn" href="mailto:mark@ohullo.com?subject=Let%27s%20write%20the%20next%20chapter">Email Mark</a>
+          <a class="btn ghost" href="assets/Mark_Johnson_Resume_2026web.docx" download>Download résumé</a>
+        </div>
+      </div>
+    </div>
+    <div class="end"><span class="fin">fin.</span>Thanks for reading. <a href="#top">Back to the cover</a></div>
+  </section>
+</main>
+
+<footer class="desk">© 2026 Mark Johnson · <a href="work.html">Work</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a></footer>
+<div class="turn-hint" id="turnHint">Press <kbd>←</kbd> <kbd>→</kbd> to turn chapters</div>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const root = document.documentElement;
+  const clamp = (v, a=0, b=1) => Math.min(b, Math.max(a, v));
+
+  /* ---------- chapters, contents, running head ---------- */
+  const chapters = $$('.chapter');
+  const words = ['One','Two','Three','Four','Five','Six','Epilogue'];
+  $('#tocList').innerHTML = chapters.map((c,i) =>
+    `<li><a href="#${c.id}"><span class="num">${i<6?i+1:'∞'}</span><span>${c.dataset.title}</span><span class="pg">${i+1}</span></a></li>`).join('');
+
+  const toc = $('#toc'), tocBtn = $('#tocBtn');
+  const openToc = () => { toc.classList.add('open'); toc.querySelector('a').focus(); };
+  const closeToc = () => { toc.classList.remove('open'); tocBtn.focus(); };
+  tocBtn.onclick = openToc; $('#tocClose').onclick = closeToc;
+  toc.addEventListener('click', e => { if (e.target === toc || e.target.closest('a')) { toc.classList.remove('open'); } });
+  addEventListener('keydown', e => {
+    if (e.key === 'Escape' && toc.classList.contains('open')) closeToc();
+  });
+
+  /* ---------- scroll-driven scenes ---------- */
+  const opening = $('#top'), book3d = $('.book3d'), head = $('#head'), running = $('#running');
+  const careerEl = $('#career');
+  let current = -1, ticking = false;
+
+  function frame(){
+    ticking = false;
+    const vh = innerHeight, y = scrollY;
+    // cover: 0 → 1 over first ~55% of the opening, sketch draws after
+    const span = opening.offsetHeight - vh;
+    const p = span > 0 ? clamp(y / span) : 1;
+    if (!reduce) {
+      const open = clamp(p / .5);
+      const ease = 1 - Math.pow(1 - open, 3);
+      book3d.style.setProperty('--open', ease.toFixed(4));
+      $('.open-cue').style.setProperty('--open', ease.toFixed(4));
+      book3d.style.setProperty('--draw', clamp((p - .22) / .6).toFixed(4));
+      book3d.style.setProperty('--tie', clamp((p - .78) / .2).toFixed(4));
+    }
+    // header style once on paper
+    head.classList.toggle('on-paper', y > opening.offsetHeight - 60);
+    // ribbon progress across the whole document
+    root.style.setProperty('--prog', (y / (document.body.scrollHeight - vh)).toFixed(4));
+    // career pencil line
+    if (careerEl) {
+      const r = careerEl.getBoundingClientRect();
+      careerEl.style.setProperty('--line', clamp((vh * .6 - r.top) / r.height).toFixed(4));
+    }
+    // running head
+    let idx = -1;
+    chapters.forEach((c,i) => { if (c.getBoundingClientRect().top < vh * .4) idx = i; });
+    if (idx !== current) {
+      current = idx;
+      running.textContent = idx < 0 ? '' : (idx < 6 ? `Chapter ${words[idx].toLowerCase()}, ` : 'Epilogue, ') + chapters[idx].dataset.title.toLowerCase();
+    }
+  }
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', onScroll);
+  frame();
+
+  /* ---------- turn chapters with arrow keys ---------- */
+  const stops = [opening, ...chapters];
+  addEventListener('keydown', e => {
+    if (toc.classList.contains('open') || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (/input|textarea|select/i.test(document.activeElement.tagName)) return;
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault();
+    const y = scrollY + 4;
+    const tops = stops.map((s,i) => i === 0 ? 0 : s.getBoundingClientRect().top + scrollY);
+    // the cover counts as "read" only once it is fully open
+    const coverDone = opening.offsetHeight - innerHeight;
+    let target;
+    if (e.key === 'ArrowRight') {
+      target = y < coverDone ? coverDone + 1 : tops.find(t => t > y + 2);
+    } else {
+      const prev = tops.filter(t => t < y - 8);
+      target = prev.length ? prev[prev.length-1] : 0;
+    }
+    if (target !== undefined) scrollTo({top: target, behavior: reduce ? 'auto' : 'smooth'});
+  });
+  const hint = $('#turnHint');
+  let hinted = false;
+  addEventListener('scroll', () => {
+    if (hinted || scrollY < opening.offsetHeight - 40) return;
+    hinted = true; hint.classList.add('show'); setTimeout(() => hint.classList.remove('show'), 3800);
+  }, {passive:true});
+
+  /* ---------- things that happen as a page comes into view ---------- */
+  const fmt = (n, dec) => dec ? n.toFixed(dec) : Math.round(n).toLocaleString('en-US');
+  function count(el){
+    const to = parseFloat(el.dataset.count), from = parseFloat(el.dataset.from || 0), dec = +(el.dataset.dec || 0);
+    if (reduce) { el.textContent = fmt(to, dec); return; }
+    const dur = 1600, t0 = performance.now();
+    const step = t => { const k = clamp((t - t0) / dur), e = 1 - Math.pow(1 - k, 4);
+      el.textContent = fmt(from + (to - from) * e, dec); if (k < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }
+  const io = new IntersectionObserver(entries => entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    const el = en.target;
+    el.classList.add('seen');
+    if (el.matches('.ledger li')) count(el.querySelector('[data-count]'));
+    if (el.id === 'sig') el.classList.add('signed');
+    if (el.id === 'typed') typeIt(el);
+    io.unobserve(el);
+  }), {threshold:.35});
+  $$('.ink-in, .ledger li').forEach((el,i) => { if (el.matches('.ledger li')) el.style.transitionDelay = (i*90)+'ms'; io.observe(el); });
+  io.observe($('#sig')); io.observe($('#typed'));
+
+  function typeIt(el){
+    const line = 'Your company?';
+    if (reduce) { el.textContent = line; return; }
+    let i = 0; const t = setInterval(() => { el.textContent = line.slice(0, ++i); if (i >= line.length) clearInterval(t); }, 110);
+  }
+
+  /* ---------- chapter five: the page that writes itself ---------- */
+  const paths = [
+    { q:'We are growing faster than our systems can keep up',
+      h:'Growth that does not break the business',
+      p:[['Scaled deployed units 700% in two years while cutting costs 14%.','Wireless CCTV'],
+         ['Opened, staffed and trained deployment centers across 8 countries.','3MD'],
+         ['Stood up 5 deployment locations across Texas and California.','Wireless CCTV']] },
+    { q:'Our processes are undocumented, inconsistent or broken',
+      h:'Processes people can actually follow',
+      p:[['Rewrote technical SOPs, cutting waste material 30% and saving hours of labor.','ISG Technologies'],
+         ['Replaced spreadsheets with Zoho CRM and cut ticket errors 60%.','Wireless CCTV'],
+         ['Built SOPs for every stage: receiving, configuration, packaging, shipping, repairs and returns.','3MD']] },
+    { q:'Customers are waiting too long, or quality is slipping',
+      h:'Customers who never wait, quality you can see',
+      p:[['Took live-agent speed of answer from 57 seconds to 0 with a front-end AI agent.','Texas811'],
+         ['Moved QA coverage from a 5% sample to 100% of tickets.','Texas811'],
+         ['Automated 30% of inbound volume and cut handle time by 7 minutes.','Texas811']] },
+    { q:'People cannot find us online, or our ads are not converting',
+      h:'Being found, then being chosen',
+      p:[['Manage online advertising across Google Ads and social, steering spend by conversion data.','MCDP'],
+         ['Design and develop practice websites end to end, including online patient intake.','MCDP'],
+         ['Transfer sites from legacy hosts to one managed platform without losing search visibility.','MCDP']] },
+    { q:'Costs keep creeping up and nobody knows why',
+      h:'Costs that come down while quality goes up',
+      p:[['Cut $1.6M in costs while improving quality.','Across my operations'],
+         ['Reduced overhead 15% through strategic vendor negotiations.','3MD'],
+         ['Raised inventory accuracy to 99% with a new tracking system.','3MD']] },
+    { q:'We have a massive launch and an immovable deadline',
+      h:'The big launch, delivered on the date',
+      p:[['Deployed 800,000+ uniquely configured tablets for DoorDash, on budget and on time.','3MD'],
+         ['Kept operations running through the pandemic without a single shutdown.','3MD'],
+         ['Supported launches for Amazon, Google, Zillow and American Airlines.','3MD']] }
+  ];
+  const list = $('#choices'), answer = $('#answer');
+  list.innerHTML = paths.map((x,i) => `<li><button class="choice" type="button" aria-pressed="false" data-i="${i}">${x.q}</button></li>`).join('');
+  list.addEventListener('click', e => {
+    const b = e.target.closest('.choice'); if (!b) return;
+    list.querySelectorAll('.choice').forEach(c => c.setAttribute('aria-pressed', c === b));
+    const x = paths[b.dataset.i];
+    const subject = encodeURIComponent('About: ' + x.q.toLowerCase());
+    answer.innerHTML = `<article class="answer-page">
+      <p class="for">A page written for you</p>
+      <h3>${x.h}</h3>
+      <ol>${x.p.map(([t,s]) => `<li><span>${t}<small>${s}</small></span></li>`).join('')}</ol>
+      <a class="btn" href="mailto:mark@ohullo.com?subject=${subject}">Talk to Mark about this</a>
+    </article>`;
+    if (innerWidth < 960) answer.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'});
+  });
+})();
+</script>
 </body>
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Mark Johnson - Experience</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#13a4ec",
-                        "background-light": "#f6f7f8",
-                        "background-dark": "#101c22",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-                },
-            },
-        }
-    </script>
-<style>
-        /* Custom parallax-like movement for demo purposes without JS */
-        .parallax-bg {
-            background-image: radial-gradient(#13a4ec 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-    </style>
-</head>
-<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display antialiased selection:bg-primary/30 selection:text-primary transition-colors duration-300">
-<main class="relative min-h-screen overflow-hidden flex flex-col justify-center py-24">
-<div class="absolute top-20 right-[10%] w-64 h-64 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-3xl -z-10 animate-pulse" style="animation-duration: 4s;"></div>
-<div class="absolute bottom-40 left-[5%] w-32 h-32 rounded-3xl rotate-12 bg-primary/5 border border-primary/20 -z-10"></div>
-<div class="absolute top-1/3 left-1/4 w-48 h-48 opacity-20 parallax-bg -z-20 mask-image-gradient"></div>
-<div class="container mx-auto px-6 lg:px-12 relative z-10">
-<header class="mb-20 max-w-4xl">
-<span class="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-semibold tracking-wide uppercase mb-4">
-                    Career Path
-                </span>
-<h2 class="text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
-Work <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">Experience</span>
-</h2>
-<p class="text-xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
-                    A timeline of my professional journey, focusing on product design, leadership, and solving complex user problems.
-                </p>
-</header>
-<!-- Timeline Container -->
-<div class="relative border-l-2 border-slate-200 dark:border-slate-800 ml-3 md:ml-6 space-y-16 pb-12">
-<div class="relative pl-8 md:pl-12 group">
-<div class="absolute -left-[9px] top-2 w-[18px] h-[18px] rounded-full bg-background-light dark:bg-background-dark border-4 border-primary shadow-[0_0_0_4px_rgba(19,164,236,0.3)] animate-pulse"></div>
-<div class="grid md:grid-cols-12 gap-6 items-start">
-<div class="md:col-span-4 lg:col-span-3">
-<span class="block text-sm font-bold text-primary mb-1 uppercase tracking-wider">FUTURE</span>
-<span class="text-sm text-slate-400 dark:text-slate-500 font-medium">Next Chapter</span>
-<div class="mt-3 flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 shadow-sm flex items-center justify-center border border-primary/20 dark:border-primary/30">
-<span class="material-icons text-primary animate-pulse">stars</span>
-</div>
-<div>
-<h4 class="font-bold text-slate-900 dark:text-white">Your Company?</h4>
-<span class="text-xs text-slate-500 dark:text-slate-400">Remote / On-site</span>
-</div>
-</div>
-</div>
-<div class="md:col-span-8 lg:col-span-9 bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-800/80 p-6 md:p-8 rounded-xl border border-primary/40 dark:border-primary/40 shadow-lg shadow-primary/5 hover:border-primary hover:shadow-primary/10 transition-all duration-300">
-<h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Your Next Operational Leader</h3>
-<p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                                I am currently looking for my next challenge in Operations, SaaS, or Customer Engagement. Let's build something incredible together.
-                            </p>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium border border-primary/20">Available Now</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Open for Work</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Let's Connect</span>
-</div>
-</div>
-</div>
-</div>
-<div class="relative pl-8 md:pl-12 group">
-<div class="absolute -left-[9px] top-2 w-[18px] h-[18px] rounded-full bg-slate-200 dark:bg-slate-700 border-4 border-white dark:border-background-dark group-hover:bg-primary group-hover:border-primary/30 transition-all duration-300"></div>
-<div class="grid md:grid-cols-12 gap-6 items-start">
-<div class="md:col-span-4 lg:col-span-3">
-<span class="block text-sm font-bold text-slate-900 dark:text-white mb-1 uppercase tracking-wider">Present</span>
-<span class="text-sm text-slate-400 dark:text-slate-500 font-medium">2025 - 2026</span>
-<div class="mt-3 flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-slate-100 dark:border-slate-700">
-<span class="material-icons text-primary">layers</span>
-</div>
-<div>
-<h4 class="font-bold text-slate-900 dark:text-white">Texas811</h4>
-<span class="text-xs text-slate-500 dark:text-slate-400">Plano, TX</span>
-</div>
-</div>
-</div>
-<div class="md:col-span-8 lg:col-span-9 bg-white dark:bg-slate-800/50 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
-<h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Director of Operations</h3>
-<p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                                Led call center operations for the largest one-call center in the US managing lifecycle ticketing for home-owners, utility operators, and excavators - Including Training, QA, and Facilities.
-                            </p>
-<ul class="space-y-3 mb-6">
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Established a front-end AI agent which reduced live agent speed of answer to 0 seconds from 57, and handle time by 7min.</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Implemented and designed workflows for a back-end AI agent which ran QA on 100% of tickets up from 5% sampling.</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Sourced, implemented, and configured AI-driven automation to handle 30% of inbound volume.</span>
-</li>
-</ul>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">AI Integration ( NiCE )</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">CRM Workflow ( FreshDesk )</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Training Development ( EasyGenerator )</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Customer Focus ( 24/7/365, 48 resolution )</span>
-</div>
-</div>
-</div>
-</div>
-<div class="relative pl-8 md:pl-12 group">
-<div class="absolute -left-[9px] top-2 w-[18px] h-[18px] rounded-full bg-slate-200 dark:bg-slate-700 border-4 border-white dark:border-background-dark group-hover:bg-primary group-hover:border-primary/30 transition-all duration-300"></div>
-<div class="grid md:grid-cols-12 gap-6 items-start">
-<div class="md:col-span-4 lg:col-span-3">
-<span class="block text-sm font-bold text-slate-900 dark:text-white mb-1 uppercase tracking-wider">2023 — 2025</span>
-<span class="text-sm text-slate-400 dark:text-slate-500 font-medium">2 Years</span>
-<div class="mt-3 flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-slate-100 dark:border-slate-700">
-<span class="material-icons text-primary">bolt</span>
-</div>
-<div>
-<h4 class="font-bold text-slate-900 dark:text-white">WCCTV</h4>
-<span class="text-xs text-slate-500 dark:text-slate-400">Richardson, TX</span>
-</div>
-</div>
-</div>
-<div class="md:col-span-8 lg:col-span-9 bg-white dark:bg-slate-800/50 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
-<h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Director of Operations</h3>
-<p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                                Oversaw full lifecycle operations from design, fabrication, 3PL, in-house and field support, concerning mobile security solutions.
-                            </p>
-<ul class="space-y-3 mb-6">
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Acheived 700% growth and 14% cost reduction through strategic fabrication partnerships.</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Established 3 locations in Texas and 2 in California for strategic deployment operations.</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Introduced and configured ZOHO CRM which decreased error rates by 60% over excel sheets for tickets.</span>
-</li>
-</ul>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Mobile Security ( AXIS, Mobotix, Hikvision )</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">3PL ( warehousing, last leg, return )</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Vendor Management ( spare parts, 3rd party logistics )</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Fabrication ( raw material purchases, design, licensing ) </span>
-</div>
-</div>
-</div>
-</div>
-<div class="relative pl-8 md:pl-12 group">
-<div class="absolute -left-[9px] top-2 w-[18px] h-[18px] rounded-full bg-slate-200 dark:bg-slate-700 border-4 border-white dark:border-background-dark group-hover:bg-primary group-hover:border-primary/30 transition-all duration-300"></div>
-<div class="grid md:grid-cols-12 gap-6 items-start">
-<div class="md:col-span-4 lg:col-span-3">
-<span class="block text-sm font-bold text-slate-900 dark:text-white mb-1 uppercase tracking-wider">2021 - 2023</span>
-<span class="text-sm text-slate-400 dark:text-slate-500 font-medium">2 Years</span>
-<div class="mt-3 flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-slate-100 dark:border-slate-700">
-<span class="material-icons text-primary">rocket_launch</span>
-</div>
-<div>
-<h4 class="font-bold text-slate-900 dark:text-white">ISG Technologies</h4>
-<span class="text-xs text-slate-500 dark:text-slate-400">Arlington, TX</span>
-</div>
-</div>
-</div>
-<div class="md:col-span-8 lg:col-span-9 bg-white dark:bg-slate-800/50 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
-<h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Director of Operations</h3>
-<p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                                Responsible for all operations of a full-service full-lifecycle mobile solution and repair hub. Specializing in wearables and rugged devices.
-                            </p>
-<ul class="space-y-3 mb-6">
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Designed customer reporting hub to increase visibility and self-service.</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Directly involved in pre-sales initiatives and product sourcing. </span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Rewrote technical SOPs which reduced waste material by 30% and saved hours of labor. </span>
-</li>
-</ul>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Customer Management</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Full P&L Reporting</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">CRM ( Navision, Netsuite )</span>
-</div>
-</div>
-</div>
-</div>
-<div class="relative pl-8 md:pl-12 group">
-<div class="absolute -left-[9px] top-2 w-[18px] h-[18px] rounded-full bg-slate-200 dark:bg-slate-700 border-4 border-white dark:border-background-dark group-hover:bg-primary group-hover:border-primary/30 transition-all duration-300"></div>
-<div class="grid md:grid-cols-12 gap-6 items-start">
-<div class="md:col-span-4 lg:col-span-3">
-<span class="block text-sm font-bold text-slate-900 dark:text-white mb-1 uppercase tracking-wider">2017 - 2021</span>
-<span class="text-sm text-slate-400 dark:text-slate-500 font-medium">4 Years</span>
-<div class="mt-3 flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-slate-100 dark:border-slate-700">
-<span class="material-icons text-primary">local_shipping</span>
-</div>
-<div>
-<h4 class="font-bold text-slate-900 dark:text-white">3MD</h4>
-<span class="text-xs text-slate-500 dark:text-slate-400">Plano, TX</span>
-</div>
-</div>
-</div>
-<div class="md:col-span-8 lg:col-span-9 bg-white dark:bg-slate-800/50 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
-<h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Director of Configuration Services and Facilities</h3>
-<p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                                Establish and Manage global distribution centers dedicated to managed mobility lifecycle products.
-                            </p>
-<ul class="space-y-3 mb-6">
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Reduced overhead costs by 15% through strategic vendor negotiations.</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Implemented a new inventory tracking system improving accuracy by 99%.</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Opened, staffed, and trained teams across the globe. (US, UK, Mexico, Australia, Japan)</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Created SOPs across all facets of the products we supported. (receiving, configuration, packaging, shipping, repairs/returns)</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Deployed over 800,000 uniquely configred tablets globally for DoorDash within budget and timeline.</span>
-</li>
-</ul>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Customer Retention ( Amazon, Google, DoorDash, Zillow, American Airlines, Crossmark )</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">White Glove Services ( Amazon IDF/MDF installation )</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">CRM ( Cherwell )</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Resume Download CTA --><form method="get" action="/assets/Mark_Johnson_Resume_2026web.docx">
-<div class="mt-20 flex flex-col items-center justify-center text-center">
-<p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Want the full details?</p>
-<button class="group relative inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white transition-all duration-200 bg-primary rounded-lg hover:bg-sky-500 hover:shadow-lg hover:shadow-primary/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
-<span class="material-icons mr-2 group-hover:-translate-y-0.5 transition-transform duration-200">download</span>
-                    Download Resume
-                    <div class="absolute inset-0 rounded-lg ring-2 ring-white/20 group-hover:ring-white/40"></div>
-</button>
-</div>
-</div>
-</form>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
