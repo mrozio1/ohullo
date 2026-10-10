@@ -150,7 +150,7 @@ html.js.pending .hero{visibility:hidden}
 .nc{font-family:var(--hand);font-weight:700;font-size:clamp(3rem,17cqi,6rem);line-height:.85;margin:.15em 0 .1em}
 .nc-sub{font-size:clamp(1.1rem,5.6cqi,1.5rem);font-weight:700;margin:0 0 .8em}
 .face p,.page p{font-size:clamp(.9rem,4cqi,1.05rem)}
-.seal{position:absolute;right:9%;bottom:8%;width:clamp(58px,19cqi,92px);aspect-ratio:1;display:grid;place-items:center;background:var(--blue);color:var(--paper-hi);font-family:var(--hand);font-weight:700;font-size:clamp(1.1rem,5.4cqi,1.6rem);line-height:.9;text-align:center;border-radius:4px;transform:rotate(-6deg);filter:url(#stamp);opacity:.92}
+.seal{--sw:clamp(58px,19cqi,92px);position:absolute;right:9%;bottom:8%;width:var(--sw);aspect-ratio:1;display:grid;place-items:center;background:var(--blue);color:var(--paper-hi);font-family:var(--hand);font-weight:700;font-size:calc(var(--sw)*.37);line-height:1;white-space:nowrap;text-align:center;border-radius:4px;transform:rotate(-6deg);filter:url(#stamp);opacity:.92}
 .turn-btn,.send{display:inline-block;align-self:flex-start;font:inherit;font-weight:700;font-size:1rem;color:var(--paper-hi);background:var(--ink);border:0;border-radius:3px;padding:.6rem 1.35rem;text-decoration:none;cursor:pointer;box-shadow:0 3px 0 var(--blue)}
 .turn-btn:hover,.send:hover{background:var(--blue-deep);color:#fff}
 .reach{list-style:none;margin:0 0 1.2rem;padding:0;display:grid}
@@ -429,7 +429,7 @@ html.rm .bnote{display:none}
 <!-- ===== 4. A book on a bench; the page turns to a contact form ===== -->
 <section class="bench-scene" id="bench" aria-labelledby="ncTitle">
   <div class="stage">
-    <p class="bnote" id="bnote" aria-hidden="true">One more chapter, on the bench.</p>
+    <p class="bnote" id="bnote" aria-hidden="true">Add to my story?</p>
     <div class="world" id="world">
       <div class="ground" aria-hidden="true"></div>
       <svg class="bench" id="benchArt" viewBox="0 0 900 360" aria-hidden="true"></svg>
@@ -471,7 +471,7 @@ html.rm .bnote{display:none}
             <p class="nc-sub">Your company?</p>
             <p>Five chapters in, and I'm ready for the next one. Tell me what you're working on and I'll write back.</p>
             <a class="turn-btn" href="#contact">Turn the page</a>
-            <span class="seal" aria-hidden="true">ohul<br>lo.</span>
+            <span class="seal" aria-hidden="true">ohullo.</span>
             <p class="pg">6</p>
           </div>
           <div class="face back">
