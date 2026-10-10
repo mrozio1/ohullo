@@ -1,81 +1,76 @@
 <!DOCTYPE html>
-<html lang="en" class="sk0">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ohullo. Mark Johnson</title>
 <meta name="description" content="Mark Johnson, Director of Marketing at MCDP and operations leader. Twenty years of making things work.">
-<meta name="theme-color" content="#a7dbf6">
-<script>document.documentElement.classList.add('js')</script>
+<meta name="theme-color" content="#f4f6f5">
+<script>document.documentElement.classList.add('js','pending');setTimeout(()=>document.documentElement.classList.remove('pending'),2500)</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#1d2b36;
-  --ink-soft:#4f5f6c;
-  --pencil:#a9b6c0;
+  --ink-soft:#4b5965;
+  --ink-faint:#a3adb4;
   --blue:#13a4ec;
   --blue-deep:#0a71a8;
-  --sky-top:#a7dbf6;
-  --sky:#d6effb;
-  --sky-low:#e8f6fd;
-  --leaf:#d8f5ad;
-  --grass:#8fcf6a;
-  --paper:#fffdf7;
+  --paper:#f4f6f5;
+  --paper-hi:#fbfcfb;
   --hand:"Caveat","Bradley Hand","Segoe Print",cursive;
-  --body:"Shantell Sans","Comic Neue","Trebuchet MS",sans-serif;
-  --wobbly:255px 15px 225px 15px/15px 225px 15px 255px;
-  --wobbly2:15px 225px 15px 255px/255px 15px 225px 15px;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Segoe UI",sans-serif;
+  --fiber:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.011 .55' numOctaves='2' seed='8' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .5 0 0 0 0 .52 .16 0 0 0 -.04'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  --wash:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' preserveAspectRatio='none'%3E%3Cfilter id='f' x='-10%25' y='-10%25' width='120%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.022' numOctaves='3' seed='3'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='24'/%3E%3CfeGaussianBlur stdDeviation='1.6'/%3E%3C/filter%3E%3Cg filter='url(%23f)'%3E%3Crect x='20' y='18' width='360' height='264' rx='34' fill='%2313a4ec' fill-opacity='.12'/%3E%3Crect x='20' y='18' width='360' height='264' rx='34' fill='none' stroke='%2313a4ec' stroke-opacity='.28' stroke-width='3'/%3E%3C/g%3E%3C/svg%3E");
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--sky);color:var(--ink);font-family:var(--body);font-size:clamp(1rem,.95rem + .22vw,1.08rem);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper) var(--fiber);color:var(--ink);font-family:var(--body);font-size:clamp(1rem,.96rem + .2vw,1.07rem);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{color:var(--blue-deep)}
-:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:3px}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.skip{position:fixed;left:1rem;top:-5rem;z-index:100;background:var(--ink);color:#fff;padding:.6rem 1rem;border-radius:var(--wobbly)}
+.skip{position:fixed;left:1rem;top:-5rem;z-index:100;background:var(--ink);color:var(--paper);padding:.6rem 1rem;border-radius:3px}
 .skip:focus{top:1rem}
 
-/* line boil: only one drawing variant is visible at a time */
-html.sk0 .sk1,html.sk0 .sk2,html.sk1 .sk0,html.sk1 .sk2,html.sk2 .sk0,html.sk2 .sk1{display:none}
-svg.sk path{vector-effect:non-scaling-stroke}
-
 /* ---------- header ---------- */
-.top{position:fixed;inset:0 0 auto;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:.65rem clamp(1rem,3vw,2rem);transition:background .3s,box-shadow .3s}
-.top.solid{background:rgba(214,239,251,.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 2px 0 rgba(29,43,54,.08)}
-.brand{font-family:var(--hand);font-weight:700;font-size:2.2rem;line-height:1;color:var(--ink);text-decoration:none;opacity:0;transition:opacity .3s}
+.top{position:fixed;inset:0 0 auto;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:.7rem clamp(1rem,3vw,2rem);transition:background .3s,box-shadow .3s,color .3s;color:var(--ink)}
+.top.on-ink{color:var(--paper)}
+.top.solid{background:rgba(244,246,245,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(29,43,54,.1)}
+.brand{font-family:var(--hand);font-weight:700;font-size:2.2rem;line-height:1;color:inherit;text-decoration:none;opacity:0;transition:opacity .3s}
 .top.solid .brand,.brand:focus-visible{opacity:1}
 .brand i{display:inline-block;width:.15em;height:.15em;border-radius:50%;background:var(--blue);margin-left:.03em}
-.top nav{display:flex;align-items:center;gap:clamp(.8rem,2.2vw,1.6rem)}
-.top nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.98rem}
-.top nav a:hover{color:var(--blue-deep)}
-.top nav a.pill{border:2px solid var(--ink);border-radius:var(--wobbly);padding:.2rem .95rem;background:#fff;box-shadow:2px 3px 0 var(--ink)}
-.top nav a.pill:hover{transform:translate(-1px,-1px);box-shadow:3px 4px 0 var(--ink)}
+.top nav{display:flex;align-items:center;gap:clamp(.9rem,2.2vw,1.7rem)}
+.top nav a{color:inherit;text-decoration:none;font-weight:500;font-size:.95rem}
+.top nav a:hover{color:var(--blue)}
+.top nav a.pill{border:1.5px solid currentColor;border-radius:3px;padding:.25rem .95rem}
 
-/* ---------- scene 1: the sky ---------- */
+/* ---------- scene 1: ink clouds part to reveal the logo ---------- */
 .sky{position:relative;height:300vh}
 .stage{position:sticky;top:0;height:100vh;overflow:hidden}
-.sky .stage{background:linear-gradient(var(--sky-top),var(--sky) 88%)}
-.sun{position:absolute;right:9%;top:9%;width:clamp(90px,15vmin,180px);aspect-ratio:1;z-index:1;overflow:visible}
+.sky .stage{background:linear-gradient(rgba(19,164,236,.07),transparent 70%)}
+.enso{position:absolute;right:8%;top:11%;width:clamp(110px,17vmin,210px);aspect-ratio:1;z-index:1;overflow:visible;will-change:transform}
 .hero{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 16px 14vh}
-.logo{font-family:var(--hand);font-weight:700;font-size:clamp(5.6rem,22vw,15rem);line-height:.82;margin:0;color:var(--ink);white-space:nowrap;letter-spacing:-.01em;will-change:transform}
-.logo .dot{display:inline-block;width:.15em;height:.15em;border-radius:50%;background:var(--blue);margin-left:.03em;vertical-align:baseline}
-html.sk0 .wob{filter:url(#wob0)}html.sk1 .wob{filter:url(#wob1)}html.sk2 .wob{filter:url(#wob2)}
-.intro{margin-top:1.4rem;max-width:32rem}
+.logo{font-family:var(--hand);font-weight:700;font-size:clamp(5.6rem,22vw,15rem);line-height:.82;margin:0;color:var(--ink);white-space:nowrap;letter-spacing:-.01em}
+.logo .word{filter:url(#inkText);display:inline-block;will-change:transform}
+.logo .dot{display:inline-block;width:.15em;height:.15em;border-radius:50%;background:var(--blue);margin-left:.03em}
+.intro{margin-top:1.4rem;max-width:32rem;will-change:opacity}
 .intro .hi{display:block;font-family:var(--hand);font-weight:700;font-size:clamp(2rem,4.4vw,2.7rem);line-height:1}
 .intro p{margin:.5rem 0 0;color:var(--ink-soft)}
-.cloud{position:absolute;left:calc(var(--x)*1%);top:calc(var(--y)*1%);width:calc(var(--w)*max(1vw,.62vh)*var(--cs,1));aspect-ratio:2/1;transform-origin:50% 60%;will-change:transform;container-type:inline-size;translate:-50% -50%}
-.cloud svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.cloud .hint{position:absolute;inset:0;margin:0;display:grid;place-items:center;padding-top:14%;font-family:var(--hand);font-weight:700;font-size:9cqi;color:var(--ink)}
-.seed{position:fixed;left:0;top:0;width:20px;height:20px;border-radius:50%;background:var(--blue);z-index:30;pointer-events:none;display:none;will-change:transform}
+.sky-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none}
+.hint{position:absolute;left:0;top:0;z-index:4;margin:0;font-family:var(--hand);font-weight:700;color:var(--paper);white-space:nowrap;will-change:transform,opacity}
+html.js.pending .hero{visibility:hidden}
+.seed{position:fixed;left:0;top:0;width:20px;height:20px;z-index:30;pointer-events:none;display:none;will-change:transform}
+.seed i{display:block;width:100%;height:100%;background:var(--blue);border-radius:50%;transition:border-radius .2s}
+.seed.falling i{border-radius:0 50% 50% 50%;transform:rotate(45deg)}
 
-/* ---------- scene 2: the timeline ---------- */
-.tl{position:relative;z-index:5;margin-top:-38vh;padding:0 clamp(1rem,4vw,2rem) 5rem}
+/* ---------- scene 2: the ink drop draws the timeline ---------- */
+.tl{position:relative;z-index:5;margin-top:-38vh;padding:0 clamp(1rem,4vw,2rem) 6rem}
 .tl-inner{position:relative;max-width:1120px;margin:0 auto}
-.tl-line{position:absolute;top:0;left:50%;margin-left:-10px;width:20px;overflow:visible;pointer-events:none}
-.tl-line .guide{stroke:var(--pencil);stroke-width:2.5;stroke-dasharray:2 11;stroke-linecap:round;fill:none}
-.tl-line .trail{stroke:var(--blue);stroke-width:4;stroke-linecap:round;fill:none}
+.tl-line{position:absolute;top:0;left:50%;margin-left:-10px;width:20px;overflow:visible;pointer-events:none;will-change:transform}
+.tl-line .guide{stroke:var(--ink-faint);stroke-width:2;stroke-dasharray:1 12;stroke-linecap:round;fill:none}
+.tl-line .halo{stroke:var(--blue);stroke-opacity:.18;stroke-width:15;stroke-linecap:round;fill:none}
+.tl-line .trail{stroke:var(--blue);stroke-width:4.5;stroke-linecap:round;fill:none}
 .tl-end{position:absolute;left:50%;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;background:var(--blue);display:none}
 .tl-head,.job{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(4rem,9vw,7rem)}
 .tl-head{padding:2.2rem 0 1rem}
@@ -83,145 +78,177 @@ html.sk0 .wob{filter:url(#wob0)}html.sk1 .wob{filter:url(#wob1)}html.sk2 .wob{fi
 .tl-head h2{font-family:var(--hand);font-weight:700;font-size:clamp(2.8rem,6vw,4.3rem);line-height:.95;margin:0}
 .tl-head p{margin:.5rem 0 0;color:var(--ink-soft)}
 .jobs{list-style:none;margin:0;padding:0}
-.job{position:relative;padding:2.8rem 0}
+.job{position:relative;padding:3rem 0}
 .job .when,.job .card{grid-row:1}
 .job:nth-child(odd) .when{grid-column:1;text-align:right}
 .job:nth-child(odd) .card{grid-column:2}
 .job:nth-child(even) .when{grid-column:2}
 .job:nth-child(even) .card{grid-column:1}
-.when{padding-top:.5rem}
+.when{padding-top:.6rem}
 .dates{display:block;font-family:var(--hand);font-weight:700;font-size:clamp(2.1rem,3.4vw,2.8rem);line-height:1}
-.dur{display:block;color:var(--ink-soft);font-size:.95rem;margin-top:.35rem}
-.node{position:absolute;left:50%;top:calc(2.8rem + 1.35rem);width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%;background:var(--sky);border:3px solid var(--pencil);transition:background .35s,border-color .35s,transform .35s cubic-bezier(.3,1.8,.5,1)}
-.job.inked .node{background:var(--blue);border-color:var(--ink);transform:scale(1.15)}
-.card{position:relative;background:#fff;border:2.5px solid var(--ink);border-radius:var(--wobbly);padding:1.5rem 1.65rem 1.4rem;box-shadow:5px 6px 0 var(--ink);transition:border-color .5s,box-shadow .5s,color .5s,background .5s}
-.job:nth-child(even) .card{border-radius:var(--wobbly2)}
-.js .job:not(.inked) .card{border-style:dashed;border-color:var(--pencil);box-shadow:0 0 0 transparent;color:#7e8b96;background:rgba(255,255,255,.5)}
-.role{font-size:clamp(1.3rem,1.15rem + .6vw,1.6rem);line-height:1.2;margin:0;font-weight:700}
-.org{margin:.5rem 0 .9rem;color:var(--ink-soft);font-size:.95rem;line-height:1.35}
-.org b{display:block;font-family:var(--hand);font-weight:700;font-size:2rem;line-height:1;color:var(--blue-deep);margin-bottom:.2rem}
+.dur{display:block;color:var(--ink-soft);font-size:.92rem;margin-top:.35rem}
+.node{position:absolute;left:50%;top:calc(3rem + 1.4rem);width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:var(--paper);border:2px solid var(--ink-faint);transition:background .4s,border-color .4s,transform .4s}
+.job.inked .node{background:var(--blue);border-color:var(--blue);transform:scale(1.15)}
+.card{position:relative;isolation:isolate;background:rgba(251,252,251,.82);border-radius:4px;padding:1.6rem 1.7rem 1.5rem;transition:background .8s,color .8s}
+.card::before{content:"";position:absolute;inset:-20px -26px;z-index:-1;background:var(--wash) center/100% 100% no-repeat;transition:opacity 1s}
+.js .job:not(.inked) .card{background:rgba(251,252,251,.35);color:#8995a0}
+.js .job:not(.inked) .card::before{opacity:0}
+.role{font-size:clamp(1.25rem,1.1rem + .55vw,1.5rem);line-height:1.25;margin:0;font-weight:700}
+.org{margin:.5rem 0 .9rem;color:var(--ink-soft);font-size:.93rem;line-height:1.35}
+.org b{display:block;font-family:var(--hand);font-weight:700;font-size:2.1rem;line-height:1;color:var(--blue-deep);margin-bottom:.2rem}
 .js .job:not(.inked) .org b{color:inherit}
 .desc{margin:0 0 1rem}
 .wins{list-style:none;margin:0 0 1.2rem;padding:0;display:grid;gap:.55rem}
-.wins li{position:relative;padding-left:1.9rem;font-size:.96em;line-height:1.5}
-.wins li::before{content:"";position:absolute;left:0;top:.3em;width:1.2rem;height:1rem;background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 20'%3E%3Cpath d='M2 11.5c2.2 1.4 4 3.6 5.6 6.2C10.8 10.4 15.6 4.6 22 1.6' fill='none' stroke='%2313a4ec' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.wins li{position:relative;padding-left:1.7rem;font-size:.95em;line-height:1.6}
+.wins li::before{content:"";position:absolute;left:.15rem;top:.62em;width:.62rem;height:.62rem;border-radius:50% 45% 55% 50%;background:var(--blue);opacity:.75}
 .tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.45rem}
-.tags li{font-size:.8rem;line-height:1.3;padding:.28rem .7rem;border:1.5px solid currentColor;border-radius:var(--wobbly);color:var(--ink-soft)}
+.tags li{font-size:.78rem;line-height:1.3;padding:.3rem .7rem;border:1px solid var(--ink-faint);border-radius:999px;color:var(--ink-soft)}
 
-/* ---------- scene 3: the trees ---------- */
-.grove{position:relative;z-index:5;padding:4rem clamp(1rem,4vw,2rem) 6rem;background:linear-gradient(var(--sky),var(--sky-low))}
-.grove-head{text-align:center;max-width:34rem;margin:0 auto 2.5rem}
-.grove-head h2{font-family:var(--hand);font-weight:700;font-size:clamp(3rem,7vw,4.6rem);line-height:.95;margin:0}
-.grove-head p{margin:.6rem 0 0;color:var(--ink-soft)}
-.trees{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:clamp(1rem,3vw,3rem);align-items:end;max-width:1180px;margin:0 auto}
-.tree-wrap{margin:0}
-.tree{position:relative;aspect-ratio:4/5;container-type:inline-size}
-.tree svg.art{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.tree .trunk{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(var(--t,1))}
-.tree .canopy{transform-box:fill-box;transform-origin:50% 70%;transform:scale(var(--c,1))}
-.sign{display:block;text-align:center;font-family:var(--hand);font-weight:700;font-size:2rem;line-height:1;margin-top:.4rem}
-.leaf{position:absolute;left:calc(var(--x)*1%);top:calc(var(--y)*1%);width:var(--lw);aspect-ratio:160/92;z-index:2;color:var(--ink);text-decoration:none;transform:translate(-50%,-50%) rotate(calc(var(--r)*1deg)) scale(var(--s,1));transition:transform .55s cubic-bezier(.34,1.7,.5,1) calc(var(--i)*85ms + 120ms)}
-.js .tree-wrap:not(.grown) .leaf{--s:0;transition-delay:0s}
-.leaf .lf{position:absolute;inset:0;display:block;transform-origin:6% 50%}
-.leaf svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.leaf .t{position:absolute;inset:0;display:grid;place-items:center;padding:0 9%;white-space:nowrap;text-align:center;font-family:var(--hand);font-weight:700;font-size:var(--fs);line-height:.95}
-.leaf:hover .lf,.leaf:focus-visible .lf{animation:rustle .7s ease-in-out}
-.leaf:hover .t{color:var(--blue-deep)}
+/* ---------- scene 3: a tree fills the screen; its leaves fall into a line of links ---------- */
+.grove{position:relative;z-index:5;height:360vh}
+.gstage{position:sticky;top:0;height:100vh;overflow:hidden}
+.tree-canvas{position:absolute;inset:0;width:100%;height:100%}
+.grove-head{position:absolute;z-index:3;left:clamp(1rem,6vw,5rem);top:15vh;max-width:19rem;padding:.6rem .9rem;background:rgba(244,246,245,.86);border-radius:4px}
+.grove-head h2{font-family:var(--hand);font-weight:700;font-size:clamp(2.8rem,5.6vw,4.2rem);line-height:.95;margin:0}
+.grove-head p{margin:.4rem 0 0;color:var(--ink-soft);font-size:.95rem;line-height:1.5}
+.leaves{position:absolute;inset:0;z-index:4;pointer-events:none}
+.leaf{position:absolute;left:0;top:0;width:var(--lw);aspect-ratio:160/70;pointer-events:auto;color:var(--ink);text-decoration:none;will-change:transform;transform-origin:50% 50%}
+.leaf svg{position:absolute;inset:-14% -8%;width:116%;height:128%;overflow:visible}
+.leaf .t{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--hand);font-weight:700;font-size:calc(var(--lw)*.165);line-height:1;white-space:nowrap}
+.leaf:hover .t,.leaf:focus-visible .t{color:var(--blue-deep)}
+.leaf:hover svg{filter:brightness(1.06) saturate(1.2)}
 .leaf:focus-visible{outline:none}
-.leaf:focus-visible .lf{outline:3px solid var(--blue);outline-offset:3px;border-radius:50%}
-html:not(.js) .leaf .lf,html.norough .leaf .lf{background:var(--leaf);border:2px solid var(--ink);border-radius:0 70% 0 70%}
-@keyframes rustle{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}55%{transform:rotate(6deg)}80%{transform:rotate(-2deg)}}
-.tA{--lw:35%;--fs:5.5cqi}
-.tB,.tC{--lw:39%;--fs:6.8cqi}
+.leaf:focus-visible .t{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.glabel{position:absolute;top:0;margin:0;font-family:var(--hand);font-weight:700;font-size:clamp(1.5rem,2.2vw,1.9rem);line-height:1;color:var(--ink-soft);opacity:0;transform:translateY(-50%);text-align:right;white-space:nowrap}
+.anchor{position:absolute;left:0;top:calc((100% - 100vh)*.88)}
 
 /* ---------- scene 4: the bench and the book ---------- */
-.bench-scene{position:relative;height:340vh;background:var(--sky-low)}
-.bstage{background:linear-gradient(var(--sky-low),#f5fbfe)}
+.bench-scene{position:relative;height:340vh}
 .bnote{position:absolute;left:0;right:0;top:12vh;z-index:2;margin:0;text-align:center;font-family:var(--hand);font-weight:700;font-size:clamp(2rem,4.6vw,3rem);line-height:1;padding:0 16px}
 .world{--W:min(940px,92vw);--H:calc(var(--W)*.64);--PW:calc(var(--W)/2);--BW:calc(var(--W)*1.45);--BH:calc(var(--BW)*.4);position:absolute;left:50%;top:50%;width:0;height:0;transform-origin:0 0;will-change:transform}
-.ground{position:absolute;left:-6000px;width:12000px;top:calc(var(--H)*.5 + var(--BH)*.86);height:6000px;border-top:3px solid var(--ink);background:repeating-linear-gradient(-38deg,transparent 0 15px,rgba(79,140,62,.33) 15px 17px),var(--grass)}
+.ground{position:absolute;left:-6000px;width:12000px;top:calc(var(--H)*.5 + var(--BH)*.955);height:6000px;background:linear-gradient(rgba(29,43,54,.07),rgba(29,43,54,0) 420px)}
 .bench{position:absolute;left:calc(var(--BW)*-.5);top:calc(var(--H)*.5 - var(--BH)*.07);width:var(--BW);height:var(--BH);overflow:visible}
 .book{position:absolute;left:calc(var(--W)*-.5);top:calc(var(--H)*-.5);width:var(--W);height:var(--H);perspective:calc(var(--W)*2.6)}
-.book .cover{position:absolute;inset:-11px -13px -13px -13px;background:#26405a;border:2.5px solid var(--ink);border-radius:12px 16px 14px 10px}
-.page,.face{background:var(--paper);border:2.5px solid var(--ink);overflow:hidden;container-type:inline-size;padding:calc(var(--PW)*.08) calc(var(--PW)*.085)}
+.book .cover{position:absolute;inset:-11px -13px -13px -13px;background:var(--ink);border-radius:5px 8px 7px 5px;box-shadow:0 18px 40px -18px rgba(29,43,54,.5)}
+.page,.face{background:var(--paper-hi);border:1.5px solid rgba(29,43,54,.55);overflow:hidden;container-type:inline-size;padding:calc(var(--PW)*.08) calc(var(--PW)*.085)}
 .page{position:absolute;top:0;bottom:0;width:50%;display:flex;flex-direction:column}
-.page.l{left:0;border-radius:14px 3px 3px 10px;box-shadow:inset -26px 0 28px -22px rgba(29,43,54,.38)}
-.page.r{left:50%;border-radius:3px 14px 10px 3px;box-shadow:inset 26px 0 28px -22px rgba(29,43,54,.38)}
+.page.l{left:0;border-radius:6px 2px 2px 5px;box-shadow:inset -26px 0 28px -22px rgba(29,43,54,.3)}
+.page.r{left:50%;border-radius:2px 6px 5px 2px;box-shadow:inset 26px 0 28px -22px rgba(29,43,54,.3)}
 .turn{position:absolute;top:0;bottom:0;left:50%;width:50%;transform-origin:0 50%;transform-style:preserve-3d;transform:rotateY(calc(var(--flip,1)*-180deg))}
 .face{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;display:flex;flex-direction:column}
-.face.front{border-radius:3px 14px 10px 3px;box-shadow:inset 26px 0 28px -22px rgba(29,43,54,.38)}
+.face.front{border-radius:2px 6px 5px 2px;box-shadow:inset 26px 0 28px -22px rgba(29,43,54,.3)}
 .face.front::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(29,43,54,var(--shade,0)),transparent 75%);pointer-events:none}
-.face.back{transform:rotateY(180deg);border-radius:14px 3px 3px 10px;box-shadow:inset -26px 0 28px -22px rgba(29,43,54,.38)}
+.face.back{transform:rotateY(180deg);border-radius:6px 2px 2px 5px;box-shadow:inset -26px 0 28px -22px rgba(29,43,54,.3)}
 .book.single .page.l{display:none}
 .book.single .page.r,.book.single .turn{left:0;width:100%}
 .kicker{font-family:var(--hand);font-weight:700;font-size:clamp(1.5rem,8.5cqi,2.6rem);line-height:1;margin:0 0 .6em;color:var(--blue-deep)}
 .pg{margin:auto 0 0;text-align:center;color:var(--ink-soft);font-size:.85rem}
 .story{list-style:none;margin:0;padding:0;display:grid;gap:.15rem}
-.story li{display:grid;grid-template-columns:4.2rem 1fr;align-items:baseline;border-bottom:1.5px dashed var(--pencil);padding:.55em 0;font-size:clamp(.9rem,4.2cqi,1.1rem)}
+.story li{display:grid;grid-template-columns:4.2rem 1fr;align-items:baseline;border-bottom:1px solid rgba(29,43,54,.14);padding:.55em 0;font-size:clamp(.9rem,4.2cqi,1.08rem)}
 .story b{font-family:var(--hand);font-size:1.5em;line-height:1}
-.story li:last-child{color:var(--blue-deep);font-weight:600}
+.story li:last-child{color:var(--blue-deep);font-weight:700}
 .nc{font-family:var(--hand);font-weight:700;font-size:clamp(3rem,17cqi,6rem);line-height:.85;margin:.15em 0 .1em}
-.nc-sub{font-size:clamp(1.15rem,6cqi,1.6rem);font-weight:600;margin:0 0 .8em}
-.face p,.page p{font-size:clamp(.92rem,4.1cqi,1.08rem)}
-.turn-btn,.send{display:inline-block;align-self:flex-start;font:inherit;font-weight:700;font-size:1rem;color:#fff;background:var(--ink);border:0;border-radius:var(--wobbly);padding:.6rem 1.3rem;text-decoration:none;cursor:pointer;box-shadow:3px 4px 0 var(--blue)}
+.nc-sub{font-size:clamp(1.1rem,5.6cqi,1.5rem);font-weight:700;margin:0 0 .8em}
+.face p,.page p{font-size:clamp(.9rem,4cqi,1.05rem)}
+.seal{position:absolute;right:9%;bottom:8%;width:clamp(58px,19cqi,92px);aspect-ratio:1;display:grid;place-items:center;background:var(--blue);color:var(--paper-hi);font-family:var(--hand);font-weight:700;font-size:clamp(1.1rem,5.4cqi,1.6rem);line-height:.9;text-align:center;border-radius:4px;transform:rotate(-6deg);filter:url(#stamp);opacity:.92}
+.turn-btn,.send{display:inline-block;align-self:flex-start;font:inherit;font-weight:700;font-size:1rem;color:var(--paper-hi);background:var(--ink);border:0;border-radius:3px;padding:.6rem 1.35rem;text-decoration:none;cursor:pointer;box-shadow:0 3px 0 var(--blue)}
 .turn-btn:hover,.send:hover{background:var(--blue-deep);color:#fff}
 .reach{list-style:none;margin:0 0 1.2rem;padding:0;display:grid}
-.reach li{display:grid;grid-template-columns:5.4rem 1fr;gap:.5rem;padding:.6em 0;border-bottom:1.5px dashed var(--pencil);font-size:clamp(.9rem,4cqi,1.05rem);align-items:baseline;overflow-wrap:anywhere}
+.reach li{display:grid;grid-template-columns:5.4rem 1fr;gap:.5rem;padding:.6em 0;border-bottom:1px solid rgba(29,43,54,.14);font-size:clamp(.88rem,4cqi,1.02rem);align-items:baseline;overflow-wrap:anywhere}
 .reach span{color:var(--ink-soft);font-size:.9em}
-.dl{font-weight:600}
+.dl{font-weight:700}
 form.inq{display:flex;flex-direction:column;gap:clamp(.55rem,2.6cqi,.95rem);flex:1}
-.inq label{display:block;font-weight:600;font-size:clamp(.88rem,3.8cqi,1rem)}
-.inq input,.inq textarea{display:block;width:100%;margin-top:.15rem;font:inherit;font-size:16px;font-weight:400;color:var(--ink);background:transparent;border:0;border-bottom:2px solid var(--ink);border-radius:0;padding:.35rem .1rem;outline:none}
-.inq textarea{resize:none;background:repeating-linear-gradient(transparent 0 calc(1.6em - 1px),rgba(19,164,236,.25) calc(1.6em - 1px) 1.6em);line-height:1.6em;padding-top:0;border-bottom:0}
-.inq input:focus,.inq textarea:focus{border-color:var(--blue);box-shadow:0 2px 0 var(--blue)}
+.inq label{display:block;font-weight:700;font-size:clamp(.86rem,3.8cqi,.98rem)}
+.inq input,.inq textarea{display:block;width:100%;margin-top:.15rem;font:inherit;font-size:16px;font-weight:400;color:var(--ink);background:transparent;border:0;border-bottom:1.5px solid var(--ink);border-radius:0;padding:.35rem .1rem;outline:none}
+.inq textarea{resize:none;background:repeating-linear-gradient(transparent 0 calc(1.7em - 1px),rgba(19,164,236,.25) calc(1.7em - 1px) 1.7em);line-height:1.7em;padding-top:0;border-bottom:0}
+.inq input:focus,.inq textarea:focus{border-color:var(--blue);box-shadow:0 1.5px 0 var(--blue)}
 .inq .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-.status{min-height:1.4em;margin:0;font-size:.92rem}
+.status{min-height:1.4em;margin:0;font-size:.9rem}
 .status.err{color:#b4322a}
 .sent{display:grid;place-items:center;text-align:center;flex:1}
 .sent .kicker{font-size:clamp(2.2rem,12cqi,3.4rem)}
 .form-alt{display:none;margin:.6rem 0 0;font-size:.85rem;color:var(--ink-soft)}
 .book.single .form-alt{display:block}
-.anchor{position:absolute;left:0;top:calc((100% - 100vh)*.86)}
 
-footer{position:relative;z-index:5;background:var(--grass);border-top:3px solid var(--ink);padding:2.2rem 1rem 2.6rem;text-align:center;font-size:.92rem}
-footer a{color:var(--ink);font-weight:600;margin:0 .6rem}
-footer p{margin:.4rem 0 0}
+footer{position:relative;z-index:5;background:var(--ink);color:var(--paper);padding:2.2rem 1rem 2.6rem;text-align:center;font-size:.9rem}
+footer a{color:var(--paper);font-weight:500;margin:0 .7rem}
+footer p{margin:.5rem 0 0;color:#aab6bf}
 
 /* ---------- small screens ---------- */
-@media (max-aspect-ratio:3/4){.cloud{--cs:1.3}}
 @media (max-width:820px){
   .tl-line,.tl-end{left:20px}
   .tl-head,.job{grid-template-columns:1fr;padding-left:50px}
   .tl-head div{text-align:left}
   .job:nth-child(n) .when{grid-column:1;grid-row:1;text-align:left;padding:0 0 .8rem}
   .job:nth-child(n) .card{grid-column:1;grid-row:2}
-  .node{left:20px;top:calc(2.8rem + 1.1rem)}
-  .card{padding:1.25rem 1.2rem 1.2rem;box-shadow:4px 5px 0 var(--ink)}
-  .trees{grid-template-columns:1fr;gap:2.4rem}
-  .tree-wrap{width:min(100%,380px);margin:0 auto}
+  .node{left:20px;top:calc(3rem + 1.1rem)}
+  .card{padding:1.3rem 1.2rem 1.2rem}
+  .card::before{inset:-12px -12px}
   .top nav a:not(.pill){display:none}
+  .grove-head{left:50%;top:70px;transform:translateX(-50%);text-align:center;max-width:none;width:max-content;padding:.3rem .8rem}
+  .grove-head h2{font-size:2.6rem}
+  .grove-head p{display:none}
 }
 
 /* ---------- reduced motion: every scene in its finished state ---------- */
-html.rm .sky{height:auto}
-html.rm .stage{position:relative}
-html.rm .cloud{display:none}
+html.rm .sky,html.rm .grove,html.rm .bench-scene{height:auto}
+html.rm .stage,html.rm .gstage{position:relative}
+html.rm .sky-canvas,html.rm .hint{display:none}
 html.rm .tl{margin-top:0}
-html.rm .bench-scene{height:auto}
 html.rm .bnote{display:none}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.leaf,.node,.card{transition:none}.leaf:hover .lf{animation:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.node,.card,.card::before{transition:none}}
 </style>
 </head>
 <body>
 <a class="skip" href="#contact">Skip to the contact form</a>
 
+<!-- watercolor and ink filters shared by every painted shape -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <filter id="wob0"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="1"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
-  <filter id="wob1"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
-  <filter id="wob2"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="13"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
+  <defs>
+    <filter id="wash" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency=".016" numOctaves="3" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="34" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="2.2" result="soft"/>
+      <feMorphology in="soft" operator="erode" radius="5" result="inner"/>
+      <feComposite in="soft" in2="inner" operator="out" result="rim"/>
+      <feGaussianBlur in="rim" stdDeviation="1.4" result="rimSoft"/>
+      <feComponentTransfer in="soft" result="body"><feFuncA type="table" tableValues="0 .52"/></feComponentTransfer>
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="9" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.3 1.3" result="ga"/>
+      <feMerge result="paint"><feMergeNode in="body"/><feMergeNode in="rimSoft"/></feMerge>
+      <feComposite in="paint" in2="ga" operator="in"/>
+    </filter>
+    <filter id="washS" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="3" seed="6" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation=".9" result="soft"/>
+      <feMorphology in="soft" operator="erode" radius="1.6" result="inner"/>
+      <feComposite in="soft" in2="inner" operator="out" result="rim"/>
+      <feComponentTransfer in="soft" result="body"><feFuncA type="table" tableValues="0 .55"/></feComponentTransfer>
+      <feMerge><feMergeNode in="body"/><feMergeNode in="rim"/></feMerge>
+    </filter>
+    <filter id="ink" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency=".06" numOctaves="2" seed="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation=".45" result="b"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="2" seed="5" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.1 1.2" result="ga"/>
+      <feComposite in="b" in2="ga" operator="in"/>
+    </filter>
+    <filter id="inkText" x="-5%" y="-10%" width="110%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="11" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation=".35"/>
+    </filter>
+    <filter id="stamp" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.45" result="ga"/>
+      <feComposite in="SourceGraphic" in2="ga" operator="in"/>
+    </filter>
+  </defs>
 </svg>
 
-<header class="top" id="top">
+<header class="top on-ink" id="top">
   <a class="brand" href="#sky" aria-label="ohullo, back to the top">ohullo<i></i></a>
   <nav aria-label="Site">
     <a href="#timeline">Timeline</a>
@@ -232,33 +259,34 @@ html.rm .bnote{display:none}
 </header>
 
 <main>
-<!-- ===== 1. Clouds part to reveal the logo ===== -->
+<!-- ===== 1. Ink clouds part, turning brand blue, to reveal the logo ===== -->
 <section class="sky" id="sky" aria-label="Welcome">
   <div class="stage">
-    <svg class="sun sk" id="sun" viewBox="0 0 200 200" aria-hidden="true"></svg>
+    <svg class="enso" id="enso" viewBox="0 0 200 200" aria-hidden="true"></svg>
     <div class="hero">
-      <h1 class="logo" id="logo"><span class="wob">ohullo</span><span class="dot" id="logoDot"></span><span class="sr-only">. Mark Johnson</span></h1>
+      <h1 class="logo" id="logo"><span class="word">ohullo</span><span class="dot" id="logoDot"></span><span class="sr-only">. Mark Johnson</span></h1>
       <div class="intro" id="intro">
         <span class="hi">Hi, I'm Mark Johnson.</span>
         <p>Director of Marketing at MCDP, and twenty years of making operations work before that.</p>
       </div>
     </div>
-    <div id="clouds" aria-hidden="true"></div>
+    <canvas class="sky-canvas" id="skyCanvas" aria-hidden="true"></canvas>
+    <p class="hint" id="hint" aria-hidden="true">psst… scroll</p>
   </div>
 </section>
-<div class="seed" id="seed" aria-hidden="true"></div>
+<div class="seed" id="seed" aria-hidden="true"><i></i></div>
 
-<!-- ===== 2. The dot drops into the work timeline ===== -->
+<!-- ===== 2. The blue drop falls and draws the work timeline ===== -->
 <section class="tl" id="timeline" aria-labelledby="tlTitle">
-  <div class="tl-inner" id="tlInner">
-    <svg class="tl-line" id="tlLine" aria-hidden="true"><path class="guide"/><path class="trail"/></svg>
+  <div class="tl-inner">
+    <svg class="tl-line" id="tlLine" aria-hidden="true"><path class="guide"/><path class="halo"/><path class="trail"/></svg>
     <span class="tl-end" id="tlEnd" aria-hidden="true"></span>
     <div class="tl-head"><div>
       <h2 id="tlTitle">Where I've been</h2>
-      <p>Newest first. Follow the blue dot.</p>
+      <p>Newest first. Follow the blue drop.</p>
     </div></div>
 
-    <ol class="jobs" id="jobs">
+    <ol class="jobs">
       <li class="job">
         <div class="when"><span class="dates">Feb 2026 – now</span><span class="dur" data-since="2026-02">Current role</span></div>
         <article class="card">
@@ -369,55 +397,42 @@ html.rm .bnote{display:none}
   </div>
 </section>
 
-<!-- ===== 3. Trees: each labelled leaf opens another part of the site ===== -->
+<!-- ===== 3. A tree fills the screen; its leaves fall into a line of links ===== -->
 <section class="grove" id="grove" aria-labelledby="groveTitle">
-  <div class="grove-head">
-    <h2 id="groveTitle">Pick a leaf</h2>
-    <p>Each one opens another part of my site.</p>
+  <div class="gstage" id="gstage">
+    <canvas class="tree-canvas" id="treeCanvas" aria-hidden="true"></canvas>
+    <div class="grove-head" id="groveHead">
+      <h2 id="groveTitle">Pick a leaf</h2>
+      <p>Each one opens another part of my site.</p>
+    </div>
+    <nav class="leaves" id="leaves" aria-labelledby="groveTitle">
+      <p class="glabel" data-g="0">what I do</p>
+      <p class="glabel" data-g="1">who I am</p>
+      <p class="glabel" data-g="2">take one home</p>
+      <a class="leaf" href="work.html#3pl"><span class="t">3PL</span></a>
+      <a class="leaf" href="work.html#call-center"><span class="t">Call centers</span></a>
+      <a class="leaf" href="work.html#manufacturing"><span class="t">Manufacturing</span></a>
+      <a class="leaf" href="work.html#multi-unit"><span class="t">Multi-unit</span></a>
+      <a class="leaf" href="work.html#saas"><span class="t">SaaS</span></a>
+      <a class="leaf" href="work.html#customer-engagement"><span class="t">Engagement</span></a>
+      <a class="leaf" href="about.html"><span class="t">My story</span></a>
+      <a class="leaf" href="about.html#values"><span class="t">Values</span></a>
+      <a class="leaf" href="about.html#offline"><span class="t">Off hours</span></a>
+      <a class="leaf" href="assets/Mark_Johnson_Resume_2026web.docx" download><span class="t">Résumé</span></a>
+      <a class="leaf" href="assets/Mark_Johnson_Cover_Letter_2026web.docx" download><span class="t">Cover letter</span></a>
+      <a class="leaf" href="https://www.linkedin.com/in/mark-johnson-ohullo/" rel="noopener"><span class="t">LinkedIn</span></a>
+    </nav>
   </div>
-  <div class="trees">
-    <figure class="tree-wrap" data-tree="B">
-      <div class="tree tB">
-        <svg class="art sk" viewBox="0 0 400 500" aria-hidden="true"></svg>
-        <a class="leaf" href="about.html" style="--x:31;--y:25;--r:-10;--i:0"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">My story</span></span></a>
-        <a class="leaf" href="about.html#values" style="--x:70;--y:32;--r:9;--i:1"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">Values</span></span></a>
-        <a class="leaf" href="about.html#offline" style="--x:46;--y:53;--r:-4;--i:2"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">Off hours</span></span></a>
-      </div>
-      <figcaption class="sign">who I am</figcaption>
-    </figure>
-
-    <figure class="tree-wrap" data-tree="A">
-      <div class="tree tA">
-        <svg class="art sk" viewBox="0 0 400 500" aria-hidden="true"></svg>
-        <a class="leaf" href="work.html#3pl" style="--x:32;--y:19;--r:-12;--i:0"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">3PL</span></span></a>
-        <a class="leaf" href="work.html#call-center" style="--x:68;--y:18;--r:10;--i:1"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">Call centers</span></span></a>
-        <a class="leaf" href="work.html#manufacturing" style="--x:20;--y:39;--r:-6;--i:2;--lw:41%"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">Manufacturing</span></span></a>
-        <a class="leaf" href="work.html#multi-unit" style="--x:50;--y:37;--r:4;--i:3"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">Multi-unit</span></span></a>
-        <a class="leaf" href="work.html#saas" style="--x:82;--y:39;--r:12;--i:4"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">SaaS</span></span></a>
-        <a class="leaf" href="work.html#customer-engagement" style="--x:50;--y:56;--r:-3;--i:5"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">Engagement</span></span></a>
-      </div>
-      <figcaption class="sign">what I do</figcaption>
-    </figure>
-
-    <figure class="tree-wrap" data-tree="C">
-      <div class="tree tC">
-        <svg class="art sk" viewBox="0 0 400 500" aria-hidden="true"></svg>
-        <a class="leaf" href="assets/Mark_Johnson_Resume_2026web.docx" download style="--x:31;--y:31;--r:-9;--i:0"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">Résumé</span></span></a>
-        <a class="leaf" href="assets/Mark_Johnson_Cover_Letter_2026web.docx" download style="--x:69;--y:26;--r:11;--i:1"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">Cover letter</span></span></a>
-        <a class="leaf" href="https://www.linkedin.com/in/mark-johnson-ohullo/" rel="noopener" style="--x:50;--y:52;--r:-5;--i:2"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">LinkedIn</span></span></a>
-      </div>
-      <figcaption class="sign">take one home</figcaption>
-    </figure>
-  </div>
+  <span class="anchor" id="links" aria-hidden="true"></span>
 </section>
 
 <!-- ===== 4. A book on a bench; the page turns to a contact form ===== -->
 <section class="bench-scene" id="bench" aria-labelledby="ncTitle">
-  <div class="stage bstage">
+  <div class="stage">
     <p class="bnote" id="bnote" aria-hidden="true">One more chapter, on the bench.</p>
     <div class="world" id="world">
       <div class="ground" aria-hidden="true"></div>
-      <svg class="bench sk" id="benchArt" viewBox="0 0 900 360" aria-hidden="true"></svg>
+      <svg class="bench" id="benchArt" viewBox="0 0 900 360" aria-hidden="true"></svg>
       <div class="book" id="book">
         <div class="cover" aria-hidden="true"></div>
 
@@ -456,6 +471,7 @@ html.rm .bnote{display:none}
             <p class="nc-sub">Your company?</p>
             <p>Five chapters in, and I'm ready for the next one. Tell me what you're working on and I'll write back.</p>
             <a class="turn-btn" href="#contact">Turn the page</a>
+            <span class="seal" aria-hidden="true">ohul<br>lo.</span>
             <p class="pg">6</p>
           </div>
           <div class="face back">
@@ -482,117 +498,144 @@ html.rm .bnote{display:none}
   <p>© 2026 Mark Johnson, Wylie, Texas</p>
 </footer>
 
-<script src="assets/js/rough.min.js"></script>
 <script>
 (() => {
   const root = document.documentElement;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) root.classList.add('rm');
-  if (!window.rough) root.classList.add('norough');
 
   const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
   const NS = 'http://www.w3.org/2000/svg';
-  const INK = '#1d2b36';
+  const INK = '#1d2b36', BLUE = '#13a4ec';
+  const DPR = Math.min(2, window.devicePixelRatio || 1);
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const lerp = (a, b, t) => a + (b - a) * t;
   const easeIO = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
   const easeOut = t => 1 - Math.pow(1 - t, 3);
-  const back = t => { const c = 1.9; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); };
+  const back = t => { const c = 1.7; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); };
   const rng = seed => () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  const el = (tag, attrs = {}) => { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); return n; };
+  const P = pts => pts.map(p => p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' L ');
 
-  /* ---------- hand-drawn shapes, three "boiling" variants each ---------- */
-  const VARIANTS = reduce ? 1 : 3;
-  function sketch(target, seed, draw) {
-    if (!window.rough) return;
-    for (let k = 0; k < VARIANTS; k++) {
-      const rc = rough.svg(target.ownerSVGElement || target);
-      const g = document.createElementNS(NS, 'g');
-      g.setAttribute('class', 'sk' + k);
-      draw(rc, seed * 11 + k * 3 + 1).forEach(n => g.appendChild(n));
-      target.appendChild(g);
+  /* ---------- painting helpers ---------- */
+  // a tapered brush stroke along a quadratic curve, with a little pressure wobble
+  function taper(p0, c, p1, w0, w1, r, jit = .2, N = 18) {
+    const L = [], R = [];
+    for (let i = 0; i <= N; i++) {
+      const t = i / N, u = 1 - t;
+      const x = u * u * p0[0] + 2 * u * t * c[0] + t * t * p1[0], y = u * u * p0[1] + 2 * u * t * c[1] + t * t * p1[1];
+      const dx = 2 * u * (c[0] - p0[0]) + 2 * t * (p1[0] - c[0]), dy = 2 * u * (c[1] - p0[1]) + 2 * t * (p1[1] - c[1]);
+      const len = Math.hypot(dx, dy) || 1, nx = -dy / len, ny = dx / len;
+      const w = (w0 + (w1 - w0) * t) * (1 + (r() - .5) * jit) / 2;
+      L.push([x + nx * w, y + ny * w]); R.push([x - nx * w * (.85 + r() * .3), y - ny * w * (.85 + r() * .3)]);
     }
+    return 'M ' + P(L) + ' L ' + P(R.reverse()) + ' Z';
   }
-  // a puffy cartoon cloud: bumps along the top, a soft belly underneath
   function cloudPath(w, h, r) {
     const n = 4 + Math.floor(r() * 3), base = h * .78, pts = [];
     for (let i = 0; i <= n; i++) {
       const t = i / n, x = w * (.04 + .92 * t);
-      const y = (i === 0 || i === n) ? base : base - Math.sin(Math.PI * t) * h * (.5 + r() * .24);
-      pts.push([x, y]);
+      pts.push([x, (i === 0 || i === n) ? base : base - Math.sin(Math.PI * t) * h * (.5 + r() * .24)]);
     }
     let d = `M ${pts[0][0]} ${pts[0][1]}`;
     for (let i = 1; i < pts.length; i++) {
-      const [x0, y0] = pts[i - 1], [x1, y1] = pts[i];
-      const rad = Math.hypot(x1 - x0, y1 - y0) * (.56 + r() * .12);
+      const [x0, y0] = pts[i - 1], [x1, y1] = pts[i], rad = Math.hypot(x1 - x0, y1 - y0) * (.56 + r() * .12);
       d += ` A ${rad} ${rad} 0 0 1 ${x1} ${y1}`;
     }
-    d += ` A ${w * .24} ${h * .1} 0 0 1 ${w / 2} ${base} A ${w * .24} ${h * .1} 0 0 1 ${pts[0][0]} ${base} Z`;
-    return d;
+    return d + ` A ${w * .24} ${h * .1} 0 0 1 ${w / 2} ${base} A ${w * .24} ${h * .1} 0 0 1 ${pts[0][0]} ${base} Z`;
   }
-  // a bumpy blob all the way round (tree canopies)
-  function blobPath(cx, cy, rx, ry, n, r) {
-    const pts = [];
-    for (let i = 0; i < n; i++) {
-      const a = Math.PI * 2 * i / n + (r() - .5) * .25, k = .9 + r() * .14;
-      pts.push([cx + Math.cos(a) * rx * k, cy + Math.sin(a) * ry * k]);
-    }
-    let d = `M ${pts[0][0]} ${pts[0][1]}`;
-    for (let i = 1; i <= n; i++) {
-      const [x0, y0] = pts[i - 1], [x1, y1] = pts[i % n];
-      const rad = Math.hypot(x1 - x0, y1 - y0) * (.58 + r() * .1);
-      d += ` A ${rad} ${rad} 0 0 1 ${x1} ${y1}`;
-    }
-    return d + ' Z';
+  // paint an SVG (with its watercolor filters) into a canvas once; afterwards it is just a bitmap
+  const defsFor = ids => ids.map(id => document.getElementById(id).outerHTML).join('');
+  function bake(viewBox, inner, filterIds, pw, ph) {
+    const svg = `<svg xmlns="${NS}" width="${pw}" height="${ph}" viewBox="${viewBox}" preserveAspectRatio="none"><defs>${defsFor(filterIds)}</defs>${inner}</svg>`;
+    return new Promise(res => {
+      const img = new Image();
+      img.onload = () => { const cv = document.createElement('canvas'); cv.width = pw; cv.height = ph; cv.getContext('2d').drawImage(img, 0, 0, pw, ph); res(cv); };
+      img.onerror = () => res(null);
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    });
   }
 
-  /* ---------- scene 1: sky ---------- */
+  /* ---------- scene 1: ink clouds that wash to blue, on one canvas ---------- */
   const CLOUDS = [
-    // x/y = centre (% of screen), w = width, side = which way it drifts, dist = how far, lift = vertical drift
-    {x:12,y:14,w:40,side:-1,dist:46,lift:8,z:3},
-    {x:88,y:16,w:42,side:1,dist:46,lift:8,z:3},
-    {x:30,y:6,w:36,side:-1,dist:40,lift:12,z:4},
-    {x:72,y:5,w:38,side:1,dist:40,lift:12,z:4},
-    {x:10,y:76,w:44,side:-1,dist:52,lift:-6,z:4},
-    {x:90,y:78,w:46,side:1,dist:52,lift:-6,z:4},
-    {x:55,y:90,w:52,side:1,dist:74,lift:-8,z:5},
-    {x:30,y:40,w:62,side:-1,dist:78,lift:4,z:6},
-    {x:72,y:47,w:64,side:1,dist:78,lift:4,z:6},
-    {x:52,y:27,w:50,side:1,dist:92,lift:16,z:7},
-    {x:50,y:36,w:56,side:-1,dist:92,lift:-4,z:7},
-    {x:46,y:62,w:58,side:-1,dist:88,lift:-12,z:8,hint:true}
+    {x:12,y:14,w:40,side:-1,dist:46,lift:8},
+    {x:88,y:16,w:42,side:1,dist:46,lift:8},
+    {x:30,y:6,w:36,side:-1,dist:40,lift:12},
+    {x:72,y:5,w:38,side:1,dist:40,lift:12},
+    {x:10,y:76,w:44,side:-1,dist:52,lift:-6},
+    {x:90,y:78,w:46,side:1,dist:52,lift:-6},
+    {x:55,y:90,w:52,side:1,dist:74,lift:-8},
+    {x:30,y:40,w:62,side:-1,dist:78,lift:4},
+    {x:72,y:47,w:64,side:1,dist:78,lift:4},
+    {x:52,y:27,w:50,side:1,dist:92,lift:16},
+    {x:50,y:36,w:56,side:-1,dist:92,lift:-4},
+    {x:46,y:62,w:58,side:-1,dist:88,lift:-12,hint:true}
   ];
-  const cloudBox = $('#clouds');
-  const clouds = CLOUDS.map((c, i) => {
-    const el = document.createElement('div');
-    el.className = 'cloud';
-    el.style.cssText = `--x:${c.x};--y:${c.y};--w:${c.w};z-index:${c.z}`;
-    const svg = document.createElementNS(NS, 'svg');
-    svg.setAttribute('viewBox', '0 0 600 300'); svg.setAttribute('class', 'sk');
-    el.appendChild(svg);
-    let hintEl = null;
-    if (c.hint) { hintEl = document.createElement('p'); hintEl.className = 'hint'; hintEl.textContent = 'psst… scroll'; el.appendChild(hintEl); }
-    cloudBox.appendChild(el);
-    const d = cloudPath(600, 300, rng(40 + i * 17));
-    sketch(svg, 40 + i, (rc, s) => [
-      rc.path(d, {fill:'#fff', fillStyle:'solid', stroke:INK, strokeWidth:2.6, roughness:1.5, bowing:1.4, seed:s}),
-      rc.path(`M ${150 + (i % 3) * 30} 218 Q 300 ${250 - (i % 2) * 10} ${430 - (i % 3) * 20} 214`, {stroke:'#9fc9df', strokeWidth:2, roughness:1.2, seed:s + 1})
-    ]);
-    return {...c, el, hintEl};
-  });
-  sketch($('#sun'), 9, (rc, s) => {
-    const rays = [];
-    for (let i = 0; i < 10; i++) {
-      const a = Math.PI * 2 * i / 10 + .2;
-      rays.push(rc.line(100 + Math.cos(a) * 68, 100 + Math.sin(a) * 68, 100 + Math.cos(a) * 94, 100 + Math.sin(a) * 94, {stroke:INK, strokeWidth:2.6, roughness:1.6, seed:s + i}));
+  const skyCanvas = $('#skyCanvas'), sctx = skyCanvas.getContext('2d'), hint = $('#hint');
+  const cloudFilter = sd => `<filter id="cw" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="${sd}" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="30" xChannelSelector="R" yChannelSelector="G" result="d"/><feGaussianBlur in="d" stdDeviation="2" result="s"/><feMorphology in="s" operator="erode" radius="5" result="i"/><feComposite in="s" in2="i" operator="out" result="r"/><feGaussianBlur in="r" stdDeviation="1.3" result="rs"/><feComponentTransfer in="s" result="b"><feFuncA type="table" tableValues="0 .95"/></feComponentTransfer><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="9" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -.6 1.22" result="ga"/><feMerge result="p"><feMergeNode in="b"/><feMergeNode in="rs"/></feMerge><feComposite in="p" in2="ga" operator="in"/></filter>`;
+  const clouds = CLOUDS.map((c, i) => ({...c, d1:cloudPath(600, 300, rng(40 + i * 17)), d2:cloudPath(600, 300, rng(90 + i * 13)), ink:null, blue:null}));
+  let unit = 10, cs = 1, skyDirty = true;
+  async function bakeClouds() {
+    await Promise.all(clouds.map(async (c, i) => {
+      const pw = Math.min(1600, Math.round(c.w * unit * cs * 1.24 * DPR)), ph = Math.round(pw / 2);
+      const art = col => `<g filter="url(#cw)" fill="${col}"><path d="${c.d1}"/><path d="${c.d2}" fill-opacity=".75" transform="translate(110 70) scale(.62)"/></g>`;
+      const vb = '-72 -36 744 372';
+      const withF = col => {
+        const svg = `<svg xmlns="${NS}" width="${pw}" height="${ph}" viewBox="${vb}" preserveAspectRatio="none"><defs>${cloudFilter(3 + i)}</defs>${art(col)}</svg>`;
+        return new Promise(res => { const img = new Image(); img.onload = () => { const cv = document.createElement('canvas'); cv.width = pw; cv.height = ph; cv.getContext('2d').drawImage(img, 0, 0, pw, ph); res(cv); }; img.onerror = () => res(null); img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg); });
+      };
+      [c.ink, c.blue] = await Promise.all([withF('#121518'), withF(BLUE)]);
+    }));
+    root.classList.remove('pending');
+    skyDirty = true; requestAnimationFrame(frame);
+  }
+  function sizeSky() {
+    skyCanvas.width = Math.round(innerWidth * DPR); skyCanvas.height = Math.round(innerHeight * DPR);
+  }
+  let lastSky = '';
+  function drawSky(part, tint) {
+    const key = part.toFixed(4) + tint.toFixed(4) + skyCanvas.width;
+    if (!skyDirty && key === lastSky) return;
+    lastSky = key; skyDirty = false;
+    const W = skyCanvas.width, H = skyCanvas.height, vw = innerWidth;
+    sctx.clearRect(0, 0, W, H);
+    if (part > .995) { skyCanvas.style.visibility = 'hidden'; return; }
+    skyCanvas.style.visibility = 'visible';
+    clouds.forEach(c => {
+      if (!c.ink) return;
+      const w = c.w * unit * cs, h = w / 2;
+      const cx = c.x / 100 * innerWidth + c.side * part * (c.dist * unit + vw * .12);
+      const cy = c.y / 100 * innerHeight - part * c.lift * unit;
+      const bw = w * 1.24, bh = h * 1.24;
+      const x = (cx - bw / 2) * DPR, y = (cy - bh / 2) * DPR;
+      if (x > W || y > H || x + bw * DPR < 0 || y + bh * DPR < 0) return;
+      if (tint < 1) { sctx.globalAlpha = 1 - tint; sctx.drawImage(c.ink, x, y, bw * DPR, bh * DPR); }
+      if (tint > 0) { sctx.globalAlpha = tint * .88; sctx.drawImage(c.blue, x, y, bw * DPR, bh * DPR); }
+      if (c.hint) {
+        hint.style.fontSize = (w * .09) + 'px';
+        hint.style.transform = `translate3d(${cx}px, ${cy + h * .06}px, 0) translate(-50%, -50%)`;
+      }
+    });
+    sctx.globalAlpha = 1;
+  }
+  // the ensō: one breath of the brush
+  (() => {
+    const r = rng(3), L = [], R = [], a0 = -1.75, sweep = 5.55, N = 70;
+    for (let i = 0; i <= N; i++) {
+      const t = i / N, a = a0 + sweep * t, rad = 70 + Math.sin(t * 9) * 1.5;
+      const w = (2 + 16 * Math.pow(Math.sin(Math.PI * Math.min(1, t * 1.08)), .65) * (1 - .4 * t)) * (1 + (r() - .5) * .25) / 2;
+      const x = 100 + Math.cos(a) * rad, y = 100 + Math.sin(a) * rad;
+      L.push([x + Math.cos(a) * w, y + Math.sin(a) * w]); R.push([x - Math.cos(a) * w, y - Math.sin(a) * w]);
     }
-    return [rc.circle(100, 100, 108, {fill:'#ffd35c', fillStyle:'solid', stroke:INK, strokeWidth:2.6, roughness:1.4, seed:s}),
-            rc.circle(100, 100, 108, {fill:'#f2b73a', fillStyle:'hachure', hachureGap:9, fillWeight:1.2, stroke:'none', roughness:1.2, seed:s + 20}), ...rays];
-  });
+    const g = el('g', {filter:'url(#ink)'});
+    g.appendChild(el('path', {d:'M ' + P(L) + ' L ' + P(R.reverse()) + ' Z', fill:INK}));
+    $('#enso').appendChild(g);
+  })();
 
-  const sky = $('#sky'), logo = $('#logo'), logoDot = $('#logoDot'), intro = $('#intro'), seed = $('#seed'), head = $('#top');
+  const sky = $('#sky'), logoDot = $('#logoDot'), intro = $('#intro'), seed = $('#seed'), head = $('#top');
 
   /* ---------- scene 2: timeline ---------- */
-  const tlLine = $('#tlLine'), guide = tlLine.querySelector('.guide'), trail = tlLine.querySelector('.trail'), tlEnd = $('#tlEnd');
+  const tlLine = $('#tlLine'), paths = [...tlLine.querySelectorAll('path')], tlEnd = $('#tlEnd');
   const jobs = $$('.job');
   let lineH = 0, trailLen = 1, nodeYs = [];
   function layoutLine() {
@@ -602,62 +645,134 @@ html.rm .bnote{display:none}
     const r = rng(5); let d = 'M 10 0';
     for (let y = 70; y < lineH; y += 70) d += ` Q ${10 + (r() - .5) * 9} ${y - 35} ${10 + (r() - .5) * 4} ${y}`;
     d += ` L 10 ${lineH}`;
-    guide.setAttribute('d', d); trail.setAttribute('d', d);
-    trailLen = trail.getTotalLength();
-    trail.style.strokeDasharray = trailLen;
+    paths.forEach(p => p.setAttribute('d', d));
+    trailLen = paths[2].getTotalLength();
+    paths[1].style.strokeDasharray = paths[2].style.strokeDasharray = trailLen;
     tlEnd.style.top = lineH + 'px';
   }
-  // live duration for the current role
-  $$('[data-since]').forEach(el => {
-    const [y, m] = el.dataset.since.split('-').map(Number), now = new Date();
-    const n = (now.getFullYear() * 12 + now.getMonth() + 1) - (y * 12 + m) + 1;
-    if (n > 0) el.textContent = (n < 12 ? `${n} mo${n > 1 ? 's' : ''}` : `${Math.floor(n / 12)} yr${n >= 24 ? 's' : ''}${n % 12 ? ` ${n % 12} mos` : ''}`) + ' so far';
+  $$('[data-since]').forEach(n => {
+    const [y, m] = n.dataset.since.split('-').map(Number), now = new Date();
+    const k = (now.getFullYear() * 12 + now.getMonth() + 1) - (y * 12 + m) + 1;
+    if (k > 0) n.textContent = (k < 12 ? `${k} mo${k > 1 ? 's' : ''}` : `${Math.floor(k / 12)} yr${k >= 24 ? 's' : ''}${k % 12 ? ` ${k % 12} mos` : ''}`) + ' so far';
   });
 
-  /* ---------- scene 3: trees ---------- */
-  const TREES = {
-    A: {cx:200, cy:190, rx:184, ry:164, n:12},
-    B: {cx:200, cy:200, rx:150, ry:150, n:10},
-    C: {cx:200, cy:205, rx:160, ry:140, n:10}
-  };
-  const trees = $$('.tree-wrap').map((wrap, ti) => {
-    const t = TREES[wrap.dataset.tree], svg = wrap.querySelector('svg.art');
-    const tuft = document.createElementNS(NS, 'g'), trunk = document.createElementNS(NS, 'g'), canopy = document.createElementNS(NS, 'g');
-    trunk.setAttribute('class', 'trunk'); canopy.setAttribute('class', 'canopy');
-    svg.append(tuft, trunk, canopy);
-    const blob = blobPath(t.cx, t.cy, t.rx, t.ry, t.n, rng(100 + ti * 9));
-    sketch(tuft, 70 + ti, (rc, s) => [rc.ellipse(200, 486, 300, 34, {fill:'#8fcf6a', fillStyle:'solid', stroke:INK, strokeWidth:2.4, roughness:1.6, seed:s})]);
-    sketch(trunk, 80 + ti, (rc, s) => [
-      rc.path('M 184 488 C 188 420 181 360 178 290 L 222 290 C 219 360 212 420 216 488 Z', {fill:'#7b5537', fillStyle:'solid', stroke:INK, strokeWidth:2.6, roughness:1.3, seed:s}),
-      rc.path('M 186 470 C 190 420 186 380 184 330 M 208 460 C 206 420 210 380 212 340', {stroke:'#4d3322', strokeWidth:1.6, roughness:1.6, seed:s + 1}),
-      rc.path('M 205 340 C 232 320 252 300 268 268 M 194 356 C 168 338 150 316 136 290', {stroke:INK, strokeWidth:3, roughness:1.5, seed:s + 2})
-    ]);
-    sketch(canopy, 90 + ti, (rc, s) => [
-      rc.path(blob, {fill:'#8fcf6a', fillStyle:'solid', stroke:INK, strokeWidth:2.8, roughness:1.4, bowing:1.3, seed:s}),
-      rc.path(blob, {fill:'#5f9f4b', fillStyle:'hachure', hachureGap:12, hachureAngle:-40, fillWeight:1.3, stroke:'none', roughness:1.4, seed:s + 5})
-    ]);
-    wrap.querySelectorAll('.leaf svg').forEach((ls, li) => sketch(ls, 200 + ti * 10 + li, (rc, s) => [
-      rc.path('M 8 46 C 36 4 118 0 152 44 C 122 88 40 92 8 46 Z', {fill:'#d8f5ad', fillStyle:'solid', stroke:INK, strokeWidth:2.2, roughness:1.1, seed:s}),
-      rc.line(-4, 52, 10, 46, {stroke:INK, strokeWidth:2.2, roughness:1, seed:s + 1})
-    ]));
-    return {wrap, trunk, canopy, g:0};
+  /* ---------- scene 3: a screen-filling ink tree, painted onto one canvas ---------- */
+  const grove = $('#grove'), gstage = $('#gstage'), treeCanvas = $('#treeCanvas'), tctx = treeCanvas.getContext('2d'), groveHead = $('#groveHead');
+  const leaves = $$('.leaf'), glabels = $$('.glabel'), GROUPS = [6, 3, 3];
+  let treeArt = [], base = [], slots = [], slotScale = 1, LW = 140, builtW = 0, builtH = 0, treeJob = 0;
+  leaves.forEach((lf, i) => {
+    const r = rng(300 + i), svg = el('svg', {viewBox:'0 0 160 70'});
+    const g = el('g', {filter:'url(#washS)'});
+    g.append(el('path', {d:'M 6 35 C 34 2 120 -2 154 33 C 124 70 38 72 6 35 Z', fill:BLUE, 'fill-opacity':(.62 + r() * .18).toFixed(2)}));
+    const st = el('g', {filter:'url(#ink)'});
+    st.append(el('path', {d:taper([-10, 44], [-2, 38], [10, 35], 3, 1.2, r), fill:INK}));
+    svg.append(g, st); lf.prepend(svg);
   });
+  function buildTree() {
+    const w = gstage.clientWidth, h = gstage.clientHeight, mobile = w < 760;
+    LW = mobile ? 116 : clamp(w * .1, 124, 158);
+    $('#leaves').style.setProperty('--lw', LW + 'px');
+    if (base.length && Math.abs(w - builtW) < 2 && Math.abs(h - builtH) < 140) { placeSlots(w, h); return; }
+    builtW = w; builtH = h;
+    const r = rng(2026), br = [], spread = w / h > 1 ? 1.45 : .78;
+    (function grow(x, y, ang, len, wid, d) {
+      const ex = x + Math.cos(ang) * len, ey = y + Math.sin(ang) * len, bend = (r() - .5) * len * .4;
+      br.push({d, x, y, cx:(x + ex) / 2 + Math.cos(ang + Math.PI / 2) * bend, cy:(y + ey) / 2 + Math.sin(ang + Math.PI / 2) * bend, ex, ey, w0:wid, w1:wid * .6});
+      if (d >= 7 || len < 16) return;
+      const n = d < 1 ? 2 : (r() < .4 ? 3 : 2);
+      for (let i = 0; i < n; i++) {
+        const s = n === 2 ? (i ? 1 : -1) * (.3 + r() * .38) : (i - 1) * (.42 + r() * .22);
+        let na = ang + s * spread + (r() - .5) * .22;
+        na = Math.max(-Math.PI + .12, Math.min(-.12, na));
+        grow(ex, ey, na, len * (.7 + r() * .14) * (mobile ? 1 : 1.07), wid * .62, d + 1);
+      }
+    })(w * (mobile ? .5 : .46), h + 30, -Math.PI / 2 + .06, h * (mobile ? .17 : .21), Math.max(30, Math.min(w, h) * .075), 0);
+
+    // four depth layers of brushwork plus a layer of blue blossoms, as SVG strings
+    const layerSrc = [0, 1, 2, 3].map(k => {
+      const grp = br.filter(b => Math.min(3, b.d >> 1) === k);
+      let s = '';
+      if (k < 2) s += `<g filter="url(#wash)">${grp.map(b => `<path d="${taper([b.x, b.y], [b.cx, b.cy], [b.ex, b.ey], b.w0 * 2.2, b.w1 * 2.2, r)}" fill="${INK}" fill-opacity=".16"/>`).join('')}</g>`;
+      s += `<g filter="url(#ink)">${grp.map(b => `<path d="${taper([b.x, b.y], [b.cx, b.cy], [b.ex, b.ey], b.w0, b.w1, r)}" fill="${INK}" fill-opacity="${(.95 - k * .1).toFixed(2)}"/>`).join('')}</g>`;
+      return [s, ['wash', 'ink']];
+    });
+    const blossoms = br.filter(b => b.d >= 5 && r() < .5).map(b => `<circle cx="${(b.ex + (r() - .5) * 12).toFixed(1)}" cy="${(b.ey + (r() - .5) * 12).toFixed(1)}" r="${(4 + r() * 10).toFixed(1)}" fill="${BLUE}" fill-opacity="${(.3 + r() * .45).toFixed(2)}"/>`).join('');
+    layerSrc.push([`<g filter="url(#washS)">${blossoms}</g>`, ['washS']]);
+    treeCanvas.width = Math.round(w * DPR); treeCanvas.height = Math.round(h * DPR);
+    treeArt = []; const job = ++treeJob;
+    const go = () => Promise.all(layerSrc.map(([inner, f]) => bake(`0 0 ${w} ${h}`, inner, f, treeCanvas.width, treeCanvas.height)))
+      .then(cvs => { if (job === treeJob) { treeArt = cvs; lastTree = ''; requestAnimationFrame(frame); } });
+    (window.requestIdleCallback || setTimeout)(go, {timeout:1200});
+
+    // pick 12 well-spread spots along the branches for the leaves, clear of the heading
+    const sr = gstage.getBoundingClientRect(), hr = groveHead.getBoundingClientRect();
+    const hx0 = hr.left - sr.left - 30, hx1 = hr.right - sr.left + 30, hy0 = hr.top - sr.top - 30, hy1 = hr.bottom - sr.top + 30;
+    const along = (b, t) => [(1 - t) * (1 - t) * b.x + 2 * (1 - t) * t * b.cx + t * t * b.ex, (1 - t) * (1 - t) * b.y + 2 * (1 - t) * t * b.cy + t * t * b.ey];
+    const cand = br.filter(b => b.d >= 2 && b.d <= 6).flatMap(b => [along(b, .55), along(b, 1)])
+      .filter(([x, y]) => x > LW * .6 && x < w - LW * .6 && y > 125 && y < h * .8 && !(x > hx0 && x < hx1 && y > hy0 && y < hy1));
+    const picked = [];
+    if (cand.length) {
+      picked.push(cand.reduce((a, b) => b[1] < a[1] ? b : a));
+      while (picked.length < 12 && picked.length < cand.length) {
+        let best = null, bd = -1;
+        for (const c of cand) { const dm = Math.min(...picked.map(p => Math.hypot((p[0] - c[0]) / LW, (p[1] - c[1]) / (LW * .46)))); if (dm > bd) { bd = dm; best = c; } }
+        picked.push(best);
+      }
+    }
+    while (picked.length < 12) picked.push([w * (.2 + .6 * r()), h * (.2 + .4 * r())]);
+    picked.sort((a, b) => a[1] - b[1]);
+    base = picked.map(([x, y], i) => ({x, y, r:(r() - .5) * 50, sway:i % 2 ? 1 : -1}));
+    placeSlots(w, h);
+  }
+  // where the leaves come to rest: one straight column, grouped
+  function placeSlots(w, h) {
+    const mobile = w < 760, top = mobile ? 132 : 96, bottom = h - 36, gap = .75;
+    const rowH = Math.min(LW * .5, (bottom - top) / (12 + 2 * gap));
+    slotScale = Math.min(1, rowH / (LW * .48));
+    const colX = mobile ? w * .62 : w * .5 + 70;
+    let y = top + ((bottom - top) - rowH * (12 + 2 * gap)) / 2 + rowH / 2;
+    slots = []; const labelY = [];
+    GROUPS.forEach(n => { labelY.push(y); for (let k = 0; k < n; k++) { slots.push([colX, y]); y += rowH; } y += rowH * gap; });
+    const labelRight = w - (colX - LW * slotScale / 2 - 18);
+    glabels.forEach((l, gi) => { l.style.right = labelRight + 'px'; l.style.top = labelY[gi] + 'px'; });
+  }
+  let lastTree = '';
+  function drawTree(pg) {
+    const alphas = treeArt.map((_, k) => clamp((pg - (.005 + k * .04)) / .06));
+    const key = alphas.map(a => a.toFixed(3)).join();
+    if (key === lastTree) return;
+    lastTree = key;
+    tctx.clearRect(0, 0, treeCanvas.width, treeCanvas.height);
+    treeArt.forEach((cv, k) => { if (cv && alphas[k] > 0) { tctx.globalAlpha = alphas[k]; tctx.drawImage(cv, 0, 0); } });
+    tctx.globalAlpha = 1;
+  }
 
   /* ---------- scene 4: bench and book ---------- */
   const bench = $('#bench'), world = $('#world'), book = $('#book'), turn = $('#turn'), bnote = $('#bnote');
-  sketch($('#benchArt'), 300, (rc, s) => {
-    const o = {stroke:INK, strokeWidth:2.6, roughness:1.2};
-    return [
-      rc.rectangle(110, 86, 150, 256, {...o, fill:'#fafcfd', fillStyle:'solid', seed:s}),
-      rc.rectangle(640, 86, 150, 256, {...o, fill:'#fafcfd', fillStyle:'solid', seed:s + 1}),
-      rc.rectangle(110, 86, 150, 256, {fill:'#cfd9e0', fillStyle:'hachure', hachureGap:14, stroke:'none', roughness:1.2, seed:s + 2}),
-      rc.rectangle(640, 86, 150, 256, {fill:'#cfd9e0', fillStyle:'hachure', hachureGap:14, stroke:'none', roughness:1.2, seed:s + 3}),
-      rc.polygon([[60, 0], [840, 0], [884, 26], [16, 26]], {...o, fill:'#ffffff', fillStyle:'solid', seed:s + 4}),
-      rc.rectangle(16, 26, 868, 64, {...o, fill:'#f2f6f8', fillStyle:'solid', seed:s + 5}),
-      rc.line(70, 54, 380, 48, {stroke:'#b9c6cf', strokeWidth:1.6, roughness:2, seed:s + 6}),
-      rc.line(520, 40, 820, 62, {stroke:'#b9c6cf', strokeWidth:1.6, roughness:2, seed:s + 7})
-    ];
-  });
+  (() => {
+    const svg = $('#benchArt'), r = rng(77);
+    const wash = el('g', {filter:'url(#wash)'});
+    wash.append(
+      el('rect', {x:16, y:22, width:868, height:66, rx:4, fill:INK, 'fill-opacity':.09}),
+      el('rect', {x:112, y:88, width:146, height:252, fill:INK, 'fill-opacity':.1}),
+      el('rect', {x:642, y:88, width:146, height:252, fill:INK, 'fill-opacity':.1}),
+      el('rect', {x:-900, y:342, width:2700, height:40, fill:INK, 'fill-opacity':.07}));
+    const ink = el('g', {filter:'url(#ink)'});
+    [
+      [[18, 22], [450, 12], [882, 24], 10, 6],
+      [[24, 88], [450, 93], [878, 86], 5, 3],
+      [[18, 22], [16, 56], [24, 88], 6, 4],
+      [[882, 24], [884, 56], [878, 86], 6, 4],
+      [[112, 90], [106, 210], [114, 340], 8, 5],
+      [[258, 90], [263, 210], [256, 340], 5, 3],
+      [[642, 90], [637, 210], [644, 340], 8, 5],
+      [[788, 90], [793, 210], [786, 340], 5, 3],
+      [[-760, 344], [450, 352], [1660, 342], 4, 1.5]
+    ].forEach(([a, c, b, w0, w1]) => ink.appendChild(el('path', {d:taper(a, c, b, w0, w1, r), fill:INK})));
+    ink.appendChild(el('path', {d:taper([90, 52], [250, 46], [380, 54], 2, .6, r), fill:INK, 'fill-opacity':.35}));
+    ink.appendChild(el('path', {d:taper([530, 44], [680, 60], [820, 52], 2, .6, r), fill:INK, 'fill-opacity':.35}));
+    svg.append(wash, ink);
+  })();
   let BH = 0, s0 = .45, single = false, bookOpen = false;
   function layoutBook() {
     const vw = innerWidth, vh = innerHeight;
@@ -670,93 +785,105 @@ html.rm .bnote{display:none}
     st.setProperty('--W', W + 'px'); st.setProperty('--H', H + 'px'); st.setProperty('--PW', PW + 'px');
     st.setProperty('--BW', BW + 'px'); st.setProperty('--BH', BH + 'px');
     book.classList.toggle('single', single);
-    s0 = Math.min(.48, vw * .86 / BW, vh * .62 / (H + BH * .86));
+    s0 = Math.min(.48, vw * .86 / BW, vh * .62 / (H + BH * .9));
   }
 
   /* ---------- per-frame scroll choreography ---------- */
-  let unit = 10, ticking = false;
+  let ticking = false, pgNow = 0;
   function frame() {
     ticking = false;
     const vw = innerWidth, vh = innerHeight, tipY = vh * .62;
 
-    // sky: clouds part, logo settles, the blue dot detaches and falls
+    // 1. clouds part and wash from black ink to brand blue
     const span = sky.offsetHeight - vh;
     const ps = reduce || span <= 0 ? 1 : clamp(-sky.getBoundingClientRect().top / span);
-    const part = easeIO(clamp(ps / .6));
+    const part = easeIO(clamp(ps / .6)), tint = clamp(ps / .45);
     if (!reduce) {
-      clouds.forEach(c => {
-        c.el.style.transform = `translate3d(${c.side * part * (c.dist * unit + vw * .12)}px, ${-part * c.lift * unit}px, 0) scale(${1 + part * .15})`;
-        if (c.hintEl) c.hintEl.style.opacity = clamp(1 - ps * 7);
-      });
-      logo.style.transform = `scale(${.9 + .1 * part})`;
+      drawSky(part, tint);
+      hint.style.opacity = clamp(1 - ps * 7);
       intro.style.opacity = clamp((ps - .4) / .18);
     }
+    head.classList.toggle('on-ink', !reduce && ps < .12);
     head.classList.toggle('solid', sky.getBoundingClientRect().bottom < vh * .7);
 
-    // timeline: the blue trail always reaches the dot
+    // 2. the blue trail always reaches the drop
     const lr = tlLine.getBoundingClientRect(), lineX = lr.left + 10;
     const drawn = reduce ? lineH : clamp(tipY - lr.top, 0, lineH);
-    trail.style.strokeDashoffset = trailLen * (1 - drawn / (lineH || 1));
+    const off = trailLen * (1 - drawn / (lineH || 1));
+    paths[1].style.strokeDashoffset = paths[2].style.strokeDashoffset = off;
     jobs.forEach((j, i) => j.classList.toggle('inked', reduce || drawn >= nodeYs[i] - 4));
     tlEnd.style.display = drawn >= lineH ? 'block' : 'none';
 
-    let show = false, sx = 0, sy = 0, size = 20;
+    let show = false, falling = false, sx = 0, sy = 0, size = 20;
     if (!reduce && ps >= .7) {
       if (ps < 1) {
         const f = clamp((ps - .7) / .3), dr = logoDot.getBoundingClientRect();
-        show = true;
+        show = true; falling = f > .04 && f < .97;
         sx = lerp(dr.left + dr.width / 2, lineX, easeOut(f));
         sy = lerp(dr.top + dr.height / 2, tipY, f * f);
         size = lerp(dr.width, 20, f);
-      } else if (drawn < lineH) {
-        show = true; sx = lineX; sy = Math.max(tipY, lr.top); size = 20;
-      }
+      } else if (drawn < lineH) { show = true; sx = lineX; sy = Math.max(tipY, lr.top); }
     }
     logoDot.style.opacity = reduce || ps < .7 ? 1 : 0;
     seed.style.display = show ? 'block' : 'none';
+    seed.classList.toggle('falling', falling);
     if (show) { seed.style.width = seed.style.height = size + 'px'; seed.style.transform = `translate3d(${sx - size / 2}px, ${sy - size / 2}px, 0)`; }
 
-    // trees grow as they rise into view (one way only)
-    trees.forEach(t => {
-      const r = t.wrap.getBoundingClientRect();
-      t.g = reduce ? 1 : Math.max(t.g, clamp((vh * .95 - r.top) / (r.height * .75)));
-      t.trunk.style.setProperty('--t', easeOut(clamp(t.g / .45)).toFixed(3));
-      t.canopy.style.setProperty('--c', back(clamp((t.g - .3) / .55)).toFixed(3));
-      if (t.g >= .85) t.wrap.classList.add('grown');
-    });
+    // 3. paint the tree, bloom the leaves, then let them fall into a line
+    const gr = grove.getBoundingClientRect(), gspan = grove.offsetHeight - vh;
+    const pg = pgNow = reduce || gspan <= 0 ? 1 : clamp(-gr.top / gspan);
+    if (gr.bottom > 0 && gr.top < vh) {
+      drawTree(pg);
+      treeCanvas.style.opacity = (1 - .78 * clamp((pg - .66) / .16)).toFixed(3);
+      const onBranch = vw < 760 ? .82 : 1;
+      leaves.forEach((lf, i) => {
+        const b = base[i], s = slots[i];
+        if (!b || !s) return;
+        const bloom = back(clamp((pg - (.16 + i * .009)) / .08));
+        const f = clamp((pg - (.42 + i * .022)) / .16), e = easeIO(f), fade = 1 - f;
+        const x = lerp(b.x, s[0], e) + Math.sin(f * Math.PI * 2.5) * 46 * fade * b.sway;
+        const y = lerp(b.y, s[1], e) + Math.sin(f * Math.PI) * 70;
+        const rot = lerp(b.r, 0, e) + Math.sin(f * Math.PI * 3) * 24 * fade;
+        const sc = lerp(onBranch, slotScale, e) * bloom;
+        lf.style.transform = `translate3d(${(x - LW / 2).toFixed(1)}px, ${(y - LW * .219).toFixed(1)}px, 0) rotate(${rot.toFixed(1)}deg) scale(${sc.toFixed(3)})`;
+      });
+      glabels.forEach(l => l.style.opacity = clamp((pg - .8) / .06).toFixed(3));
+    }
 
-    // bench: zoom in on the book, then turn the page
+    // 4. zoom in on the book, then turn the page
     const bspan = bench.offsetHeight - vh;
     const pb = reduce || bspan <= 0 ? 1 : clamp(-bench.getBoundingClientRect().top / bspan);
     const z = easeIO(clamp(pb / .42)), s = lerp(s0, 1, z);
-    world.style.transform = `translate3d(0, ${-BH * .43 * s0 * (1 - z)}px, 0) scale(${s})`;
+    world.style.transform = `translate3d(0, ${-BH * .45 * s0 * (1 - z)}px, 0) scale(${s})`;
     const flip = easeIO(clamp((pb - .48) / .3));
     turn.style.setProperty('--flip', flip.toFixed(4));
-    turn.style.setProperty('--shade', (Math.sin(flip * Math.PI) * .3).toFixed(3));
+    turn.style.setProperty('--shade', (Math.sin(flip * Math.PI) * .28).toFixed(3));
     turn.style.opacity = single ? clamp(1 - (flip - .7) / .3) : 1;
     turn.style.visibility = single && flip > .99 ? 'hidden' : 'visible';
     bnote.style.opacity = clamp(1 - z * 2.5);
     bookOpen = flip > .98;
   }
   const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
-  function layout() { unit = Math.max(innerWidth / 100, innerHeight * .0062); layoutLine(); layoutBook(); frame(); }
-  addEventListener('scroll', onScroll, {passive:true});
-  addEventListener('resize', () => requestAnimationFrame(layout));
-  layout();
-  if (document.fonts) document.fonts.ready.then(layout);
-
-  // keyboard users who tab into the form are taken to the open book
-  $('#inq').addEventListener('focusin', () => { if (!bookOpen && !reduce) $('#contact').scrollIntoView(); });
-
-  /* ---------- line boil: redraw the cartoon a few times a second ---------- */
-  if (!reduce) {
-    let k = 0, timer = null;
-    const tick = () => { root.classList.remove('sk' + k); k = (k + 1) % 3; root.classList.add('sk' + k); };
-    const start = () => { if (!timer) timer = setInterval(tick, 150); };
-    const stop = () => { clearInterval(timer); timer = null; };
-    document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
-    start();
+  let lastW = 0, lastH = 0;
+  function layout() {
+    const changed = Math.abs(innerWidth - lastW) > 1 || Math.abs(innerHeight - lastH) > 140;
+    unit = Math.max(innerWidth / 100, innerHeight * .0062);
+    cs = innerWidth / innerHeight < .75 ? 1.3 : 1;
+    layoutLine(); buildTree(); layoutBook();
+    if (changed && !reduce) { lastW = innerWidth; lastH = innerHeight; sizeSky(); skyDirty = true; bakeClouds(); }
+    skyDirty = true; lastTree = '';
+    frame();
   }
+  addEventListener('scroll', onScroll, {passive:true});
+  let rt = 0;
+  addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(layout, 150); });
+  layout();
+  if (reduce) root.classList.remove('pending');
+  if (document.fonts) document.fonts.ready.then(() => { layoutLine(); placeSlots(gstage.clientWidth, gstage.clientHeight); frame(); });
+
+  // keyboard users land on the finished scene
+  $('#leaves').addEventListener('focusin', () => { if (pgNow < .82 && !reduce) $('#links').scrollIntoView(); });
+  $('#inq').addEventListener('focusin', () => { if (!bookOpen && !reduce) $('#contact').scrollIntoView(); });
 
   /* ---------- contact form: send through FormSubmit, fall back to email ---------- */
   const form = $('#inq'), status = $('#status');
