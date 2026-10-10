@@ -1,507 +1,786 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Mark Johnson - Portfolio</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Importing Google Fonts: Inter for UI and 'Caveat' for the handwritten feel -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#13a4ec",
-                        "background-light": "#f6f7f8",
-                        "background-dark": "#101c22",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"],
-                        "handwriting": ["Caveat", "cursive"]
-                    },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-                },
-            },
-        }
-    </script>
+<html lang="en" class="sk0">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ohullo. Mark Johnson</title>
+<meta name="description" content="Mark Johnson, Director of Marketing at MCDP and operations leader. Twenty years of making things work.">
+<meta name="theme-color" content="#a7dbf6">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <style>
-        /* Custom parallax-like floating animation */
-        @keyframes float-slow {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
-        @keyframes float-medium {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(-15px) translateX(10px); }
-        }
-        @keyframes float-fast {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
-        .animate-float-medium { animation: float-medium 6s ease-in-out infinite; }
-        .animate-float-fast { animation: float-fast 4s ease-in-out infinite; }
-        
-        /* Scroll indicator bounce */
-        @keyframes bounce-subtle {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-        .animate-bounce-subtle { animation: bounce-subtle 2s infinite; }
-    </style>
+:root{
+  --ink:#1d2b36;
+  --ink-soft:#4f5f6c;
+  --pencil:#a9b6c0;
+  --blue:#13a4ec;
+  --blue-deep:#0a71a8;
+  --sky-top:#a7dbf6;
+  --sky:#d6effb;
+  --sky-low:#e8f6fd;
+  --leaf:#d8f5ad;
+  --grass:#8fcf6a;
+  --paper:#fffdf7;
+  --hand:"Caveat","Bradley Hand","Segoe Print",cursive;
+  --body:"Shantell Sans","Comic Neue","Trebuchet MS",sans-serif;
+  --wobbly:255px 15px 225px 15px/15px 225px 15px 255px;
+  --wobbly2:15px 225px 15px 255px/255px 15px 225px 15px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--sky);color:var(--ink);font-family:var(--body);font-size:clamp(1rem,.95rem + .22vw,1.08rem);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:var(--blue-deep)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:1rem;top:-5rem;z-index:100;background:var(--ink);color:#fff;padding:.6rem 1rem;border-radius:var(--wobbly)}
+.skip:focus{top:1rem}
+
+/* line boil: only one drawing variant is visible at a time */
+html.sk0 .sk1,html.sk0 .sk2,html.sk1 .sk0,html.sk1 .sk2,html.sk2 .sk0,html.sk2 .sk1{display:none}
+svg.sk path{vector-effect:non-scaling-stroke}
+
+/* ---------- header ---------- */
+.top{position:fixed;inset:0 0 auto;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:.65rem clamp(1rem,3vw,2rem);transition:background .3s,box-shadow .3s}
+.top.solid{background:rgba(214,239,251,.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 2px 0 rgba(29,43,54,.08)}
+.brand{font-family:var(--hand);font-weight:700;font-size:2.2rem;line-height:1;color:var(--ink);text-decoration:none;opacity:0;transition:opacity .3s}
+.top.solid .brand,.brand:focus-visible{opacity:1}
+.brand i{display:inline-block;width:.15em;height:.15em;border-radius:50%;background:var(--blue);margin-left:.03em}
+.top nav{display:flex;align-items:center;gap:clamp(.8rem,2.2vw,1.6rem)}
+.top nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.98rem}
+.top nav a:hover{color:var(--blue-deep)}
+.top nav a.pill{border:2px solid var(--ink);border-radius:var(--wobbly);padding:.2rem .95rem;background:#fff;box-shadow:2px 3px 0 var(--ink)}
+.top nav a.pill:hover{transform:translate(-1px,-1px);box-shadow:3px 4px 0 var(--ink)}
+
+/* ---------- scene 1: the sky ---------- */
+.sky{position:relative;height:300vh}
+.stage{position:sticky;top:0;height:100vh;overflow:hidden}
+.sky .stage{background:linear-gradient(var(--sky-top),var(--sky) 88%)}
+.sun{position:absolute;right:9%;top:9%;width:clamp(90px,15vmin,180px);aspect-ratio:1;z-index:1;overflow:visible}
+.hero{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 16px 14vh}
+.logo{font-family:var(--hand);font-weight:700;font-size:clamp(5.6rem,22vw,15rem);line-height:.82;margin:0;color:var(--ink);white-space:nowrap;letter-spacing:-.01em;will-change:transform}
+.logo .dot{display:inline-block;width:.15em;height:.15em;border-radius:50%;background:var(--blue);margin-left:.03em;vertical-align:baseline}
+html.sk0 .wob{filter:url(#wob0)}html.sk1 .wob{filter:url(#wob1)}html.sk2 .wob{filter:url(#wob2)}
+.intro{margin-top:1.4rem;max-width:32rem}
+.intro .hi{display:block;font-family:var(--hand);font-weight:700;font-size:clamp(2rem,4.4vw,2.7rem);line-height:1}
+.intro p{margin:.5rem 0 0;color:var(--ink-soft)}
+.cloud{position:absolute;left:calc(var(--x)*1%);top:calc(var(--y)*1%);width:calc(var(--w)*max(1vw,.62vh)*var(--cs,1));aspect-ratio:2/1;transform-origin:50% 60%;will-change:transform;container-type:inline-size;translate:-50% -50%}
+.cloud svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.cloud .hint{position:absolute;inset:0;margin:0;display:grid;place-items:center;padding-top:14%;font-family:var(--hand);font-weight:700;font-size:9cqi;color:var(--ink)}
+.seed{position:fixed;left:0;top:0;width:20px;height:20px;border-radius:50%;background:var(--blue);z-index:30;pointer-events:none;display:none;will-change:transform}
+
+/* ---------- scene 2: the timeline ---------- */
+.tl{position:relative;z-index:5;margin-top:-38vh;padding:0 clamp(1rem,4vw,2rem) 5rem}
+.tl-inner{position:relative;max-width:1120px;margin:0 auto}
+.tl-line{position:absolute;top:0;left:50%;margin-left:-10px;width:20px;overflow:visible;pointer-events:none}
+.tl-line .guide{stroke:var(--pencil);stroke-width:2.5;stroke-dasharray:2 11;stroke-linecap:round;fill:none}
+.tl-line .trail{stroke:var(--blue);stroke-width:4;stroke-linecap:round;fill:none}
+.tl-end{position:absolute;left:50%;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;background:var(--blue);display:none}
+.tl-head,.job{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(4rem,9vw,7rem)}
+.tl-head{padding:2.2rem 0 1rem}
+.tl-head div{grid-column:1;text-align:right}
+.tl-head h2{font-family:var(--hand);font-weight:700;font-size:clamp(2.8rem,6vw,4.3rem);line-height:.95;margin:0}
+.tl-head p{margin:.5rem 0 0;color:var(--ink-soft)}
+.jobs{list-style:none;margin:0;padding:0}
+.job{position:relative;padding:2.8rem 0}
+.job .when,.job .card{grid-row:1}
+.job:nth-child(odd) .when{grid-column:1;text-align:right}
+.job:nth-child(odd) .card{grid-column:2}
+.job:nth-child(even) .when{grid-column:2}
+.job:nth-child(even) .card{grid-column:1}
+.when{padding-top:.5rem}
+.dates{display:block;font-family:var(--hand);font-weight:700;font-size:clamp(2.1rem,3.4vw,2.8rem);line-height:1}
+.dur{display:block;color:var(--ink-soft);font-size:.95rem;margin-top:.35rem}
+.node{position:absolute;left:50%;top:calc(2.8rem + 1.35rem);width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%;background:var(--sky);border:3px solid var(--pencil);transition:background .35s,border-color .35s,transform .35s cubic-bezier(.3,1.8,.5,1)}
+.job.inked .node{background:var(--blue);border-color:var(--ink);transform:scale(1.15)}
+.card{position:relative;background:#fff;border:2.5px solid var(--ink);border-radius:var(--wobbly);padding:1.5rem 1.65rem 1.4rem;box-shadow:5px 6px 0 var(--ink);transition:border-color .5s,box-shadow .5s,color .5s,background .5s}
+.job:nth-child(even) .card{border-radius:var(--wobbly2)}
+.js .job:not(.inked) .card{border-style:dashed;border-color:var(--pencil);box-shadow:0 0 0 transparent;color:#7e8b96;background:rgba(255,255,255,.5)}
+.role{font-size:clamp(1.3rem,1.15rem + .6vw,1.6rem);line-height:1.2;margin:0;font-weight:700}
+.org{margin:.5rem 0 .9rem;color:var(--ink-soft);font-size:.95rem;line-height:1.35}
+.org b{display:block;font-family:var(--hand);font-weight:700;font-size:2rem;line-height:1;color:var(--blue-deep);margin-bottom:.2rem}
+.js .job:not(.inked) .org b{color:inherit}
+.desc{margin:0 0 1rem}
+.wins{list-style:none;margin:0 0 1.2rem;padding:0;display:grid;gap:.55rem}
+.wins li{position:relative;padding-left:1.9rem;font-size:.96em;line-height:1.5}
+.wins li::before{content:"";position:absolute;left:0;top:.3em;width:1.2rem;height:1rem;background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 20'%3E%3Cpath d='M2 11.5c2.2 1.4 4 3.6 5.6 6.2C10.8 10.4 15.6 4.6 22 1.6' fill='none' stroke='%2313a4ec' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.45rem}
+.tags li{font-size:.8rem;line-height:1.3;padding:.28rem .7rem;border:1.5px solid currentColor;border-radius:var(--wobbly);color:var(--ink-soft)}
+
+/* ---------- scene 3: the trees ---------- */
+.grove{position:relative;z-index:5;padding:4rem clamp(1rem,4vw,2rem) 6rem;background:linear-gradient(var(--sky),var(--sky-low))}
+.grove-head{text-align:center;max-width:34rem;margin:0 auto 2.5rem}
+.grove-head h2{font-family:var(--hand);font-weight:700;font-size:clamp(3rem,7vw,4.6rem);line-height:.95;margin:0}
+.grove-head p{margin:.6rem 0 0;color:var(--ink-soft)}
+.trees{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:clamp(1rem,3vw,3rem);align-items:end;max-width:1180px;margin:0 auto}
+.tree-wrap{margin:0}
+.tree{position:relative;aspect-ratio:4/5;container-type:inline-size}
+.tree svg.art{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.tree .trunk{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(var(--t,1))}
+.tree .canopy{transform-box:fill-box;transform-origin:50% 70%;transform:scale(var(--c,1))}
+.sign{display:block;text-align:center;font-family:var(--hand);font-weight:700;font-size:2rem;line-height:1;margin-top:.4rem}
+.leaf{position:absolute;left:calc(var(--x)*1%);top:calc(var(--y)*1%);width:var(--lw);aspect-ratio:160/92;z-index:2;color:var(--ink);text-decoration:none;transform:translate(-50%,-50%) rotate(calc(var(--r)*1deg)) scale(var(--s,1));transition:transform .55s cubic-bezier(.34,1.7,.5,1) calc(var(--i)*85ms + 120ms)}
+.js .tree-wrap:not(.grown) .leaf{--s:0;transition-delay:0s}
+.leaf .lf{position:absolute;inset:0;display:block;transform-origin:6% 50%}
+.leaf svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.leaf .t{position:absolute;inset:0;display:grid;place-items:center;padding:0 9%;white-space:nowrap;text-align:center;font-family:var(--hand);font-weight:700;font-size:var(--fs);line-height:.95}
+.leaf:hover .lf,.leaf:focus-visible .lf{animation:rustle .7s ease-in-out}
+.leaf:hover .t{color:var(--blue-deep)}
+.leaf:focus-visible{outline:none}
+.leaf:focus-visible .lf{outline:3px solid var(--blue);outline-offset:3px;border-radius:50%}
+html:not(.js) .leaf .lf,html.norough .leaf .lf{background:var(--leaf);border:2px solid var(--ink);border-radius:0 70% 0 70%}
+@keyframes rustle{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}55%{transform:rotate(6deg)}80%{transform:rotate(-2deg)}}
+.tA{--lw:35%;--fs:5.5cqi}
+.tB,.tC{--lw:39%;--fs:6.8cqi}
+
+/* ---------- scene 4: the bench and the book ---------- */
+.bench-scene{position:relative;height:340vh;background:var(--sky-low)}
+.bstage{background:linear-gradient(var(--sky-low),#f5fbfe)}
+.bnote{position:absolute;left:0;right:0;top:12vh;z-index:2;margin:0;text-align:center;font-family:var(--hand);font-weight:700;font-size:clamp(2rem,4.6vw,3rem);line-height:1;padding:0 16px}
+.world{--W:min(940px,92vw);--H:calc(var(--W)*.64);--PW:calc(var(--W)/2);--BW:calc(var(--W)*1.45);--BH:calc(var(--BW)*.4);position:absolute;left:50%;top:50%;width:0;height:0;transform-origin:0 0;will-change:transform}
+.ground{position:absolute;left:-6000px;width:12000px;top:calc(var(--H)*.5 + var(--BH)*.86);height:6000px;border-top:3px solid var(--ink);background:repeating-linear-gradient(-38deg,transparent 0 15px,rgba(79,140,62,.33) 15px 17px),var(--grass)}
+.bench{position:absolute;left:calc(var(--BW)*-.5);top:calc(var(--H)*.5 - var(--BH)*.07);width:var(--BW);height:var(--BH);overflow:visible}
+.book{position:absolute;left:calc(var(--W)*-.5);top:calc(var(--H)*-.5);width:var(--W);height:var(--H);perspective:calc(var(--W)*2.6)}
+.book .cover{position:absolute;inset:-11px -13px -13px -13px;background:#26405a;border:2.5px solid var(--ink);border-radius:12px 16px 14px 10px}
+.page,.face{background:var(--paper);border:2.5px solid var(--ink);overflow:hidden;container-type:inline-size;padding:calc(var(--PW)*.08) calc(var(--PW)*.085)}
+.page{position:absolute;top:0;bottom:0;width:50%;display:flex;flex-direction:column}
+.page.l{left:0;border-radius:14px 3px 3px 10px;box-shadow:inset -26px 0 28px -22px rgba(29,43,54,.38)}
+.page.r{left:50%;border-radius:3px 14px 10px 3px;box-shadow:inset 26px 0 28px -22px rgba(29,43,54,.38)}
+.turn{position:absolute;top:0;bottom:0;left:50%;width:50%;transform-origin:0 50%;transform-style:preserve-3d;transform:rotateY(calc(var(--flip,1)*-180deg))}
+.face{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;display:flex;flex-direction:column}
+.face.front{border-radius:3px 14px 10px 3px;box-shadow:inset 26px 0 28px -22px rgba(29,43,54,.38)}
+.face.front::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(29,43,54,var(--shade,0)),transparent 75%);pointer-events:none}
+.face.back{transform:rotateY(180deg);border-radius:14px 3px 3px 10px;box-shadow:inset -26px 0 28px -22px rgba(29,43,54,.38)}
+.book.single .page.l{display:none}
+.book.single .page.r,.book.single .turn{left:0;width:100%}
+.kicker{font-family:var(--hand);font-weight:700;font-size:clamp(1.5rem,8.5cqi,2.6rem);line-height:1;margin:0 0 .6em;color:var(--blue-deep)}
+.pg{margin:auto 0 0;text-align:center;color:var(--ink-soft);font-size:.85rem}
+.story{list-style:none;margin:0;padding:0;display:grid;gap:.15rem}
+.story li{display:grid;grid-template-columns:4.2rem 1fr;align-items:baseline;border-bottom:1.5px dashed var(--pencil);padding:.55em 0;font-size:clamp(.9rem,4.2cqi,1.1rem)}
+.story b{font-family:var(--hand);font-size:1.5em;line-height:1}
+.story li:last-child{color:var(--blue-deep);font-weight:600}
+.nc{font-family:var(--hand);font-weight:700;font-size:clamp(3rem,17cqi,6rem);line-height:.85;margin:.15em 0 .1em}
+.nc-sub{font-size:clamp(1.15rem,6cqi,1.6rem);font-weight:600;margin:0 0 .8em}
+.face p,.page p{font-size:clamp(.92rem,4.1cqi,1.08rem)}
+.turn-btn,.send{display:inline-block;align-self:flex-start;font:inherit;font-weight:700;font-size:1rem;color:#fff;background:var(--ink);border:0;border-radius:var(--wobbly);padding:.6rem 1.3rem;text-decoration:none;cursor:pointer;box-shadow:3px 4px 0 var(--blue)}
+.turn-btn:hover,.send:hover{background:var(--blue-deep);color:#fff}
+.reach{list-style:none;margin:0 0 1.2rem;padding:0;display:grid}
+.reach li{display:grid;grid-template-columns:5.4rem 1fr;gap:.5rem;padding:.6em 0;border-bottom:1.5px dashed var(--pencil);font-size:clamp(.9rem,4cqi,1.05rem);align-items:baseline;overflow-wrap:anywhere}
+.reach span{color:var(--ink-soft);font-size:.9em}
+.dl{font-weight:600}
+form.inq{display:flex;flex-direction:column;gap:clamp(.55rem,2.6cqi,.95rem);flex:1}
+.inq label{display:block;font-weight:600;font-size:clamp(.88rem,3.8cqi,1rem)}
+.inq input,.inq textarea{display:block;width:100%;margin-top:.15rem;font:inherit;font-size:16px;font-weight:400;color:var(--ink);background:transparent;border:0;border-bottom:2px solid var(--ink);border-radius:0;padding:.35rem .1rem;outline:none}
+.inq textarea{resize:none;background:repeating-linear-gradient(transparent 0 calc(1.6em - 1px),rgba(19,164,236,.25) calc(1.6em - 1px) 1.6em);line-height:1.6em;padding-top:0;border-bottom:0}
+.inq input:focus,.inq textarea:focus{border-color:var(--blue);box-shadow:0 2px 0 var(--blue)}
+.inq .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.status{min-height:1.4em;margin:0;font-size:.92rem}
+.status.err{color:#b4322a}
+.sent{display:grid;place-items:center;text-align:center;flex:1}
+.sent .kicker{font-size:clamp(2.2rem,12cqi,3.4rem)}
+.form-alt{display:none;margin:.6rem 0 0;font-size:.85rem;color:var(--ink-soft)}
+.book.single .form-alt{display:block}
+.anchor{position:absolute;left:0;top:calc((100% - 100vh)*.86)}
+
+footer{position:relative;z-index:5;background:var(--grass);border-top:3px solid var(--ink);padding:2.2rem 1rem 2.6rem;text-align:center;font-size:.92rem}
+footer a{color:var(--ink);font-weight:600;margin:0 .6rem}
+footer p{margin:.4rem 0 0}
+
+/* ---------- small screens ---------- */
+@media (max-aspect-ratio:3/4){.cloud{--cs:1.3}}
+@media (max-width:820px){
+  .tl-line,.tl-end{left:20px}
+  .tl-head,.job{grid-template-columns:1fr;padding-left:50px}
+  .tl-head div{text-align:left}
+  .job:nth-child(n) .when{grid-column:1;grid-row:1;text-align:left;padding:0 0 .8rem}
+  .job:nth-child(n) .card{grid-column:1;grid-row:2}
+  .node{left:20px;top:calc(2.8rem + 1.1rem)}
+  .card{padding:1.25rem 1.2rem 1.2rem;box-shadow:4px 5px 0 var(--ink)}
+  .trees{grid-template-columns:1fr;gap:2.4rem}
+  .tree-wrap{width:min(100%,380px);margin:0 auto}
+  .top nav a:not(.pill){display:none}
+}
+
+/* ---------- reduced motion: every scene in its finished state ---------- */
+html.rm .sky{height:auto}
+html.rm .stage{position:relative}
+html.rm .cloud{display:none}
+html.rm .tl{margin-top:0}
+html.rm .bench-scene{height:auto}
+html.rm .bnote{display:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.leaf,.node,.card{transition:none}.leaf:hover .lf{animation:none}}
+</style>
 </head>
-<body class="background-image: radial-gradient(#13a4ec 1px, transparent 1px);
-   bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display selection:bg-primary/30 selection:text-primary overflow-x-hidden">
-<!-- Navbar -->
-<nav class="fixed top-0 left-0 right-0 z-50 px-6 py-6 md:px-12 flex justify-between items-center backdrop-blur-sm bg-background-light/80 dark:bg-background-dark/80 supports-[backdrop-filter]:bg-background-light/50">
-<a class="text-xl font-bold tracking-tight hover:text-primary transition-colors duration-300" href="#">
-            Mark J<span class="text-primary">.</span>
-</a>
-<div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600 dark:text-slate-400">
-<a class="hover:text-primary transition-colors duration-300" href="/work.html">Work</a>
-<a class="hover:text-primary transition-colors duration-300" href="/about.html">About</a>
-<a class="hover:text-primary transition-colors duration-300" href="/contact.html">Contact</a>
-</div>
-<button class="md:hidden text-slate-800 dark:text-white">
-<span class="material-icons-outlined">menu</span>
-</button>
-</nav>
-<!-- Hero Section -->
-<header class="relative w-full h-screen flex flex-col justify-center items-center overflow-hidden">
-<!-- Parallax Background Elements (Abstract Shapes) -->
-<div class="absolute inset-0 z-0 pointer-events-none opacity-40 dark:opacity-20">
-<!-- Top Right Circle -->
-<div class="absolute top-1/4 right-[10%] w-64 h-64 rounded-full bg-primary/20 animate-float-slow"></div>
-<!-- Bottom Left Blob -->
-<div class="absolute bottom-1/4 left-[5%] w-96 h-96 rounded-full bg-primary/20 animate-float-medium"></div>
-<!-- Tiny accents -->
-<div class="absolute top-[20%] left-[20%] w-4 h-4 rounded-full bg-primary/20 animate-float-fast"></div>
-<div class="absolute bottom-[30%] right-[25%] w-6 h-6 rounded-full bg-primary/20 animate-float-fast"></div>
-	<div class="absolute top-[60%] left-[30%] w-4 h-4 rounded-full bg-primary/20 animate-float-fast"></div>
-<div class="absolute bottom-[50%] right-[35%] w-10 h-10 rounded-full bg-primary/20 animate-float-fast"></div>
-	<div class="absolute top-[80%] left-[50%] w-14 h-14 rounded-full bg-primary/20 animate-float-fast"></div>
-<div class="absolute bottom-[70%] right-[55%] w-8 h-8 rounded-full bg-primary/20 animate-float-fast"></div>
-<div class="absolute top-[40%] left-[80%] text-9xl text-slate-100 dark:text-slate-800 font-bold opacity-20 -z-10 select-none transform -rotate-12 translate-x-20">
-                Hi
-            </div>
-</div>
-<!-- Main Content -->
-<div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
-<h1 class="text-5xl md:text-7xl lg:text-9xl font-handwriting text-slate-900 dark:text-white leading-tight mb-6 transform -rotate-2 origin-center">
-                ohullo<span class="text-primary">.</span> <br class="hidden md:block"/>
-<span class="block md:inline mt-4 md:mt-0">I'm Mark Johnson,</span>
-<span class="block mt-2">welcome<span class="text-primary">.</span></span>
-</h1>
-<p class="mt-8 text-sm md:text-base tracking-widest uppercase text-slate-500 dark:text-slate-400 font-medium animate-pulse">
-                Operational Mastery  <span class="text-primary px-2">•</span> Customer Advocate <span class="text-primary px-2">•</span> Your Best Decision
-            </p>
-</div>
-<!-- Social Icons (Anchored Bottom Left) -->
-<div class="absolute bottom-12 left-6 md:left-12 flex flex-col space-y-4 z-20 hidden md:flex">
-<a aria-label="Github" class="text-slate-400 hover:text-primary transition-colors duration-300 transform hover:scale-110" href="#">
-<svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
-</a>
-<a aria-label="LinkedIn" class="text-slate-400 hover:text-primary transition-colors duration-300 transform hover:scale-110" href="https://www.linkedin.com/in/mark-johnson-ohullo/">
-<svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
-</a>
-</div>
-<!-- Scroll Indicator -->
-<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce-subtle z-20 cursor-pointer opacity-80 hover:opacity-100 transition-opacity">
-<span class="text-xs font-semibold tracking-widest text-slate-400 dark:text-slate-500 uppercase mb-2">Scroll</span>
-<div class="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
-</div>
+<body>
+<a class="skip" href="#contact">Skip to the contact form</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="wob0"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="1"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
+  <filter id="wob1"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
+  <filter id="wob2"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="13"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
+</svg>
+
+<header class="top" id="top">
+  <a class="brand" href="#sky" aria-label="ohullo, back to the top">ohullo<i></i></a>
+  <nav aria-label="Site">
+    <a href="#timeline">Timeline</a>
+    <a href="work.html">Work</a>
+    <a href="about.html">About</a>
+    <a class="pill" href="#contact">Contact</a>
+  </nav>
 </header>
-<!-- Content Placeholder for Scrolling Effect -->
-<section class="py-24 px-6 md:px-12 max-w-7xl mx-auto" id="work">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
-<div>
-<span class="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">Letter of introduction</span>
-<h2 class="text-4xl font-bold text-slate-900 dark:text-white mb-6">Fellow American,</h2>
-<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-I'm not a politician. I'll never run for office. I don't have a law degree or a family name that opens doors.
-What I have is over a decade of experience fixing broken systems, leading teams through crises, and delivering results when the stakes are real.
-I scaled operations 700%. I cut costs by $1.6M while improving quality. I managed teams across 8 countries. I kept operations running through a pandemic without shutting down once. I implemented AI that works, not AI that sounds good in a pitch deck.
-I learned that <span style="font-weight: bold;">process beats politics</span>. That <span style="font-weight: bold;">data trumps promises</span>. That <span style="font-weight: bold;">accountability matters more than excuses</span>. And that <span style="font-weight: bold;">leadership means showing up when things are hard, not just when cameras are rolling</span>.
-<br>
-<br>
-Companies don't need more speeches. They need better systems. Transparent metrics. Real accountability. Teams built for competence, not connections. Technology from this decade, not the 1970s.
-I'm not promising perfection. I'm promising discipline, transparency, and an employee that actually works.
-<br>
-<br>
-I'm Mark Johnson. Father of three girls. Devoted husband. Operations executive. Texan and Red Blooded American. I'm tired of watching capable people get buried by broken systems while others argue about who's to blame. Let's fix it together.
-<br>
-<span style="font-weight: bold;">- Mark Johnson 2026</span>
-                </p>
-<a class="inline-flex items-center text-primary font-semibold hover:underline decoration-2 underline-offset-4 group" href="#">
-                    Results. Not Rhetoric. 
-                    <span class="material-icons-outlined text-sm ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</a>
-</div>
-<div class="relative group">
-<div class="absolute -inset-1 bg-gradient-to-r from-primary to-blue-400 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-<div class="relative bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-xl aspect-video">
-<!-- Placeholder for portfolio item -->
-<div class="w-full h-full bg-slate-100 dark:bg-slate-900 flex items-center justify-center relative overflow-hidden group">
-<!-- Abstract pattern background -->
-<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#13a4ec 1px, transparent 1px); background-size: 20px 20px;">
-</div>
-<span class="material-icons-outlined text-6xl text-slate-300 dark:text-slate-700 group-hover:scale-150 transition-transform duration-500"><img src="assets/me.PNG" width="520" height="800" alt=""/></span>
-</div>
-</div>
-</div>
-</div>
+
+<main>
+<!-- ===== 1. Clouds part to reveal the logo ===== -->
+<section class="sky" id="sky" aria-label="Welcome">
+  <div class="stage">
+    <svg class="sun sk" id="sun" viewBox="0 0 200 200" aria-hidden="true"></svg>
+    <div class="hero">
+      <h1 class="logo" id="logo"><span class="wob">ohullo</span><span class="dot" id="logoDot"></span><span class="sr-only">. Mark Johnson</span></h1>
+      <div class="intro" id="intro">
+        <span class="hi">Hi, I'm Mark Johnson.</span>
+        <p>Director of Marketing at MCDP, and twenty years of making operations work before that.</p>
+      </div>
+    </div>
+    <div id="clouds" aria-hidden="true"></div>
+  </div>
 </section>
-	<br>
-	<br>
-<!-- Cover Letter Download CTA -->
-<div class="mt-20 flex flex-col items-center justify-center text-center">
-<p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Need this in plain text?</p>
-<button class="group relative inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white transition-all duration-200 bg-primary rounded-lg hover:bg-sky-500 hover:shadow-lg hover:shadow-primary/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
-<span class="material-icons mr-2 group-hover:-translate-y-0.5 transition-transform duration-200">download</span>
-                    Download Cover Letter
-                    <div class="absolute inset-0 rounded-lg ring-2 ring-white/20 group-hover:ring-white/40"></div>
-</button>
-<br>
-<br>
-<br>
-<br>
-<!-- Scroll Indicator -->
-<div class="left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce-subtle z-20 cursor-pointer opacity-80 hover:opacity-100 transition-opacity">
-<span class="text-xs font-semibold tracking-widest text-slate-400 dark:text-slate-500 uppercase mb-2">Scroll</span>
-<div class="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
-</div>
+<div class="seed" id="seed" aria-hidden="true"></div>
+
+<!-- ===== 2. The dot drops into the work timeline ===== -->
+<section class="tl" id="timeline" aria-labelledby="tlTitle">
+  <div class="tl-inner" id="tlInner">
+    <svg class="tl-line" id="tlLine" aria-hidden="true"><path class="guide"/><path class="trail"/></svg>
+    <span class="tl-end" id="tlEnd" aria-hidden="true"></span>
+    <div class="tl-head"><div>
+      <h2 id="tlTitle">Where I've been</h2>
+      <p>Newest first. Follow the blue dot.</p>
+    </div></div>
+
+    <ol class="jobs" id="jobs">
+      <li class="job">
+        <div class="when"><span class="dates">Feb 2026 – now</span><span class="dur" data-since="2026-02">Current role</span></div>
+        <article class="card">
+          <h3 class="role">Director of Marketing</h3>
+          <p class="org"><b>MCDP</b>Motor City Dental Partners, Dallas–Fort Worth, TX</p>
+          <p class="desc">Lead marketing and patient outreach for a multi-practice dental and oral surgery group, owning the digital path from the first ad a patient sees to the website where they book.</p>
+          <ul class="wins">
+            <li>Manage online advertising across Google Ads and social platforms, tracking conversions and KPIs so budget moves to the campaigns that bring in patients.</li>
+            <li>Design and develop practice websites end to end, from concept and code to brand alignment, user experience and online patient intake forms.</li>
+            <li>Transfer practice websites from legacy hosts to a centralized WordPress platform, consolidating management while keeping search visibility intact.</li>
+            <li>Run mixed-media targeting across SEO, content and paid channels, aligned with operations so marketing promises match what each practice delivers.</li>
+          </ul>
+          <ul class="tags" aria-label="Tools and focus areas">
+            <li>Online Advertising (Google Ads, Social)</li>
+            <li>Web Design &amp; Development (WordPress)</li>
+            <li>Website Transfers (Hosting, DNS, SEO)</li>
+            <li>Analytics (KPIs, Conversions, ROI)</li>
+          </ul>
+        </article>
+        <span class="node" aria-hidden="true"></span>
+      </li>
+
+      <li class="job">
+        <div class="when"><span class="dates">Apr 2025 – Feb 2026</span><span class="dur">11 mos</span></div>
+        <article class="card">
+          <h3 class="role">Director of Operations</h3>
+          <p class="org"><b>Texas811</b>Plano, TX</p>
+          <p class="desc">Led call center operations for the largest one-call center in the US, managing lifecycle ticketing for homeowners, utility operators and excavators, including training, QA and facilities.</p>
+          <ul class="wins">
+            <li>Established a front-end AI agent that cut live-agent speed of answer from 57 seconds to 0 and reduced handle time by 7 minutes.</li>
+            <li>Designed and implemented workflows for a back-end AI agent that ran QA on 100% of tickets, up from 5% sampling.</li>
+            <li>Sourced, implemented and configured AI-driven automation to handle 30% of inbound volume.</li>
+          </ul>
+          <ul class="tags" aria-label="Tools and focus areas">
+            <li>AI Integration (NiCE)</li>
+            <li>CRM Workflow (Freshdesk)</li>
+            <li>Training Development (Easygenerator)</li>
+            <li>Customer Focus (24/7/365, 48-hour resolution)</li>
+          </ul>
+        </article>
+        <span class="node" aria-hidden="true"></span>
+      </li>
+
+      <li class="job">
+        <div class="when"><span class="dates">May 2023 – Apr 2025</span><span class="dur">2 yrs</span></div>
+        <article class="card">
+          <h3 class="role">Director of Operations</h3>
+          <p class="org"><b>Wireless CCTV</b>WCCTV, Richardson, TX</p>
+          <p class="desc">Oversaw full-lifecycle operations for mobile security solutions, from design and fabrication through 3PL, in-house and field support.</p>
+          <ul class="wins">
+            <li>Achieved 700% growth and a 14% cost reduction through strategic fabrication partnerships.</li>
+            <li>Established 3 locations in Texas and 2 in California for strategic deployment operations.</li>
+            <li>Introduced and configured Zoho CRM, cutting ticket error rates by 60% compared with spreadsheets.</li>
+          </ul>
+          <ul class="tags" aria-label="Tools and focus areas">
+            <li>Mobile Security (AXIS, Mobotix, Hikvision)</li>
+            <li>3PL (Warehousing, Last Leg, Returns)</li>
+            <li>Vendor Management (Spare Parts, Logistics)</li>
+            <li>Fabrication (Materials, Design, Licensing)</li>
+          </ul>
+        </article>
+        <span class="node" aria-hidden="true"></span>
+      </li>
+
+      <li class="job">
+        <div class="when"><span class="dates">Sep 2021 – Apr 2023</span><span class="dur">1 yr 8 mos</span></div>
+        <article class="card">
+          <h3 class="role">Director of Operations</h3>
+          <p class="org"><b>ISG Technologies</b>Arlington, TX</p>
+          <p class="desc">Responsible for all operations of a full-service, full-lifecycle mobile solution and repair hub specializing in wearables and rugged devices.</p>
+          <ul class="wins">
+            <li>Designed a customer reporting hub that increased visibility and self-service.</li>
+            <li>Worked directly on pre-sales initiatives and product sourcing.</li>
+            <li>Rewrote technical SOPs, reducing waste material by 30% and saving hours of labor.</li>
+          </ul>
+          <ul class="tags" aria-label="Tools and focus areas">
+            <li>Customer Management</li>
+            <li>Full P&amp;L Reporting</li>
+            <li>ERP / CRM (Navision, NetSuite)</li>
+          </ul>
+        </article>
+        <span class="node" aria-hidden="true"></span>
+      </li>
+
+      <li class="job">
+        <div class="when"><span class="dates">May 2017 – Jul 2021</span><span class="dur">4 yrs 3 mos</span></div>
+        <article class="card">
+          <h3 class="role">Director of Configuration Services &amp; Facilities</h3>
+          <p class="org"><b>3MD Inc.</b>Plano, TX</p>
+          <p class="desc">Established and managed global distribution centers dedicated to managed-mobility lifecycle products.</p>
+          <ul class="wins">
+            <li>Reduced overhead costs by 15% through strategic vendor negotiations.</li>
+            <li>Implemented a new inventory tracking system that raised accuracy to 99%.</li>
+            <li>Opened, staffed and trained teams across the globe (US, UK, Mexico, Australia, Japan).</li>
+            <li>Created SOPs for every stage of the products we supported: receiving, configuration, packaging, shipping, repairs and returns.</li>
+            <li>Deployed over 800,000 uniquely configured tablets globally for DoorDash, within budget and on time.</li>
+          </ul>
+          <ul class="tags" aria-label="Tools and focus areas">
+            <li>Customer Retention (Amazon, Google, DoorDash, Zillow, American Airlines, Crossmark)</li>
+            <li>White Glove Services (Amazon IDF/MDF Installation)</li>
+            <li>CRM (Cherwell)</li>
+          </ul>
+        </article>
+        <span class="node" aria-hidden="true"></span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== 3. Trees: each labelled leaf opens another part of the site ===== -->
+<section class="grove" id="grove" aria-labelledby="groveTitle">
+  <div class="grove-head">
+    <h2 id="groveTitle">Pick a leaf</h2>
+    <p>Each one opens another part of my site.</p>
+  </div>
+  <div class="trees">
+    <figure class="tree-wrap" data-tree="B">
+      <div class="tree tB">
+        <svg class="art sk" viewBox="0 0 400 500" aria-hidden="true"></svg>
+        <a class="leaf" href="about.html" style="--x:31;--y:25;--r:-10;--i:0"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">My story</span></span></a>
+        <a class="leaf" href="about.html#values" style="--x:70;--y:32;--r:9;--i:1"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">Values</span></span></a>
+        <a class="leaf" href="about.html#offline" style="--x:46;--y:53;--r:-4;--i:2"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">Off hours</span></span></a>
+      </div>
+      <figcaption class="sign">who I am</figcaption>
+    </figure>
+
+    <figure class="tree-wrap" data-tree="A">
+      <div class="tree tA">
+        <svg class="art sk" viewBox="0 0 400 500" aria-hidden="true"></svg>
+        <a class="leaf" href="work.html#3pl" style="--x:32;--y:19;--r:-12;--i:0"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">3PL</span></span></a>
+        <a class="leaf" href="work.html#call-center" style="--x:68;--y:18;--r:10;--i:1"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">Call centers</span></span></a>
+        <a class="leaf" href="work.html#manufacturing" style="--x:20;--y:39;--r:-6;--i:2;--lw:41%"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">Manufacturing</span></span></a>
+        <a class="leaf" href="work.html#multi-unit" style="--x:50;--y:37;--r:4;--i:3"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">Multi-unit</span></span></a>
+        <a class="leaf" href="work.html#saas" style="--x:82;--y:39;--r:12;--i:4"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">SaaS</span></span></a>
+        <a class="leaf" href="work.html#customer-engagement" style="--x:50;--y:56;--r:-3;--i:5"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">Engagement</span></span></a>
+      </div>
+      <figcaption class="sign">what I do</figcaption>
+    </figure>
+
+    <figure class="tree-wrap" data-tree="C">
+      <div class="tree tC">
+        <svg class="art sk" viewBox="0 0 400 500" aria-hidden="true"></svg>
+        <a class="leaf" href="assets/Mark_Johnson_Resume_2026web.docx" download style="--x:31;--y:31;--r:-9;--i:0"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">Résumé</span></span></a>
+        <a class="leaf" href="assets/Mark_Johnson_Cover_Letter_2026web.docx" download style="--x:69;--y:26;--r:11;--i:1"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">Cover letter</span></span></a>
+        <a class="leaf" href="https://www.linkedin.com/in/mark-johnson-ohullo/" rel="noopener" style="--x:50;--y:52;--r:-5;--i:2"><span class="lf"><svg class="sk" viewBox="0 0 160 92" aria-hidden="true"></svg><span class="t">LinkedIn</span></span></a>
+      </div>
+      <figcaption class="sign">take one home</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===== 4. A book on a bench; the page turns to a contact form ===== -->
+<section class="bench-scene" id="bench" aria-labelledby="ncTitle">
+  <div class="stage bstage">
+    <p class="bnote" id="bnote" aria-hidden="true">One more chapter, on the bench.</p>
+    <div class="world" id="world">
+      <div class="ground" aria-hidden="true"></div>
+      <svg class="bench sk" id="benchArt" viewBox="0 0 900 360" aria-hidden="true"></svg>
+      <div class="book" id="book">
+        <div class="cover" aria-hidden="true"></div>
+
+        <div class="page l">
+          <p class="kicker">The story so far</p>
+          <ol class="story">
+            <li><b>2017</b>3MD Inc.</li>
+            <li><b>2021</b>ISG Technologies</li>
+            <li><b>2023</b>Wireless CCTV</li>
+            <li><b>2025</b>Texas811</li>
+            <li><b>2026</b>MCDP</li>
+          </ol>
+          <p class="pg">5</p>
+        </div>
+
+        <div class="page r">
+          <form class="inq" id="inq" action="https://formsubmit.co/mark@ohullo.com" method="POST">
+            <p class="kicker">Send me a note</p>
+            <label>Your name<input name="name" required autocomplete="name"></label>
+            <label>Your email<input type="email" name="email" required autocomplete="email"></label>
+            <label>What can I help with?<textarea name="message" rows="4" required></textarea></label>
+            <input type="hidden" name="_subject" value="New inquiry from ohullo.com">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://www.ohullo.com/#contact">
+            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="send" type="submit">Send it</button>
+            <p class="status" id="status" role="status"></p>
+          </form>
+          <p class="form-alt">Or email <a href="mailto:mark@ohullo.com">mark@ohullo.com</a>, or call <a href="tel:+14692430387">(469) 243-0387</a>.</p>
+        </div>
+
+        <div class="turn" id="turn">
+          <div class="face front">
+            <p class="kicker">Chapter six</p>
+            <h2 class="nc" id="ncTitle">Next chapter</h2>
+            <p class="nc-sub">Your company?</p>
+            <p>Five chapters in, and I'm ready for the next one. Tell me what you're working on and I'll write back.</p>
+            <a class="turn-btn" href="#contact">Turn the page</a>
+            <p class="pg">6</p>
+          </div>
+          <div class="face back">
+            <p class="kicker">Let's write it together</p>
+            <ul class="reach">
+              <li><span>Email</span><a href="mailto:mark@ohullo.com">mark@ohullo.com</a></li>
+              <li><span>Phone</span><a href="tel:+14692430387">(469) 243-0387</a></li>
+              <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/mark-johnson-ohullo/" rel="noopener">mark-johnson-ohullo</a></li>
+              <li><span>Based in</span>Wylie, Texas</li>
+            </ul>
+            <a class="dl" href="assets/Mark_Johnson_Resume_2026web.docx" download>Download my résumé</a>
+            <p class="pg">7</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="anchor" id="contact" aria-hidden="true"></span>
+</section>
+</main>
+
+<footer>
+  <a href="work.html">Work</a><a href="about.html">About</a><a href="mailto:mark@ohullo.com">Email</a><a href="https://www.linkedin.com/in/mark-johnson-ohullo/" rel="noopener">LinkedIn</a>
+  <p>© 2026 Mark Johnson, Wylie, Texas</p>
+</footer>
+
+<script src="assets/js/rough.min.js"></script>
+<script>
+(() => {
+  const root = document.documentElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) root.classList.add('rm');
+  if (!window.rough) root.classList.add('norough');
+
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const NS = 'http://www.w3.org/2000/svg';
+  const INK = '#1d2b36';
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const easeIO = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+  const easeOut = t => 1 - Math.pow(1 - t, 3);
+  const back = t => { const c = 1.9; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); };
+  const rng = seed => () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+
+  /* ---------- hand-drawn shapes, three "boiling" variants each ---------- */
+  const VARIANTS = reduce ? 1 : 3;
+  function sketch(target, seed, draw) {
+    if (!window.rough) return;
+    for (let k = 0; k < VARIANTS; k++) {
+      const rc = rough.svg(target.ownerSVGElement || target);
+      const g = document.createElementNS(NS, 'g');
+      g.setAttribute('class', 'sk' + k);
+      draw(rc, seed * 11 + k * 3 + 1).forEach(n => g.appendChild(n));
+      target.appendChild(g);
+    }
+  }
+  // a puffy cartoon cloud: bumps along the top, a soft belly underneath
+  function cloudPath(w, h, r) {
+    const n = 4 + Math.floor(r() * 3), base = h * .78, pts = [];
+    for (let i = 0; i <= n; i++) {
+      const t = i / n, x = w * (.04 + .92 * t);
+      const y = (i === 0 || i === n) ? base : base - Math.sin(Math.PI * t) * h * (.5 + r() * .24);
+      pts.push([x, y]);
+    }
+    let d = `M ${pts[0][0]} ${pts[0][1]}`;
+    for (let i = 1; i < pts.length; i++) {
+      const [x0, y0] = pts[i - 1], [x1, y1] = pts[i];
+      const rad = Math.hypot(x1 - x0, y1 - y0) * (.56 + r() * .12);
+      d += ` A ${rad} ${rad} 0 0 1 ${x1} ${y1}`;
+    }
+    d += ` A ${w * .24} ${h * .1} 0 0 1 ${w / 2} ${base} A ${w * .24} ${h * .1} 0 0 1 ${pts[0][0]} ${base} Z`;
+    return d;
+  }
+  // a bumpy blob all the way round (tree canopies)
+  function blobPath(cx, cy, rx, ry, n, r) {
+    const pts = [];
+    for (let i = 0; i < n; i++) {
+      const a = Math.PI * 2 * i / n + (r() - .5) * .25, k = .9 + r() * .14;
+      pts.push([cx + Math.cos(a) * rx * k, cy + Math.sin(a) * ry * k]);
+    }
+    let d = `M ${pts[0][0]} ${pts[0][1]}`;
+    for (let i = 1; i <= n; i++) {
+      const [x0, y0] = pts[i - 1], [x1, y1] = pts[i % n];
+      const rad = Math.hypot(x1 - x0, y1 - y0) * (.58 + r() * .1);
+      d += ` A ${rad} ${rad} 0 0 1 ${x1} ${y1}`;
+    }
+    return d + ' Z';
+  }
+
+  /* ---------- scene 1: sky ---------- */
+  const CLOUDS = [
+    // x/y = centre (% of screen), w = width, side = which way it drifts, dist = how far, lift = vertical drift
+    {x:12,y:14,w:40,side:-1,dist:46,lift:8,z:3},
+    {x:88,y:16,w:42,side:1,dist:46,lift:8,z:3},
+    {x:30,y:6,w:36,side:-1,dist:40,lift:12,z:4},
+    {x:72,y:5,w:38,side:1,dist:40,lift:12,z:4},
+    {x:10,y:76,w:44,side:-1,dist:52,lift:-6,z:4},
+    {x:90,y:78,w:46,side:1,dist:52,lift:-6,z:4},
+    {x:55,y:90,w:52,side:1,dist:74,lift:-8,z:5},
+    {x:30,y:40,w:62,side:-1,dist:78,lift:4,z:6},
+    {x:72,y:47,w:64,side:1,dist:78,lift:4,z:6},
+    {x:52,y:27,w:50,side:1,dist:92,lift:16,z:7},
+    {x:50,y:36,w:56,side:-1,dist:92,lift:-4,z:7},
+    {x:46,y:62,w:58,side:-1,dist:88,lift:-12,z:8,hint:true}
+  ];
+  const cloudBox = $('#clouds');
+  const clouds = CLOUDS.map((c, i) => {
+    const el = document.createElement('div');
+    el.className = 'cloud';
+    el.style.cssText = `--x:${c.x};--y:${c.y};--w:${c.w};z-index:${c.z}`;
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 600 300'); svg.setAttribute('class', 'sk');
+    el.appendChild(svg);
+    let hintEl = null;
+    if (c.hint) { hintEl = document.createElement('p'); hintEl.className = 'hint'; hintEl.textContent = 'psst… scroll'; el.appendChild(hintEl); }
+    cloudBox.appendChild(el);
+    const d = cloudPath(600, 300, rng(40 + i * 17));
+    sketch(svg, 40 + i, (rc, s) => [
+      rc.path(d, {fill:'#fff', fillStyle:'solid', stroke:INK, strokeWidth:2.6, roughness:1.5, bowing:1.4, seed:s}),
+      rc.path(`M ${150 + (i % 3) * 30} 218 Q 300 ${250 - (i % 2) * 10} ${430 - (i % 3) * 20} 214`, {stroke:'#9fc9df', strokeWidth:2, roughness:1.2, seed:s + 1})
+    ]);
+    return {...c, el, hintEl};
+  });
+  sketch($('#sun'), 9, (rc, s) => {
+    const rays = [];
+    for (let i = 0; i < 10; i++) {
+      const a = Math.PI * 2 * i / 10 + .2;
+      rays.push(rc.line(100 + Math.cos(a) * 68, 100 + Math.sin(a) * 68, 100 + Math.cos(a) * 94, 100 + Math.sin(a) * 94, {stroke:INK, strokeWidth:2.6, roughness:1.6, seed:s + i}));
+    }
+    return [rc.circle(100, 100, 108, {fill:'#ffd35c', fillStyle:'solid', stroke:INK, strokeWidth:2.6, roughness:1.4, seed:s}),
+            rc.circle(100, 100, 108, {fill:'#f2b73a', fillStyle:'hachure', hachureGap:9, fillWeight:1.2, stroke:'none', roughness:1.2, seed:s + 20}), ...rays];
+  });
+
+  const sky = $('#sky'), logo = $('#logo'), logoDot = $('#logoDot'), intro = $('#intro'), seed = $('#seed'), head = $('#top');
+
+  /* ---------- scene 2: timeline ---------- */
+  const tlLine = $('#tlLine'), guide = tlLine.querySelector('.guide'), trail = tlLine.querySelector('.trail'), tlEnd = $('#tlEnd');
+  const jobs = $$('.job');
+  let lineH = 0, trailLen = 1, nodeYs = [];
+  function layoutLine() {
+    nodeYs = jobs.map(j => j.offsetTop + j.querySelector('.node').offsetTop);
+    lineH = nodeYs[nodeYs.length - 1] + 70;
+    tlLine.setAttribute('height', lineH); tlLine.style.height = lineH + 'px';
+    const r = rng(5); let d = 'M 10 0';
+    for (let y = 70; y < lineH; y += 70) d += ` Q ${10 + (r() - .5) * 9} ${y - 35} ${10 + (r() - .5) * 4} ${y}`;
+    d += ` L 10 ${lineH}`;
+    guide.setAttribute('d', d); trail.setAttribute('d', d);
+    trailLen = trail.getTotalLength();
+    trail.style.strokeDasharray = trailLen;
+    tlEnd.style.top = lineH + 'px';
+  }
+  // live duration for the current role
+  $$('[data-since]').forEach(el => {
+    const [y, m] = el.dataset.since.split('-').map(Number), now = new Date();
+    const n = (now.getFullYear() * 12 + now.getMonth() + 1) - (y * 12 + m) + 1;
+    if (n > 0) el.textContent = (n < 12 ? `${n} mo${n > 1 ? 's' : ''}` : `${Math.floor(n / 12)} yr${n >= 24 ? 's' : ''}${n % 12 ? ` ${n % 12} mos` : ''}`) + ' so far';
+  });
+
+  /* ---------- scene 3: trees ---------- */
+  const TREES = {
+    A: {cx:200, cy:190, rx:184, ry:164, n:12},
+    B: {cx:200, cy:200, rx:150, ry:150, n:10},
+    C: {cx:200, cy:205, rx:160, ry:140, n:10}
+  };
+  const trees = $$('.tree-wrap').map((wrap, ti) => {
+    const t = TREES[wrap.dataset.tree], svg = wrap.querySelector('svg.art');
+    const tuft = document.createElementNS(NS, 'g'), trunk = document.createElementNS(NS, 'g'), canopy = document.createElementNS(NS, 'g');
+    trunk.setAttribute('class', 'trunk'); canopy.setAttribute('class', 'canopy');
+    svg.append(tuft, trunk, canopy);
+    const blob = blobPath(t.cx, t.cy, t.rx, t.ry, t.n, rng(100 + ti * 9));
+    sketch(tuft, 70 + ti, (rc, s) => [rc.ellipse(200, 486, 300, 34, {fill:'#8fcf6a', fillStyle:'solid', stroke:INK, strokeWidth:2.4, roughness:1.6, seed:s})]);
+    sketch(trunk, 80 + ti, (rc, s) => [
+      rc.path('M 184 488 C 188 420 181 360 178 290 L 222 290 C 219 360 212 420 216 488 Z', {fill:'#7b5537', fillStyle:'solid', stroke:INK, strokeWidth:2.6, roughness:1.3, seed:s}),
+      rc.path('M 186 470 C 190 420 186 380 184 330 M 208 460 C 206 420 210 380 212 340', {stroke:'#4d3322', strokeWidth:1.6, roughness:1.6, seed:s + 1}),
+      rc.path('M 205 340 C 232 320 252 300 268 268 M 194 356 C 168 338 150 316 136 290', {stroke:INK, strokeWidth:3, roughness:1.5, seed:s + 2})
+    ]);
+    sketch(canopy, 90 + ti, (rc, s) => [
+      rc.path(blob, {fill:'#8fcf6a', fillStyle:'solid', stroke:INK, strokeWidth:2.8, roughness:1.4, bowing:1.3, seed:s}),
+      rc.path(blob, {fill:'#5f9f4b', fillStyle:'hachure', hachureGap:12, hachureAngle:-40, fillWeight:1.3, stroke:'none', roughness:1.4, seed:s + 5})
+    ]);
+    wrap.querySelectorAll('.leaf svg').forEach((ls, li) => sketch(ls, 200 + ti * 10 + li, (rc, s) => [
+      rc.path('M 8 46 C 36 4 118 0 152 44 C 122 88 40 92 8 46 Z', {fill:'#d8f5ad', fillStyle:'solid', stroke:INK, strokeWidth:2.2, roughness:1.1, seed:s}),
+      rc.line(-4, 52, 10, 46, {stroke:INK, strokeWidth:2.2, roughness:1, seed:s + 1})
+    ]));
+    return {wrap, trunk, canopy, g:0};
+  });
+
+  /* ---------- scene 4: bench and book ---------- */
+  const bench = $('#bench'), world = $('#world'), book = $('#book'), turn = $('#turn'), bnote = $('#bnote');
+  sketch($('#benchArt'), 300, (rc, s) => {
+    const o = {stroke:INK, strokeWidth:2.6, roughness:1.2};
+    return [
+      rc.rectangle(110, 86, 150, 256, {...o, fill:'#fafcfd', fillStyle:'solid', seed:s}),
+      rc.rectangle(640, 86, 150, 256, {...o, fill:'#fafcfd', fillStyle:'solid', seed:s + 1}),
+      rc.rectangle(110, 86, 150, 256, {fill:'#cfd9e0', fillStyle:'hachure', hachureGap:14, stroke:'none', roughness:1.2, seed:s + 2}),
+      rc.rectangle(640, 86, 150, 256, {fill:'#cfd9e0', fillStyle:'hachure', hachureGap:14, stroke:'none', roughness:1.2, seed:s + 3}),
+      rc.polygon([[60, 0], [840, 0], [884, 26], [16, 26]], {...o, fill:'#ffffff', fillStyle:'solid', seed:s + 4}),
+      rc.rectangle(16, 26, 868, 64, {...o, fill:'#f2f6f8', fillStyle:'solid', seed:s + 5}),
+      rc.line(70, 54, 380, 48, {stroke:'#b9c6cf', strokeWidth:1.6, roughness:2, seed:s + 6}),
+      rc.line(520, 40, 820, 62, {stroke:'#b9c6cf', strokeWidth:1.6, roughness:2, seed:s + 7})
+    ];
+  });
+  let BH = 0, s0 = .45, single = false, bookOpen = false;
+  function layoutBook() {
+    const vw = innerWidth, vh = innerHeight;
+    single = vw < 760;
+    let W, H, PW;
+    if (single) { W = PW = Math.min(vw - 32, 440); H = Math.min(W * 1.5, vh * .8); }
+    else { H = Math.min(vh * .82, 640); W = Math.min(vw * .92, H / .64, 980); H = W * .64; PW = W / 2; }
+    const BW = W * (single ? 1.7 : 1.45); BH = BW * .4;
+    const st = world.style;
+    st.setProperty('--W', W + 'px'); st.setProperty('--H', H + 'px'); st.setProperty('--PW', PW + 'px');
+    st.setProperty('--BW', BW + 'px'); st.setProperty('--BH', BH + 'px');
+    book.classList.toggle('single', single);
+    s0 = Math.min(.48, vw * .86 / BW, vh * .62 / (H + BH * .86));
+  }
+
+  /* ---------- per-frame scroll choreography ---------- */
+  let unit = 10, ticking = false;
+  function frame() {
+    ticking = false;
+    const vw = innerWidth, vh = innerHeight, tipY = vh * .62;
+
+    // sky: clouds part, logo settles, the blue dot detaches and falls
+    const span = sky.offsetHeight - vh;
+    const ps = reduce || span <= 0 ? 1 : clamp(-sky.getBoundingClientRect().top / span);
+    const part = easeIO(clamp(ps / .6));
+    if (!reduce) {
+      clouds.forEach(c => {
+        c.el.style.transform = `translate3d(${c.side * part * (c.dist * unit + vw * .12)}px, ${-part * c.lift * unit}px, 0) scale(${1 + part * .15})`;
+        if (c.hintEl) c.hintEl.style.opacity = clamp(1 - ps * 7);
+      });
+      logo.style.transform = `scale(${.9 + .1 * part})`;
+      intro.style.opacity = clamp((ps - .4) / .18);
+    }
+    head.classList.toggle('solid', sky.getBoundingClientRect().bottom < vh * .7);
+
+    // timeline: the blue trail always reaches the dot
+    const lr = tlLine.getBoundingClientRect(), lineX = lr.left + 10;
+    const drawn = reduce ? lineH : clamp(tipY - lr.top, 0, lineH);
+    trail.style.strokeDashoffset = trailLen * (1 - drawn / (lineH || 1));
+    jobs.forEach((j, i) => j.classList.toggle('inked', reduce || drawn >= nodeYs[i] - 4));
+    tlEnd.style.display = drawn >= lineH ? 'block' : 'none';
+
+    let show = false, sx = 0, sy = 0, size = 20;
+    if (!reduce && ps >= .7) {
+      if (ps < 1) {
+        const f = clamp((ps - .7) / .3), dr = logoDot.getBoundingClientRect();
+        show = true;
+        sx = lerp(dr.left + dr.width / 2, lineX, easeOut(f));
+        sy = lerp(dr.top + dr.height / 2, tipY, f * f);
+        size = lerp(dr.width, 20, f);
+      } else if (drawn < lineH) {
+        show = true; sx = lineX; sy = Math.max(tipY, lr.top); size = 20;
+      }
+    }
+    logoDot.style.opacity = reduce || ps < .7 ? 1 : 0;
+    seed.style.display = show ? 'block' : 'none';
+    if (show) { seed.style.width = seed.style.height = size + 'px'; seed.style.transform = `translate3d(${sx - size / 2}px, ${sy - size / 2}px, 0)`; }
+
+    // trees grow as they rise into view (one way only)
+    trees.forEach(t => {
+      const r = t.wrap.getBoundingClientRect();
+      t.g = reduce ? 1 : Math.max(t.g, clamp((vh * .95 - r.top) / (r.height * .75)));
+      t.trunk.style.setProperty('--t', easeOut(clamp(t.g / .45)).toFixed(3));
+      t.canopy.style.setProperty('--c', back(clamp((t.g - .3) / .55)).toFixed(3));
+      if (t.g >= .85) t.wrap.classList.add('grown');
+    });
+
+    // bench: zoom in on the book, then turn the page
+    const bspan = bench.offsetHeight - vh;
+    const pb = reduce || bspan <= 0 ? 1 : clamp(-bench.getBoundingClientRect().top / bspan);
+    const z = easeIO(clamp(pb / .42)), s = lerp(s0, 1, z);
+    world.style.transform = `translate3d(0, ${-BH * .43 * s0 * (1 - z)}px, 0) scale(${s})`;
+    const flip = easeIO(clamp((pb - .48) / .3));
+    turn.style.setProperty('--flip', flip.toFixed(4));
+    turn.style.setProperty('--shade', (Math.sin(flip * Math.PI) * .3).toFixed(3));
+    turn.style.opacity = single ? clamp(1 - (flip - .7) / .3) : 1;
+    turn.style.visibility = single && flip > .99 ? 'hidden' : 'visible';
+    bnote.style.opacity = clamp(1 - z * 2.5);
+    bookOpen = flip > .98;
+  }
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+  function layout() { unit = Math.max(innerWidth / 100, innerHeight * .0062); layoutLine(); layoutBook(); frame(); }
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', () => requestAnimationFrame(layout));
+  layout();
+  if (document.fonts) document.fonts.ready.then(layout);
+
+  // keyboard users who tab into the form are taken to the open book
+  $('#inq').addEventListener('focusin', () => { if (!bookOpen && !reduce) $('#contact').scrollIntoView(); });
+
+  /* ---------- line boil: redraw the cartoon a few times a second ---------- */
+  if (!reduce) {
+    let k = 0, timer = null;
+    const tick = () => { root.classList.remove('sk' + k); k = (k + 1) % 3; root.classList.add('sk' + k); };
+    const start = () => { if (!timer) timer = setInterval(tick, 150); };
+    const stop = () => { clearInterval(timer); timer = null; };
+    document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+    start();
+  }
+
+  /* ---------- contact form: send through FormSubmit, fall back to email ---------- */
+  const form = $('#inq'), status = $('#status');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (form._honey.value) return;
+    const btn = form.querySelector('.send');
+    btn.disabled = true; btn.textContent = 'Sending…'; status.className = 'status'; status.textContent = '';
+    const data = Object.fromEntries(new FormData(form));
+    delete data._next;
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/mark@ohullo.com', {
+        method:'POST', headers:{'Content-Type':'application/json', Accept:'application/json'}, body:JSON.stringify(data)
+      });
+      const out = await res.json().catch(() => ({}));
+      if (!res.ok || String(out.success) !== 'true') throw new Error(out.message || 'Send failed');
+      form.innerHTML = '<div class="sent"><div><p class="kicker">Got it, thank you.</p><p>I\'ll write back to <b></b> soon.</p></div></div>';
+      form.querySelector('b').textContent = data.email;
+    } catch (err) {
+      btn.disabled = false; btn.textContent = 'Send it';
+      status.className = 'status err';
+      status.innerHTML = 'That didn\'t send. Email me directly at <a href="mailto:mark@ohullo.com">mark@ohullo.com</a>.';
+    }
+  });
+})();
+</script>
 </body>
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Mark Johnson - Experience</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#13a4ec",
-                        "background-light": "#f6f7f8",
-                        "background-dark": "#101c22",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-                },
-            },
-        }
-    </script>
-<style>
-        /* Custom parallax-like movement for demo purposes without JS */
-        .parallax-bg {
-            background-image: radial-gradient(#13a4ec 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-    </style>
-</head>
-<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display antialiased selection:bg-primary/30 selection:text-primary transition-colors duration-300">
-<main class="relative min-h-screen overflow-hidden flex flex-col justify-center py-24">
-<div class="absolute top-20 right-[10%] w-64 h-64 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-3xl -z-10 animate-pulse" style="animation-duration: 4s;"></div>
-<div class="absolute bottom-40 left-[5%] w-32 h-32 rounded-3xl rotate-12 bg-primary/5 border border-primary/20 -z-10"></div>
-<div class="absolute top-1/3 left-1/4 w-48 h-48 opacity-20 parallax-bg -z-20 mask-image-gradient"></div>
-<div class="container mx-auto px-6 lg:px-12 relative z-10">
-<header class="mb-20 max-w-4xl">
-<span class="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-semibold tracking-wide uppercase mb-4">
-                    Career Path
-                </span>
-<h2 class="text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
-Work <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">Experience</span>
-</h2>
-<p class="text-xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed">
-                    A timeline of my professional journey, focusing on product design, leadership, and solving complex user problems.
-                </p>
-</header>
-<!-- Timeline Container -->
-<div class="relative border-l-2 border-slate-200 dark:border-slate-800 ml-3 md:ml-6 space-y-16 pb-12">
-<div class="relative pl-8 md:pl-12 group">
-<div class="absolute -left-[9px] top-2 w-[18px] h-[18px] rounded-full bg-background-light dark:bg-background-dark border-4 border-primary shadow-[0_0_0_4px_rgba(19,164,236,0.3)] animate-pulse"></div>
-<div class="grid md:grid-cols-12 gap-6 items-start">
-<div class="md:col-span-4 lg:col-span-3">
-<span class="block text-sm font-bold text-primary mb-1 uppercase tracking-wider">FUTURE</span>
-<span class="text-sm text-slate-400 dark:text-slate-500 font-medium">Next Chapter</span>
-<div class="mt-3 flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 shadow-sm flex items-center justify-center border border-primary/20 dark:border-primary/30">
-<span class="material-icons text-primary animate-pulse">stars</span>
-</div>
-<div>
-<h4 class="font-bold text-slate-900 dark:text-white">Your Company?</h4>
-<span class="text-xs text-slate-500 dark:text-slate-400">Remote / On-site</span>
-</div>
-</div>
-</div>
-<div class="md:col-span-8 lg:col-span-9 bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 dark:to-slate-800/80 p-6 md:p-8 rounded-xl border border-primary/40 dark:border-primary/40 shadow-lg shadow-primary/5 hover:border-primary hover:shadow-primary/10 transition-all duration-300">
-<h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Your Next Operational Leader</h3>
-<p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                                I am currently looking for my next challenge in Operations, SaaS, or Customer Engagement. Let's build something incredible together.
-                            </p>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium border border-primary/20">Available Now</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Open for Work</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Let's Connect</span>
-</div>
-</div>
-</div>
-</div>
-<div class="relative pl-8 md:pl-12 group">
-<div class="absolute -left-[9px] top-2 w-[18px] h-[18px] rounded-full bg-slate-200 dark:bg-slate-700 border-4 border-white dark:border-background-dark group-hover:bg-primary group-hover:border-primary/30 transition-all duration-300"></div>
-<div class="grid md:grid-cols-12 gap-6 items-start">
-<div class="md:col-span-4 lg:col-span-3">
-<span class="block text-sm font-bold text-slate-900 dark:text-white mb-1 uppercase tracking-wider">Present</span>
-<span class="text-sm text-slate-400 dark:text-slate-500 font-medium">2025 - 2026</span>
-<div class="mt-3 flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-slate-100 dark:border-slate-700">
-<span class="material-icons text-primary">layers</span>
-</div>
-<div>
-<h4 class="font-bold text-slate-900 dark:text-white">Texas811</h4>
-<span class="text-xs text-slate-500 dark:text-slate-400">Plano, TX</span>
-</div>
-</div>
-</div>
-<div class="md:col-span-8 lg:col-span-9 bg-white dark:bg-slate-800/50 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
-<h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Director of Operations</h3>
-<p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                                Led call center operations for the largest one-call center in the US managing lifecycle ticketing for home-owners, utility operators, and excavators - Including Training, QA, and Facilities.
-                            </p>
-<ul class="space-y-3 mb-6">
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Established a front-end AI agent which reduced live agent speed of answer to 0 seconds from 57, and handle time by 7min.</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Implemented and designed workflows for a back-end AI agent which ran QA on 100% of tickets up from 5% sampling.</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Sourced, implemented, and configured AI-driven automation to handle 30% of inbound volume.</span>
-</li>
-</ul>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">AI Integration ( NiCE )</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">CRM Workflow ( FreshDesk )</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Training Development ( EasyGenerator )</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Customer Focus ( 24/7/365, 48 resolution )</span>
-</div>
-</div>
-</div>
-</div>
-<div class="relative pl-8 md:pl-12 group">
-<div class="absolute -left-[9px] top-2 w-[18px] h-[18px] rounded-full bg-slate-200 dark:bg-slate-700 border-4 border-white dark:border-background-dark group-hover:bg-primary group-hover:border-primary/30 transition-all duration-300"></div>
-<div class="grid md:grid-cols-12 gap-6 items-start">
-<div class="md:col-span-4 lg:col-span-3">
-<span class="block text-sm font-bold text-slate-900 dark:text-white mb-1 uppercase tracking-wider">2023 — 2025</span>
-<span class="text-sm text-slate-400 dark:text-slate-500 font-medium">2 Years</span>
-<div class="mt-3 flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-slate-100 dark:border-slate-700">
-<span class="material-icons text-primary">bolt</span>
-</div>
-<div>
-<h4 class="font-bold text-slate-900 dark:text-white">WCCTV</h4>
-<span class="text-xs text-slate-500 dark:text-slate-400">Richardson, TX</span>
-</div>
-</div>
-</div>
-<div class="md:col-span-8 lg:col-span-9 bg-white dark:bg-slate-800/50 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
-<h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Director of Operations</h3>
-<p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                                Oversaw full lifecycle operations from design, fabrication, 3PL, in-house and field support, concerning mobile security solutions.
-                            </p>
-<ul class="space-y-3 mb-6">
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Acheived 700% growth and 14% cost reduction through strategic fabrication partnerships.</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Established 3 locations in Texas and 2 in California for strategic deployment operations.</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Introduced and configured ZOHO CRM which decreased error rates by 60% over excel sheets for tickets.</span>
-</li>
-</ul>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Mobile Security ( AXIS, Mobotix, Hikvision )</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">3PL ( warehousing, last leg, return )</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Vendor Management ( spare parts, 3rd party logistics )</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Fabrication ( raw material purchases, design, licensing ) </span>
-</div>
-</div>
-</div>
-</div>
-<div class="relative pl-8 md:pl-12 group">
-<div class="absolute -left-[9px] top-2 w-[18px] h-[18px] rounded-full bg-slate-200 dark:bg-slate-700 border-4 border-white dark:border-background-dark group-hover:bg-primary group-hover:border-primary/30 transition-all duration-300"></div>
-<div class="grid md:grid-cols-12 gap-6 items-start">
-<div class="md:col-span-4 lg:col-span-3">
-<span class="block text-sm font-bold text-slate-900 dark:text-white mb-1 uppercase tracking-wider">2021 - 2023</span>
-<span class="text-sm text-slate-400 dark:text-slate-500 font-medium">2 Years</span>
-<div class="mt-3 flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-slate-100 dark:border-slate-700">
-<span class="material-icons text-primary">rocket_launch</span>
-</div>
-<div>
-<h4 class="font-bold text-slate-900 dark:text-white">ISG Technologies</h4>
-<span class="text-xs text-slate-500 dark:text-slate-400">Arlington, TX</span>
-</div>
-</div>
-</div>
-<div class="md:col-span-8 lg:col-span-9 bg-white dark:bg-slate-800/50 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
-<h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Director of Operations</h3>
-<p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                                Responsible for all operations of a full-service full-lifecycle mobile solution and repair hub. Specializing in wearables and rugged devices.
-                            </p>
-<ul class="space-y-3 mb-6">
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Designed customer reporting hub to increase visibility and self-service.</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Directly involved in pre-sales initiatives and product sourcing. </span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Rewrote technical SOPs which reduced waste material by 30% and saved hours of labor. </span>
-</li>
-</ul>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Customer Management</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Full P&L Reporting</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">CRM ( Navision, Netsuite )</span>
-</div>
-</div>
-</div>
-</div>
-<div class="relative pl-8 md:pl-12 group">
-<div class="absolute -left-[9px] top-2 w-[18px] h-[18px] rounded-full bg-slate-200 dark:bg-slate-700 border-4 border-white dark:border-background-dark group-hover:bg-primary group-hover:border-primary/30 transition-all duration-300"></div>
-<div class="grid md:grid-cols-12 gap-6 items-start">
-<div class="md:col-span-4 lg:col-span-3">
-<span class="block text-sm font-bold text-slate-900 dark:text-white mb-1 uppercase tracking-wider">2017 - 2021</span>
-<span class="text-sm text-slate-400 dark:text-slate-500 font-medium">4 Years</span>
-<div class="mt-3 flex items-center gap-3">
-<div class="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-slate-100 dark:border-slate-700">
-<span class="material-icons text-primary">local_shipping</span>
-</div>
-<div>
-<h4 class="font-bold text-slate-900 dark:text-white">3MD</h4>
-<span class="text-xs text-slate-500 dark:text-slate-400">Plano, TX</span>
-</div>
-</div>
-</div>
-<div class="md:col-span-8 lg:col-span-9 bg-white dark:bg-slate-800/50 p-6 md:p-8 rounded-xl border border-slate-100 dark:border-slate-800 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
-<h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Director of Configuration Services and Facilities</h3>
-<p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                                Establish and Manage global distribution centers dedicated to managed mobility lifecycle products.
-                            </p>
-<ul class="space-y-3 mb-6">
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Reduced overhead costs by 15% through strategic vendor negotiations.</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Implemented a new inventory tracking system improving accuracy by 99%.</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Opened, staffed, and trained teams across the globe. (US, UK, Mexico, Australia, Japan)</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Created SOPs across all facets of the products we supported. (receiving, configuration, packaging, shipping, repairs/returns)</span>
-</li>
-<li class="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm">
-<span class="material-icons text-primary text-[18px] mt-0.5">check_circle</span>
-<span>Deployed over 800,000 uniquely configred tablets globally for DoorDash within budget and timeline.</span>
-</li>
-</ul>
-<div class="flex flex-wrap gap-2">
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">Customer Retention ( Amazon, Google, DoorDash, Zillow, American Airlines, Crossmark )</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">White Glove Services ( Amazon IDF/MDF installation )</span>
-<span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full font-medium">CRM ( Cherwell )</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Resume Download CTA --><form method="get" action="/assets/Mark_Johnson_Resume_2026web.docx">
-<div class="mt-20 flex flex-col items-center justify-center text-center">
-<p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Want the full details?</p>
-<button class="group relative inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white transition-all duration-200 bg-primary rounded-lg hover:bg-sky-500 hover:shadow-lg hover:shadow-primary/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
-<span class="material-icons mr-2 group-hover:-translate-y-0.5 transition-transform duration-200">download</span>
-                    Download Resume
-                    <div class="absolute inset-0 rounded-lg ring-2 ring-white/20 group-hover:ring-white/40"></div>
-</button>
-</div>
-</div>
-</form>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
