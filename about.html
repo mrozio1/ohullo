@@ -1,148 +1,100 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>About Mark Johnson - Portfolio</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#13a4ec",
-                        "background-light": "#ffffff","background-dark": "#101c22",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"],
-                        "handwriting": ["Caveat", "cursive"]
-                    },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-                },
-            },
-        }
-    </script>
-<style>
-        @keyframes float-slow {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
-        .animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
-        @keyframes bounce-subtle {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-        .animate-bounce-subtle { animation: bounce-subtle 2s infinite; }
-    </style>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About · ohullo. Mark Johnson</title>
+<meta name="description" content="Mark Johnson's story, values and life outside work.">
+<meta name="theme-color" content="#f4f6f5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display selection:bg-primary/30 selection:text-primary overflow-x-hidden">
-<nav class="fixed top-0 left-0 right-0 z-50 px-6 py-6 md:px-12 flex justify-between items-center backdrop-blur-sm bg-background-light/80 dark:bg-background-dark/80 supports-[backdrop-filter]:bg-background-light/50">
-<a class="text-xl font-bold tracking-tight hover:text-primary transition-colors duration-300" href="/index.html">
-        Mark J<span class="text-primary">.</span>
-</a>
-<div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600 dark:text-slate-400">
-<a class="hover:text-primary transition-colors duration-300" href="/work.html">Work</a>
-<a class="text-primary font-semibold transition-colors duration-300" href="#about">About</a>
-<a class="hover:text-primary transition-colors duration-300" href="/contact.html">Contact</a>
-</div>
-<button class="md:hidden text-slate-800 dark:text-white">
-<span class="material-icons-outlined">menu</span>
-</button>
-</nav>
-<main class="relative min-h-screen w-full flex items-center pt-24 pb-12 overflow-hidden" id="about">
-<div class="absolute inset-0 z-0 pointer-events-none">
-<div class="absolute top-[15%] right-[-5%] w-[40vw] h-[70vh] md:w-[35vw] md:h-[80vh] opacity-20 dark:opacity-10 ">
-<img alt="Mark Johnson Portrait" class="w-full h-full object-cover object-center rounded-l-3xl animate-float-slow" src="/assets/charcoal.PNG" style="mask-image: linear-gradient(to left, black 60%, transparent 100%); -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);"/>
-</div>
-<div class="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-slate-100 dark:bg-slate-800 rounded-full blur-3xl opacity-60"></div>
-</div>
-<div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12">
-<div class="mb-16 md:mb-24">
-<h1 class="text-6xl md:text-8xl lg:text-9xl font-handwriting text-black dark:text-white leading-[0.9] transform -rotate-1 origin-left">
-                The story<br/>
-<span class="ml-12 md:ml-24">so far<span class="text-primary">.</span></span>
-</h1>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-20">
-<div class="md:col-span-7 lg:col-span-6 space-y-8">
-<div class="prose prose-lg dark:prose-invert text-slate-600 dark:text-slate-300 font-light">
-<p class="text-xl md:text-2xl text-slate-800 dark:text-slate-100 font-medium mb-6">
-                        I craft operational experiences that merge functionality with employee satisfaction.
-                    </p>
-<p class="mb-6">
-                        My journey began over three decades ago when I discovered that I have a deep desire to know how things work. Since then, I've worked with startups and Fortune 500 companies alike, always bringing a detail-oriented, user-first philosophy to the table.
-                    </p>
-<p>
-                        I believe that good design is invisible—it just works. My approach is rooted in minimalism, stripping away the non-essential to reveal the core purpose of a product. Whether it's a complex multilayered lifecycle deployment or a simple dashboard to show call metrics, I strive for clarity, speed, and ease of use.
-                    </p>
-</div>
-<div class="pt-8 border-t border-slate-200 dark:border-slate-800">
-<div class="flex flex-wrap gap-4">
-<span class="px-4 py-2 border border-slate-300 dark:border-slate-700 rounded-full text-sm uppercase tracking-wider text-slate-500 hover:border-primary hover:text-primary transition-colors cursor-default">stay involved</span>
-<span class="px-4 py-2 border border-slate-300 dark:border-slate-700 rounded-full text-sm uppercase tracking-wider text-slate-500 hover:border-primary hover:text-primary transition-colors cursor-default">remember the mission</span>
-<span class="px-4 py-2 border border-slate-300 dark:border-slate-700 rounded-full text-sm uppercase tracking-wider text-slate-500 hover:border-primary hover:text-primary transition-colors cursor-default">keep it fun</span>
-</div>
-</div>
-</div>
-<div class="md:col-span-5 lg:col-span-5 lg:col-start-8 flex flex-col justify-center space-y-12">
-<div>
-<h3 id="values" style="scroll-margin-top:7rem" class="text-sm font-bold uppercase tracking-widest text-primary mb-6">Core Values</h3>
-<ul class="space-y-4">
-<li class="flex items-start group">
-<span class="material-icons-outlined text-slate-400 group-hover:text-primary transition-colors mr-3 mt-1">check_circle</span>
-<div>
-<h4 class="font-medium text-slate-900 dark:text-white">People First</h4>
-<p class="text-sm text-slate-500 mt-1">Understand what drives your organization and ensure they're taken care of.</p>
-</div>
-</li>
-<li class="flex items-start group">
-<span class="material-icons-outlined text-slate-400 group-hover:text-primary transition-colors mr-3 mt-1">check_circle</span>
-<div>
-<h4 class="font-medium text-slate-900 dark:text-white">Detailed Simplicity</h4>
-<p class="text-sm text-slate-500 mt-1">Details need to be clear and understood without narration.</p>
-</div>
-</li>
-<li class="flex items-start group">
-<span class="material-icons-outlined text-slate-400 group-hover:text-primary transition-colors mr-3 mt-1">check_circle</span>
-<div>
-<h4 class="font-medium text-slate-900 dark:text-white">Empathy</h4>
-<p class="text-sm text-slate-500 mt-1">Understanding the customer, internal and external, is the first step to solving their problem.</p>
-</div>
-</li>
-</ul>
-</div>
-<div>
-<h3 id="offline" style="scroll-margin-top:7rem" class="text-sm font-bold uppercase tracking-widest text-primary mb-6">Offline Mode</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
-                        When I'm not improving workflows or opening deployment centers around the globe, you can find me hanging out with my family, painting, or out walking some of the local parks.
-                        I also really enjoy making 3D printing, making rugs, digital design.
-                    </p>
-<div class="flex space-x-4 text-slate-400">
-<span class="material-icons-outlined hover:text-slate-800 dark:hover:text-white transition-colors cursor-help" title="Photography">camera_alt</span>
-<span class="material-icons-outlined hover:text-slate-800 dark:hover:text-white transition-colors cursor-help" title="Coffee">coffee</span>
-<span class="material-icons-outlined hover:text-slate-800 dark:hover:text-white transition-colors cursor-help" title="Hiking">landscape</span>
-<span class="material-icons-outlined hover:text-slate-800 dark:hover:text-white transition-colors cursor-help" title="Music">headphones</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="fixed bottom-12 left-6 md:left-12 flex flex-col space-y-4 z-50 hidden md:flex">
-<a aria-label="Github" class="text-slate-400 hover:text-primary transition-colors duration-300 transform hover:scale-110" href="#">
-<svg fill="currentColor" height="24" viewBox="0 0 24 24" width="24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
-</a>
-<a aria-label="LinkedIn" class="text-slate-400 hover:text-primary transition-colors duration-300 transform hover:scale-110" href="https://www.linkedin.com/in/mark-johnson-ohullo/">
-<svg fill="currentColor" height="24" viewBox="0 0 24 24" width="24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
-</a>
-</div>
-<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce-subtle z-20 cursor-pointer opacity-40 hover:opacity-100 transition-opacity">
-<span class="text-xs font-semibold tracking-widest text-slate-400 dark:text-slate-500 uppercase mb-2">Resume</span>
-<div class="w-[1px] h-8 bg-gradient-to-b from-primary to-transparent"></div>
-</div>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="ink" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency=".06" numOctaves="2" seed="2" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/>
+    <feGaussianBlur in="d" stdDeviation=".45"/>
+  </filter>
+</svg>
+
+<header class="top solid">
+  <a class="brand" href="index.html" aria-label="ohullo, home">ohullo<i></i></a>
+  <nav aria-label="Site">
+    <a href="index.html#timeline">Timeline</a>
+    <a href="work.html">Work</a>
+    <a href="about.html" aria-current="page">About</a>
+    <a class="pill" href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main class="page" id="main">
+  <div class="page-head">
+    <div>
+      <h1>The story so far<i></i></h1>
+      <p class="lede">I craft operational experiences that merge functionality with employee satisfaction.</p>
+    </div>
+    <svg class="enso-sm" data-enso aria-hidden="true"></svg>
+  </div>
+
+  <div class="story-grid">
+    <div class="prose">
+      <p>My journey began over three decades ago, when I discovered a deep desire to know how things work. Since then I've worked with startups and Fortune 500 companies alike, always bringing a detail-oriented, people-first approach to the table.</p>
+      <p>I believe good design is invisible: it just works. My approach is rooted in minimalism, stripping away the non-essential to reveal the core purpose of a product. Whether it's a multilayered global deployment or a simple dashboard of call metrics, I aim for clarity, speed and ease of use.</p>
+      <p>Today I bring that same thinking to marketing as Director of Marketing at MCDP, where the systems are websites and ad campaigns and the customers are patients finding their next dentist.</p>
+      <ul class="mottos" aria-label="Mottos"><li>stay involved</li><li>remember the mission</li><li>keep it fun</li></ul>
+    </div>
+    <figure class="portrait">
+      <img src="assets/charcoal.webp" alt="Charcoal portrait of Mark Johnson, smiling, in a suit with a blue tie" width="800" height="1001">
+      <figcaption>Mark Johnson</figcaption>
+    </figure>
+  </div>
+
+  <section class="section" id="values" aria-labelledby="valuesTitle">
+    <h2 class="section-title" id="valuesTitle">What I value</h2>
+    <div class="cards three">
+      <article class="wash">
+        <h3>People first</h3>
+        <p>Understand what drives your organization, and make sure those people are taken care of.</p>
+      </article>
+      <article class="wash">
+        <h3>Detailed simplicity</h3>
+        <p>Details should be clear and understood without narration.</p>
+      </article>
+      <article class="wash">
+        <h3>Empathy</h3>
+        <p>Understanding the customer, internal and external, is the first step to solving their problem.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="offline" aria-labelledby="offTitle">
+    <h2 class="section-title" id="offTitle">Off hours</h2>
+    <div class="prose">
+      <p>When I'm not improving workflows or opening deployment centers around the globe, you'll find me with my family, painting, or walking the local parks. I also enjoy making things with my hands and screens.</p>
+    </div>
+    <ul class="hobbies" aria-label="Hobbies">
+      <li>family time</li><li>painting</li><li>park walks</li><li>3D printing</li><li>rug making</li><li>digital design</li>
+    </ul>
+  </section>
+
+  <section class="cta" aria-labelledby="ctaTitle">
+    <h2 id="ctaTitle">Want the full version?</h2>
+    <p>My résumé has every role and result, and my cover letter has the why behind them.</p>
+    <div class="row">
+      <a class="btn" href="assets/Mark_Johnson_Resume_2026web.docx" download>Download résumé</a>
+      <a class="btn ghost" href="assets/Mark_Johnson_Cover_Letter_2026web.docx" download>Download cover letter</a>
+    </div>
+  </section>
 </main>
 
-</body></html>
+<footer>
+  <a href="index.html">Home</a><a href="work.html">Work</a><a href="mailto:mark@ohullo.com">Email</a><a href="https://www.linkedin.com/in/mark-johnson-ohullo/" rel="noopener">LinkedIn</a>
+  <p>© 2026 Mark Johnson, Wylie, Texas</p>
+</footer>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
