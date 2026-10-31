@@ -9,7 +9,7 @@
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<script>document.documentElement.classList.add('js','pending');setTimeout(()=>document.documentElement.classList.remove('pending'),2500)</script>
+<script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -18,7 +18,6 @@
 /* ---------- scene 1: ink clouds part to reveal the logo ---------- */
 .sky{position:relative;height:300vh}
 .stage{position:sticky;top:0;height:100vh;overflow:hidden}
-.sky .stage{background:linear-gradient(rgba(19,164,236,.07),transparent 70%)}
 .enso{position:absolute;right:8%;top:11%;width:clamp(110px,17vmin,210px);aspect-ratio:1;z-index:1;overflow:visible;will-change:transform}
 .hero{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 16px 14vh}
 .logo{font-family:var(--hand);font-weight:700;font-size:clamp(5.6rem,22vw,15rem);line-height:.82;margin:0;color:var(--ink);white-space:nowrap;letter-spacing:-.01em}
@@ -27,9 +26,10 @@
 .intro{margin-top:1.4rem;max-width:32rem;will-change:opacity}
 .intro .hi{display:block;font-family:var(--hand);font-weight:700;font-size:clamp(2rem,4.4vw,2.7rem);line-height:1}
 .intro p{margin:.5rem 0 0;color:var(--ink-soft)}
-.sky-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none}
+#living{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:0;pointer-events:none}
+main,footer{position:relative;z-index:1}
+.logo,.enso{will-change:opacity}
 .hint{position:absolute;left:0;top:0;z-index:4;margin:0;font-family:var(--hand);font-weight:700;color:var(--paper);white-space:nowrap;will-change:transform,opacity}
-html.js.pending .hero{visibility:hidden}
 .seed{position:fixed;left:0;top:0;width:20px;height:20px;z-index:30;pointer-events:none;display:none;will-change:transform}
 .seed i{display:block;width:100%;height:100%;background:var(--blue);border-radius:50%;transition:border-radius .2s}
 .seed.falling i{border-radius:0 50% 50% 50%;transform:rotate(45deg)}
@@ -77,6 +77,7 @@ html.js.pending .hero{visibility:hidden}
 .grove{position:relative;z-index:5;height:360vh}
 .gstage{position:sticky;top:0;height:100vh;overflow:hidden}
 .tree-canvas{position:absolute;inset:0;width:100%;height:100%}
+.living .tree-canvas{display:none}
 .grove-head{position:absolute;z-index:3;left:clamp(1rem,6vw,5rem);top:15vh;max-width:19rem;padding:.6rem .9rem;background:rgba(244,246,245,.86);border-radius:4px}
 .grove-head h2{font-family:var(--hand);font-weight:700;font-size:clamp(2.8rem,5.6vw,4.2rem);line-height:.95;margin:0}
 .grove-head p{margin:.4rem 0 0;color:var(--ink-soft);font-size:.95rem;line-height:1.5}
@@ -157,7 +158,7 @@ form.inq{display:flex;flex-direction:column;gap:clamp(.55rem,2.6cqi,.95rem);flex
 /* ---------- reduced motion: every scene in its finished state ---------- */
 html.rm .sky,html.rm .grove,html.rm .bench-scene{height:auto}
 html.rm .stage,html.rm .gstage{position:relative}
-html.rm .sky-canvas,html.rm .hint{display:none}
+html.rm .hint{display:none}
 html.rm .tl{margin-top:0}
 html.rm .bnote{display:none}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.node,.card,.card::before{transition:none}}
@@ -222,6 +223,7 @@ html.rm .bnote{display:none}
   </nav>
 </header>
 
+<canvas id="living" aria-hidden="true"></canvas>
 <main>
 <!-- ===== 1. Ink clouds part, turning brand blue, to reveal the logo ===== -->
 <section class="sky" id="sky" aria-label="Welcome">
@@ -234,7 +236,6 @@ html.rm .bnote{display:none}
         <p>Director of Digital Strategy at MCDP, and twenty years of making operations work before that.</p>
       </div>
     </div>
-    <canvas class="sky-canvas" id="skyCanvas" aria-hidden="true"></canvas>
     <p class="hint" id="hint" aria-hidden="true">psst… scroll</p>
   </div>
 </section>
@@ -479,6 +480,7 @@ html.rm .bnote{display:none}
 </footer>
 
 <script src="assets/js/site.js"></script>
+<script src="assets/js/living.js"></script>
 <script>
 (() => {
   const root = document.documentElement;
@@ -512,31 +514,6 @@ html.rm .bnote{display:none}
     }
     return 'M ' + P(L) + ' L ' + P(R.reverse()) + ' Z';
   }
-  function cloudPath(w, h, r) {
-    const n = 4 + Math.floor(r() * 3), base = h * .78, pts = [];
-    for (let i = 0; i <= n; i++) {
-      const t = i / n, x = w * (.04 + .92 * t);
-      pts.push([x, (i === 0 || i === n) ? base : base - Math.sin(Math.PI * t) * h * (.5 + r() * .24)]);
-    }
-    let d = `M ${pts[0][0]} ${pts[0][1]}`;
-    for (let i = 1; i < pts.length; i++) {
-      const [x0, y0] = pts[i - 1], [x1, y1] = pts[i], rad = Math.hypot(x1 - x0, y1 - y0) * (.56 + r() * .12);
-      d += ` A ${rad} ${rad} 0 0 1 ${x1} ${y1}`;
-    }
-    return d + ` A ${w * .24} ${h * .1} 0 0 1 ${w / 2} ${base} A ${w * .24} ${h * .1} 0 0 1 ${pts[0][0]} ${base} Z`;
-  }
-  // paint an SVG (with its watercolor filters) into a canvas once; afterwards it is just a bitmap
-  const defsFor = ids => ids.map(id => document.getElementById(id).outerHTML).join('');
-  function bake(viewBox, inner, filterIds, pw, ph) {
-    const svg = `<svg xmlns="${NS}" width="${pw}" height="${ph}" viewBox="${viewBox}" preserveAspectRatio="none"><defs>${defsFor(filterIds)}</defs>${inner}</svg>`;
-    return new Promise(res => {
-      const img = new Image();
-      img.onload = () => { const cv = document.createElement('canvas'); cv.width = pw; cv.height = ph; cv.getContext('2d').drawImage(img, 0, 0, pw, ph); res(cv); };
-      img.onerror = () => res(null);
-      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
-    });
-  }
-
   /* ---------- scene 1: ink clouds that wash to blue, on one canvas ---------- */
   const CLOUDS = [
     {x:12,y:14,w:40,side:-1,dist:46,lift:8},
@@ -552,52 +529,20 @@ html.rm .bnote{display:none}
     {x:50,y:36,w:56,side:-1,dist:92,lift:-4},
     {x:46,y:62,w:58,side:-1,dist:88,lift:-12,hint:true}
   ];
-  const skyCanvas = $('#skyCanvas'), sctx = skyCanvas.getContext('2d'), hint = $('#hint');
-  const cloudFilter = sd => `<filter id="cw" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="${sd}" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="30" xChannelSelector="R" yChannelSelector="G" result="d"/><feGaussianBlur in="d" stdDeviation="2" result="s"/><feMorphology in="s" operator="erode" radius="5" result="i"/><feComposite in="s" in2="i" operator="out" result="r"/><feGaussianBlur in="r" stdDeviation="1.3" result="rs"/><feComponentTransfer in="s" result="b"><feFuncA type="table" tableValues="0 .95"/></feComponentTransfer><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="9" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -.6 1.22" result="ga"/><feMerge result="p"><feMergeNode in="b"/><feMergeNode in="rs"/></feMerge><feComposite in="p" in2="ga" operator="in"/></filter>`;
-  const clouds = CLOUDS.map((c, i) => ({...c, d1:cloudPath(600, 300, rng(40 + i * 17)), d2:cloudPath(600, 300, rng(90 + i * 13)), ink:null, blue:null}));
-  let unit = 10, cs = 1, skyDirty = true;
-  async function bakeClouds() {
-    await Promise.all(clouds.map(async (c, i) => {
-      const pw = Math.min(1600, Math.round(c.w * unit * cs * 1.24 * DPR)), ph = Math.round(pw / 2);
-      const art = col => `<g filter="url(#cw)" fill="${col}"><path d="${c.d1}"/><path d="${c.d2}" fill-opacity=".75" transform="translate(110 70) scale(.62)"/></g>`;
-      const vb = '-72 -36 744 372';
-      const withF = col => {
-        const svg = `<svg xmlns="${NS}" width="${pw}" height="${ph}" viewBox="${vb}" preserveAspectRatio="none"><defs>${cloudFilter(3 + i)}</defs>${art(col)}</svg>`;
-        return new Promise(res => { const img = new Image(); img.onload = () => { const cv = document.createElement('canvas'); cv.width = pw; cv.height = ph; cv.getContext('2d').drawImage(img, 0, 0, pw, ph); res(cv); }; img.onerror = () => res(null); img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg); });
-      };
-      [c.ink, c.blue] = await Promise.all([withF('#121518'), withF(BLUE)]);
-    }));
-    root.classList.remove('pending');
-    skyDirty = true; requestAnimationFrame(frame);
-  }
-  function sizeSky() {
-    skyCanvas.width = Math.round(innerWidth * DPR); skyCanvas.height = Math.round(innerHeight * DPR);
-  }
-  let lastSky = '';
-  function drawSky(part, tint) {
-    const key = part.toFixed(4) + tint.toFixed(4) + skyCanvas.width;
-    if (!skyDirty && key === lastSky) return;
-    lastSky = key; skyDirty = false;
-    const W = skyCanvas.width, H = skyCanvas.height, vw = innerWidth;
-    sctx.clearRect(0, 0, W, H);
-    if (part > .995) { skyCanvas.style.visibility = 'hidden'; return; }
-    skyCanvas.style.visibility = 'visible';
-    clouds.forEach(c => {
-      if (!c.ink) return;
-      const w = c.w * unit * cs, h = w / 2;
-      const cx = c.x / 100 * innerWidth + c.side * part * (c.dist * unit + vw * .12);
-      const cy = c.y / 100 * innerHeight - part * c.lift * unit;
-      const bw = w * 1.24, bh = h * 1.24;
-      const x = (cx - bw / 2) * DPR, y = (cy - bh / 2) * DPR;
-      if (x > W || y > H || x + bw * DPR < 0 || y + bh * DPR < 0) return;
-      if (tint < 1) { sctx.globalAlpha = 1 - tint; sctx.drawImage(c.ink, x, y, bw * DPR, bh * DPR); }
-      if (tint > 0) { sctx.globalAlpha = tint * .88; sctx.drawImage(c.blue, x, y, bw * DPR, bh * DPR); }
-      if (c.hint) {
-        hint.style.fontSize = (w * .09) + 'px';
-        hint.style.transform = `translate3d(${cx}px, ${cy + h * .06}px, 0) translate(-50%, -50%)`;
-      }
+  const hint = $('#hint'), L = window.Living, live = L && L.ok;
+  if (live) root.classList.add('living');
+  let unit = 10, cs = 1;
+  const cloudBuf = new Float32Array(48);
+  // the clouds' positions, handed to the painting each frame (in viewport heights)
+  function placeClouds(part) {
+    const vw = innerWidth, vh = innerHeight;
+    CLOUDS.forEach((c, i) => {
+      const w = c.w * unit * cs;
+      const cx = c.x / 100 * vw + c.side * part * (c.dist * unit + vw * .12);
+      const cy = c.y / 100 * vh - part * c.lift * unit;
+      cloudBuf.set([cx / vh, cy / vh, w / 2 / vh, i], i * 4);
+      if (c.hint) { hint.style.fontSize = (w * .09) + 'px'; hint.style.transform = `translate3d(${cx}px, ${cy + w * .03}px, 0) translate(-50%, -50%)`; }
     });
-    sctx.globalAlpha = 1;
   }
   // the ensō: one breath of the brush
   (() => {
@@ -613,7 +558,7 @@ html.rm .bnote{display:none}
     $('#enso').appendChild(g);
   })();
 
-  const sky = $('#sky'), logoDot = $('#logoDot'), intro = $('#intro'), seed = $('#seed'), head = $('#top');
+  const sky = $('#sky'), logoDot = $('#logoDot'), intro = $('#intro'), seed = $('#seed'), head = $('#top'), logo = $('#logo'), enso = $('#enso');
 
   /* ---------- scene 2: timeline ---------- */
   const tlLine = $('#tlLine'), paths = [...tlLine.querySelectorAll('path')];
@@ -637,9 +582,9 @@ html.rm .bnote{display:none}
   });
 
   /* ---------- scene 3: a screen-filling ink tree, painted onto one canvas ---------- */
-  const grove = $('#grove'), gstage = $('#gstage'), treeCanvas = $('#treeCanvas'), tctx = treeCanvas.getContext('2d'), groveHead = $('#groveHead');
+  const grove = $('#grove'), gstage = $('#gstage'), treeCanvas = $('#treeCanvas'), groveHead = $('#groveHead');
   const leaves = $$('.leaf'), glabels = $$('.glabel'), GROUPS = [1, 3, 3], NL = leaves.length;
-  let treeArt = [], base = [], slots = [], slotScale = 1, LW = 140, builtW = 0, builtH = 0, treeJob = 0;
+  let base = [], slots = [], slotScale = 1, LW = 140, builtW = 0, builtH = 0;
   leaves.forEach((lf, i) => {
     const r = rng(300 + i), svg = el('svg', {viewBox:'0 0 160 70'});
     const g = el('g', {filter:'url(#washS)'});
@@ -668,21 +613,7 @@ html.rm .bnote{display:none}
       }
     })(w * (mobile ? .5 : .46), h + 30, -Math.PI / 2 + .06, h * (mobile ? .17 : .21), Math.max(30, Math.min(w, h) * .075), 0);
 
-    // four depth layers of brushwork plus a layer of blue blossoms, as SVG strings
-    const layerSrc = [0, 1, 2, 3].map(k => {
-      const grp = br.filter(b => Math.min(3, b.d >> 1) === k);
-      let s = '';
-      if (k < 2) s += `<g filter="url(#wash)">${grp.map(b => `<path d="${taper([b.x, b.y], [b.cx, b.cy], [b.ex, b.ey], b.w0 * 2.2, b.w1 * 2.2, r)}" fill="${INK}" fill-opacity=".16"/>`).join('')}</g>`;
-      s += `<g filter="url(#ink)">${grp.map(b => `<path d="${taper([b.x, b.y], [b.cx, b.cy], [b.ex, b.ey], b.w0, b.w1, r)}" fill="${INK}" fill-opacity="${(.95 - k * .1).toFixed(2)}"/>`).join('')}</g>`;
-      return [s, ['wash', 'ink']];
-    });
-    const blossoms = br.filter(b => b.d >= 5 && r() < .5).map(b => `<circle cx="${(b.ex + (r() - .5) * 12).toFixed(1)}" cy="${(b.ey + (r() - .5) * 12).toFixed(1)}" r="${(4 + r() * 10).toFixed(1)}" fill="${BLUE}" fill-opacity="${(.3 + r() * .45).toFixed(2)}"/>`).join('');
-    layerSrc.push([`<g filter="url(#washS)">${blossoms}</g>`, ['washS']]);
-    treeCanvas.width = Math.round(w * DPR); treeCanvas.height = Math.round(h * DPR);
-    treeArt = []; const job = ++treeJob;
-    const go = () => Promise.all(layerSrc.map(([inner, f]) => bake(`0 0 ${w} ${h}`, inner, f, treeCanvas.width, treeCanvas.height)))
-      .then(cvs => { if (job === treeJob) { treeArt = cvs; lastTree = ''; requestAnimationFrame(frame); } });
-    (window.requestIdleCallback || setTimeout)(go, {timeout:1200});
+    paintTree(w, h, br, r);
 
     // pick well-spread spots along the branches for the leaves, clear of the heading
     const sr = gstage.getBoundingClientRect(), hr = groveHead.getBoundingClientRect();
@@ -716,16 +647,31 @@ html.rm .bnote{display:none}
     const labelRight = w - (colX - LW * slotScale / 2 - 18);
     glabels.forEach((l, gi) => { l.style.right = labelRight + 'px'; l.style.top = labelY[gi] + 'px'; });
   }
-  let lastTree = '';
-  function drawTree(pg) {
-    const alphas = treeArt.map((_, k) => clamp((pg - (.005 + k * .04)) / .06));
-    const key = alphas.map(a => a.toFixed(3)).join();
-    if (key === lastTree) return;
-    lastTree = key;
-    tctx.clearRect(0, 0, treeCanvas.width, treeCanvas.height);
-    treeArt.forEach((cv, k) => { if (cv && alphas[k] > 0) { tctx.globalAlpha = alphas[k]; tctx.drawImage(cv, 0, 0); } });
-    tctx.globalAlpha = 1;
+  // paint the branches with plain canvas paths: four depth layers into one RGBA texture,
+  // blossoms and the pale limb wash into a second. The living painting does the watercolor.
+  function paintTree(w, h, br, r) {
+    const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+    const cx = cv.getContext('2d', {willReadFrequently:true});
+    const A = new Uint8Array(w * h * 4), B = new Uint8Array(w * h * 4);
+    const grab = (arr, ch) => { const d = cx.getImageData(0, 0, w, h).data; for (let i = 3, j = ch; i < d.length; i += 4, j += 4) arr[j] = d[i]; cx.clearRect(0, 0, w, h); };
+    const stroke = (b, k) => cx.fill(new Path2D(taper([b.x, b.y], [b.cx, b.cy], [b.ex, b.ey], b.w0 * k, b.w1 * k, r)));
+    cx.fillStyle = '#000';
+    for (let k = 0; k < 4; k++) { br.filter(b => Math.min(3, b.d >> 1) === k).forEach(b => stroke(b, 1)); grab(A, k); }
+    br.filter(b => (b.d >> 1) < 2).forEach(b => stroke(b, 2.2)); grab(B, 1);
+    br.filter(b => b.d >= 5 && r() < .5).forEach(b => {
+      cx.globalAlpha = .45 + r() * .55; cx.beginPath();
+      cx.arc(b.ex + (r() - .5) * 12, b.ey + (r() - .5) * 12, 4 + r() * 10, 0, Math.PI * 2); cx.fill();
+    });
+    cx.globalAlpha = 1; grab(B, 0);
+    if (live) { L.tree(A, B, w, h); return; }
+    // no WebGL: show the branches as flat ink on the fallback canvas
+    treeCanvas.width = w; treeCanvas.height = h;
+    const tc = treeCanvas.getContext('2d'), img = tc.createImageData(w, h);
+    for (let i = 0; i < w * h; i++) { const a = Math.max(A[i * 4] * .95, A[i * 4 + 1] * .86, A[i * 4 + 2] * .74, A[i * 4 + 3] * .62); img.data.set([29, 43, 54, a], i * 4); }
+    tc.putImageData(img, 0, 0);
   }
+  // where a sticky stage sits in the viewport right now
+  const stageTop = rect => rect.top > 0 ? rect.top : (rect.bottom < innerHeight ? rect.bottom - innerHeight : 0);
 
   /* ---------- scene 4: bench and book ---------- */
   const bench = $('#bench'), world = $('#world'), book = $('#book'), turn = $('#turn'), bnote = $('#bnote');
@@ -753,14 +699,14 @@ html.rm .bnote{display:none}
     ink.appendChild(el('path', {d:taper([530, 44], [680, 60], [820, 52], 2, .6, r), fill:INK, 'fill-opacity':.35}));
     svg.append(wash, ink);
   })();
-  let BH = 0, s0 = .45, single = false, bookOpen = false;
+  let BH = 0, BHt = 0, s0 = .45, single = false, bookOpen = false;
   function layoutBook() {
     const vw = innerWidth, vh = innerHeight;
     single = vw < 760;
     let W, H, PW;
     if (single) { W = PW = Math.min(vw - 32, 440); H = Math.min(W * 1.5, vh * .8); }
     else { H = Math.min(vh * .82, 640); W = Math.min(vw * .92, H / .64, 980); H = W * .64; PW = W / 2; }
-    const BW = W * (single ? 1.7 : 1.45); BH = BW * .4;
+    const BW = W * (single ? 1.7 : 1.45); BH = BW * .4; BHt = H;
     const st = world.style;
     st.setProperty('--W', W + 'px'); st.setProperty('--H', H + 'px'); st.setProperty('--PW', PW + 'px');
     st.setProperty('--BW', BW + 'px'); st.setProperty('--BH', BH + 'px');
@@ -778,11 +724,15 @@ html.rm .bnote{display:none}
     const span = sky.offsetHeight - vh;
     const ps = reduce || span <= 0 ? 1 : clamp(-sky.getBoundingClientRect().top / span);
     const part = easeIO(clamp(ps / .6)), tint = clamp(ps / .45);
-    if (!reduce) {
-      drawSky(part, tint);
+    const sr = sky.getBoundingClientRect();
+    if (!reduce && live) {
+      placeClouds(part);
       hint.style.opacity = clamp(1 - ps * 7);
       intro.style.opacity = clamp((ps - .4) / .18);
-    }
+      logo.style.opacity = clamp((part - .12) / .4).toFixed(3);   // the logo comes through as the ink clears
+      enso.style.opacity = clamp((part - .2) / .4).toFixed(3);
+    } else if (!live) { hint.style.display = 'none'; }
+    const live_ = {scroll:scrollY / vh, clouds:cloudBuf, cloud: !live || reduce || part > .995 ? 0 : 1, tint, skyB:(stageTop(sr) + vh) / vh};
     head.classList.toggle('on-ink', !reduce && ps < .12);
     head.classList.toggle('solid', sky.getBoundingClientRect().bottom < vh * .7);
 
@@ -812,8 +762,11 @@ html.rm .bnote{display:none}
     const gr = grove.getBoundingClientRect(), gspan = grove.offsetHeight - vh;
     const pg = pgNow = reduce || gspan <= 0 ? 1 : clamp(-gr.top / gspan);
     if (gr.bottom > 0 && gr.top < vh) {
-      drawTree(pg);
-      treeCanvas.style.opacity = (1 - .78 * clamp((pg - .66) / .16)).toFixed(3);
+      const fade = 1 - .78 * clamp((pg - .66) / .16);
+      treeCanvas.style.opacity = fade.toFixed(3);
+      live_.tree = [stageTop(gr) / vh, 1, fade, 1];
+      live_.ta = [0, 1, 2, 3].map(k => clamp((pg - (.005 + k * .04)) / .06));
+      live_.tb = clamp((pg - .165) / .06);
       const onBranch = vw < 760 ? .82 : 1;
       leaves.forEach((lf, i) => {
         const b = base[i], s = slots[i];
@@ -829,11 +782,17 @@ html.rm .bnote{display:none}
       glabels.forEach(l => l.style.opacity = clamp((pg - .8) / .06).toFixed(3));
     }
 
+    else live_.tree = [0, 1, 1, 0];
+    live_.tl = tlLine.getBoundingClientRect().top / vh;
+
     // 4. zoom in on the book, then turn the page
-    const bspan = bench.offsetHeight - vh;
-    const pb = reduce || bspan <= 0 ? 1 : clamp(-bench.getBoundingClientRect().top / bspan);
-    const z = easeIO(clamp(pb / .42)), s = lerp(s0, 1, z);
-    world.style.transform = `translate3d(0, ${-BH * .45 * s0 * (1 - z)}px, 0) scale(${s})`;
+    const brc = bench.getBoundingClientRect(), bspan = bench.offsetHeight - vh;
+    const pb = reduce || bspan <= 0 ? 1 : clamp(-brc.top / bspan);
+    const z = easeIO(clamp(pb / .42)), s = lerp(s0, 1, z), ty = -BH * .45 * s0 * (1 - z);
+    world.style.transform = `translate3d(0, ${ty}px, 0) scale(${s})`;
+    const groundY = stageTop(brc) + vh / 2 + ty + s * (BHt / 2 + BH * .955);
+    live_.bench = brc.bottom > 0 && brc.top < vh ? [groundY / vh, 1] : [0, 0];
+    if (live) L.set(live_);
     const flip = easeIO(clamp((pb - .48) / .3));
     turn.style.setProperty('--flip', flip.toFixed(4));
     turn.style.setProperty('--shade', (Math.sin(flip * Math.PI) * .28).toFixed(3));
@@ -848,16 +807,14 @@ html.rm .bnote{display:none}
     const changed = Math.abs(innerWidth - lastW) > 1 || Math.abs(innerHeight - lastH) > 140;
     unit = Math.max(innerWidth / 100, innerHeight * .0062);
     cs = innerWidth / innerHeight < .75 ? 1.3 : 1;
+    if (changed) { lastW = innerWidth; lastH = innerHeight; }
     layoutLine(); buildTree(); layoutBook();
-    if (changed && !reduce) { lastW = innerWidth; lastH = innerHeight; sizeSky(); skyDirty = true; bakeClouds(); }
-    skyDirty = true; lastTree = '';
     frame();
   }
   addEventListener('scroll', onScroll, {passive:true});
   let rt = 0;
   addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(layout, 150); });
   layout();
-  if (reduce) root.classList.remove('pending');
   if (document.fonts) document.fonts.ready.then(() => { layoutLine(); placeSlots(gstage.clientWidth, gstage.clientHeight); frame(); });
 
   // keyboard users land on the finished scene
