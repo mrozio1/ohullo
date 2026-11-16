@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact · ohullo. Mark Johnson</title>
+<meta name="description" content="Send Mark Johnson a note, or reach him by email, phone or LinkedIn.">
+<meta name="theme-color" content="#f4f6f5">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="ink" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency=".06" numOctaves="2" seed="2" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/>
+    <feGaussianBlur in="d" stdDeviation=".45"/>
+  </filter>
+</svg>
+
+<header class="top solid">
+  <a class="brand" href="index.html" aria-label="ohullo, home">ohullo<i></i></a>
+  <nav aria-label="Site">
+    <a href="index.html#timeline">Timeline</a>
+    <a href="work.html">Work</a>
+    <a href="about.html">About</a>
+    <a class="pill" href="contact.html" aria-current="page">Contact</a>
+  </nav>
+</header>
+
+<main class="page" id="main">
+  <div class="page-head">
+    <div>
+      <h1>Let's connect<i></i></h1>
+      <p class="lede">Have a project in mind or just want to say hi? I'd love to hear from you.</p>
+    </div>
+    <svg class="enso-sm" data-enso aria-hidden="true"></svg>
+  </div>
+
+  <div class="contact-grid">
+    <div class="sheet">
+      <form class="inq" action="https://formsubmit.co/mark@ohullo.com" method="POST">
+        <label>Your name<input name="name" required autocomplete="name"></label>
+        <label>Your email<input type="email" name="email" required autocomplete="email"></label>
+        <label>What can I help with?<textarea name="message" rows="5" required></textarea></label>
+        <input type="hidden" name="_subject" value="New inquiry from ohullo.com">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://www.ohullo.com/contact.html">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="send" type="submit">Send it</button>
+        <p class="status" role="status"></p>
+      </form>
+    </div>
+
+    <aside aria-label="Other ways to reach me">
+      <h2 class="section-title">Or reach me directly</h2>
+      <ul class="reach-list">
+        <li><span>Email</span><a href="mailto:mark@ohullo.com">mark@ohullo.com</a></li>
+        <li><span>Phone</span><a href="tel:+14692430387">(469) 243-0387</a></li>
+        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/mark-johnson-ohullo/" rel="noopener">mark-johnson-ohullo</a></li>
+        <li><span>Based in</span>Wylie, Texas</li>
+      </ul>
+      <a class="btn ghost" href="assets/Mark_Johnson_Resume_2026web.docx" download>Download résumé</a>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <a href="../">Ohullo Consulting</a><a href="index.html">Home</a><a href="work.html">Work</a><a href="about.html">About</a><a href="https://www.linkedin.com/in/mark-johnson-ohullo/" rel="noopener">LinkedIn</a>
+  <p>© 2026 Mark Johnson, Wylie, Texas</p>
+</footer>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/inkcursor.js"></script>
+</body>
+</html>

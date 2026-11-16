@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ohullo. Mark Johnson</title>
-<meta name="description" content="Mark Johnson, Director of Digital Strategy at MCDP and operations leader. Twenty years of making things work.">
+<title>Ohullo Consulting</title>
+<meta name="description" content="Ohullo: AI implementation, web design and security, and bespoke application development. Direction and clarity from first question to final outcome.">
 <meta name="theme-color" content="#f4f6f5">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -15,814 +15,360 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
-/* ---------- scene 1: ink clouds part to reveal the logo ---------- */
-.sky{position:relative;height:300vh}
-.stage{position:sticky;top:0;height:100vh;overflow:hidden}
-.enso{position:absolute;right:8%;top:11%;width:clamp(110px,17vmin,210px);aspect-ratio:1;z-index:1;overflow:visible;will-change:transform}
-.hero{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 16px 14vh}
-.logo{font-family:var(--hand);font-weight:700;font-size:clamp(5.6rem,22vw,15rem);line-height:.82;margin:0;color:var(--ink);white-space:nowrap;letter-spacing:-.01em}
-.logo .word{filter:url(#inkText);display:inline-block;will-change:transform}
-.logo .dot{display:inline-block;width:.15em;height:.15em;border-radius:50%;background:var(--blue);margin-left:.03em}
-.intro{margin-top:1.4rem;max-width:32rem;will-change:opacity}
-.intro .hi{display:block;font-family:var(--hand);font-weight:700;font-size:clamp(2rem,4.4vw,2.7rem);line-height:1}
-.intro p{margin:.5rem 0 0;color:var(--ink-soft)}
+:root{--brush:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 90' preserveAspectRatio='none'%3E%3Cfilter id='f' x='-6%25' y='-25%25' width='112%25' height='150%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .35' numOctaves='3' seed='7'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='13'/%3E%3C/filter%3E%3Cg filter='url(%23f)' fill='%231d2b36'%3E%3Cpath d='M14 26 Q40 14 160 16 T306 22 Q314 46 304 66 Q200 78 120 74 T12 66 Q4 46 14 26 Z'/%3E%3Cpath d='M240 18 L318 30 L300 36 Z' fill-opacity='.6'/%3E%3C/g%3E%3Cg fill='%23f4f6f5' fill-opacity='.14'%3E%3Crect x='30' y='31' width='230' height='2'/%3E%3Crect x='60' y='55' width='200' height='1.6'/%3E%3C/g%3E%3C/svg%3E");--brush-blue:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 90' preserveAspectRatio='none'%3E%3Cfilter id='f' x='-6%25' y='-25%25' width='112%25' height='150%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .35' numOctaves='3' seed='7'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='13'/%3E%3C/filter%3E%3Cg filter='url(%23f)' fill='%230a71a8'%3E%3Cpath d='M14 26 Q40 14 160 16 T306 22 Q314 46 304 66 Q200 78 120 74 T12 66 Q4 46 14 26 Z'/%3E%3Cpath d='M240 18 L318 30 L300 36 Z' fill-opacity='.6'/%3E%3C/g%3E%3Cg fill='%23f4f6f5' fill-opacity='.14'%3E%3Crect x='30' y='31' width='230' height='2'/%3E%3Crect x='60' y='55' width='200' height='1.6'/%3E%3C/g%3E%3C/svg%3E");--stroke:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 14' preserveAspectRatio='none'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.02 .4' numOctaves='2' seed='3'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='5'/%3E%3C/filter%3E%3Cpath filter='url(%23f)' d='M4 8 Q150 3 300 6 T596 7 L590 9 Q300 11 10 10 Z' fill='%231d2b36'/%3E%3C/svg%3E")}
+/* One sumi-e world: rice paper, sumi ink, brand blue. The story is scrubbed by scroll. */
 #living{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:0;pointer-events:none}
 main,footer{position:relative;z-index:1}
-.logo,.enso{will-change:opacity}
+.stage{position:sticky;top:0;height:100vh;overflow:hidden}
+
+/* 1. clouds part to reveal the logo */
+.sky{position:relative;height:280vh}
+.hero{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 16px 10vh}
+.logo{font-family:var(--hand);font-weight:700;font-size:clamp(5.6rem,22vw,15rem);line-height:.82;margin:0;color:var(--ink);white-space:nowrap;letter-spacing:-.01em;will-change:opacity}
+.logo .word{filter:url(#inkText);display:inline-block}
+.logo .dot{display:inline-block;width:.15em;height:.15em;border-radius:50%;background:var(--blue);margin-left:.03em}
+.tagline{margin-top:1.4rem;max-width:36rem;will-change:opacity}
+.tagline strong{display:block;font-family:var(--hand);font-weight:700;font-size:clamp(1.9rem,4.2vw,2.7rem);line-height:1.05;text-wrap:balance}
+.tagline p{margin:.6rem 0 0;color:var(--ink-soft)}
 .hint{position:absolute;left:0;top:0;z-index:4;margin:0;font-family:var(--hand);font-weight:700;color:var(--paper);white-space:nowrap;will-change:transform,opacity}
-.seed{position:fixed;left:0;top:0;width:20px;height:20px;z-index:30;pointer-events:none;display:none;will-change:transform}
-.seed i{display:block;width:100%;height:100%;background:var(--blue);border-radius:50%;transition:border-radius .2s}
-.seed.falling i{border-radius:0 50% 50% 50%;transform:rotate(45deg)}
 
-/* ---------- scene 2: the ink drop draws the timeline ---------- */
-.tl{position:relative;z-index:5;margin-top:-38vh;padding:0 clamp(1rem,4vw,2rem) 6rem}
-.tl-inner{position:relative;max-width:1120px;margin:0 auto}
-.tl-line{position:absolute;top:0;left:50%;margin-left:-10px;width:20px;overflow:visible;pointer-events:none;will-change:transform}
-.tl-line .guide{stroke:var(--ink-faint);stroke-width:2;stroke-dasharray:1 12;stroke-linecap:round;fill:none}
-.tl-line .halo{stroke:var(--blue);stroke-opacity:.18;stroke-width:15;stroke-linecap:round;fill:none}
-.tl-line .trail{stroke:var(--blue);stroke-width:4.5;stroke-linecap:round;fill:none}
-.tl-head,.job{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(4rem,9vw,7rem)}
-.tl-head{padding:2.2rem 0 1rem}
-.tl-head div{grid-column:1;text-align:right}
-.tl-head h2{font-family:var(--hand);font-weight:700;font-size:clamp(2.8rem,6vw,4.3rem);line-height:.95;margin:0}
-.tl-head p{margin:.5rem 0 0;color:var(--ink-soft)}
-.jobs{list-style:none;margin:0;padding:0}
-.job{position:relative;padding:3rem 0}
-.job .when,.job .card{grid-row:1}
-.job:nth-child(odd) .when{grid-column:1;text-align:right}
-.job:nth-child(odd) .card{grid-column:2}
-.job:nth-child(even) .when{grid-column:2}
-.job:nth-child(even) .card{grid-column:1}
-.when{padding-top:.6rem}
-.dates{display:block;font-family:var(--hand);font-weight:700;font-size:clamp(2.1rem,3.4vw,2.8rem);line-height:1}
-.dur{display:block;color:var(--ink-soft);font-size:.92rem;margin-top:.35rem}
-.node{position:absolute;left:50%;top:calc(3rem + 1.4rem);width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:var(--paper);border:2px solid var(--ink-faint);transition:background .4s,border-color .4s,transform .4s}
-.job.inked .node{background:var(--blue);border-color:var(--blue);transform:scale(1.15)}
-.card{position:relative;isolation:isolate;background:rgba(251,252,251,.82);border-radius:4px;padding:1.6rem 1.7rem 1.5rem;transition:background .8s,color .8s}
-.card::before{content:"";position:absolute;inset:-20px -26px;z-index:-1;background:var(--wash) center/100% 100% no-repeat;transition:opacity 1s}
-.js .job:not(.inked) .card{background:rgba(251,252,251,.35);color:#8995a0}
-.js .job:not(.inked) .card::before{opacity:0}
-.role{font-size:clamp(1.25rem,1.1rem + .55vw,1.5rem);line-height:1.25;margin:0;font-weight:700}
-.org{margin:.5rem 0 .9rem;color:var(--ink-soft);font-size:.93rem;line-height:1.35}
-.org b{display:block;font-family:var(--hand);font-weight:700;font-size:2.1rem;line-height:1;color:var(--blue-deep);margin-bottom:.2rem}
-.js .job:not(.inked) .org b{color:inherit}
-.desc{margin:0 0 1rem}
-.wins{list-style:none;margin:0 0 1.2rem;padding:0;display:grid;gap:.55rem}
-.wins li{position:relative;padding-left:1.7rem;font-size:.95em;line-height:1.6}
-.wins li::before{content:"";position:absolute;left:.15rem;top:.62em;width:.62rem;height:.62rem;border-radius:50% 45% 55% 50%;background:var(--blue);opacity:.75}
-.tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.45rem}
-.tags li{font-size:.78rem;line-height:1.3;padding:.3rem .7rem;border:1px solid var(--ink-faint);border-radius:999px;color:var(--ink-soft)}
+/* 2. the story: rain, city, clock, boardroom, TV */
+.city{position:relative;z-index:2;height:760vh}
+.city canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cap{position:absolute;left:clamp(1rem,6vw,5rem);top:15vh;max-width:min(30rem,88vw);margin:0;opacity:0;pointer-events:none;will-change:opacity}
+.cap b{display:block;font-family:var(--hand);font-weight:700;font-size:clamp(2.6rem,6vw,4.4rem);line-height:.95;text-wrap:balance;text-shadow:0 0 18px var(--paper),0 0 6px var(--paper)}
+.cap span{display:block;margin-top:.6rem;color:var(--ink-soft);font-size:1.02rem;text-shadow:0 0 10px var(--paper),0 0 4px var(--paper)}
+.cap.right{left:auto;right:clamp(1rem,6vw,5rem);text-align:right}
+.cap.low{top:auto;bottom:12vh}
+.cap.light b,.cap.light span{color:var(--paper);text-shadow:0 0 18px rgba(29,43,54,.9),0 0 4px rgba(29,43,54,.9)}
+#clockHint{font-family:var(--hand);font-weight:700;font-size:1.5rem;color:var(--blue-deep)}
+#clockHint .b{display:none}
+#clockHint.calm .a{display:none}#clockHint.calm .b{display:inline}
 
-/* ---------- scene 3: a tree fills the screen; its leaves fall into a line of links ---------- */
-.grove{position:relative;z-index:5;height:360vh}
-.gstage{position:sticky;top:0;height:100vh;overflow:hidden}
-.tree-canvas{position:absolute;inset:0;width:100%;height:100%}
-.living .tree-canvas{display:none}
-.grove-head{position:absolute;z-index:3;left:clamp(1rem,6vw,5rem);top:15vh;max-width:19rem;padding:.6rem .9rem;background:rgba(244,246,245,.86);border-radius:4px}
-.grove-head h2{font-family:var(--hand);font-weight:700;font-size:clamp(2.8rem,5.6vw,4.2rem);line-height:.95;margin:0}
-.grove-head p{margin:.4rem 0 0;color:var(--ink-soft);font-size:.95rem;line-height:1.5}
-.leaves{position:absolute;inset:0;z-index:4;pointer-events:none}
-.leaf{position:absolute;left:0;top:0;width:var(--lw);aspect-ratio:160/70;pointer-events:auto;color:var(--ink);text-decoration:none;will-change:transform;transform-origin:50% 50%}
-.leaf svg{position:absolute;inset:-14% -8%;width:116%;height:128%;overflow:visible}
-.leaf .t{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--hand);font-weight:700;font-size:calc(var(--lw)*.165);line-height:1;white-space:nowrap}
-.leaf:hover .t,.leaf:focus-visible .t{color:var(--blue-deep)}
-.leaf:hover svg{filter:brightness(1.06) saturate(1.2)}
-.leaf:focus-visible{outline:none}
-.leaf:focus-visible .t{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
-.glabel{position:absolute;top:0;margin:0;font-family:var(--hand);font-weight:700;font-size:clamp(1.5rem,2.2vw,1.9rem);line-height:1;color:var(--ink-soft);opacity:0;transform:translateY(-50%);text-align:right;white-space:nowrap}
-.anchor{position:absolute;left:0;top:calc((100% - 100vh)*.88)}
+/* 3. the plan, out of the static */
+.plan{position:relative;z-index:2;padding:4rem clamp(1rem,4vw,2rem) 5rem}
+.plan-inner{position:relative;max-width:820px;margin:0 auto}
+.plan h2,.services h2,.book h2{font-family:var(--hand);font-weight:700;font-size:clamp(3rem,7vw,4.8rem);line-height:.92;margin:0 0 .7rem;text-wrap:balance}
+.plan .lede,.services .lede,.book .lede{margin:0 0 2.6rem;max-width:36rem;color:var(--ink-soft);font-size:1.08rem}
+.pipe{position:relative;padding-left:64px}
+/* water: a stream that drops into each pool, fills it, and spills over into the next */
+.flow{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:0}
+.flow .guide{stroke:var(--ink-faint);stroke-width:1.6;stroke-dasharray:1 11;stroke-linecap:round;fill:none;opacity:.8}
+.flow .halo{stroke:var(--blue);stroke-opacity:.14;stroke-width:9;stroke-linecap:round;fill:none}
+.flow .trail{stroke:var(--blue);stroke-opacity:.8;stroke-width:2.6;stroke-linecap:round;fill:none}
+.flow .drop{fill:var(--blue);transition:opacity .25s}
+.flow .basin{fill:var(--paper);stroke:none}
+.flow .wet-wash{fill:var(--blue);fill-opacity:0;transition:fill-opacity .8s}
+.flow .wet .wet-wash{fill-opacity:.07}
+.flow .full .wet-wash{fill-opacity:.12}
+.flow .rim{fill:none;stroke:var(--ink-faint);stroke-width:1.6;stroke-dasharray:2.5 3.5;transition:stroke .5s}
+.flow .wet .rim{stroke:rgba(10,113,168,.55);stroke-dasharray:none}
+.flow .water{fill:var(--blue);fill-opacity:.62}
+.flow .brim{fill:var(--blue);fill-opacity:.22;transition:opacity .5s}
+.flow .shine{fill:none;stroke:#fff;stroke-width:1.6;stroke-linecap:round;opacity:0;transition:opacity .6s}
+.flow .full .shine{opacity:.85}
+.flow .ripple{fill:none;stroke:#fff;stroke-opacity:.9;stroke-width:1.2}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:2.2rem}
+.step{position:relative}
+.knot{position:absolute;left:-54px;top:1.35rem;width:22px;height:22px}
+.plan .wash,.services .wash{background:transparent;border-radius:0}
+.step .wash,.services .wash{transition:color .8s}
+.js .step:not(.inked) .wash,.js .services .wash:not(.inked){color:#8995a0}
+.js .step:not(.inked) .wash::before,.js .services .wash:not(.inked)::before{opacity:0}
+.js .services .wash:not(.inked) h3{color:inherit}
+.wash::before{transition:opacity 1s}
+.step h3{font-family:var(--hand);font-weight:700;font-size:clamp(2rem,3.6vw,2.6rem);line-height:1;margin:0 0 .5rem;color:var(--blue-deep)}
+.js .step:not(.inked) h3{color:inherit}
+.step.first h3{font-size:clamp(3rem,6vw,4.2rem);color:var(--ink)}
+.step.first h3 i{display:inline-block;width:.15em;height:.15em;border-radius:50%;background:var(--blue);margin-left:.03em}
+.step p{margin:0}
+.step button{margin-top:.8rem;font:inherit;font-weight:700;font-size:.9rem;color:var(--blue-deep);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.step button[aria-expanded="true"]::after{content:" (less)"}
+.step .more{margin-top:.7rem;color:var(--ink-soft)}
+.step .more li{margin:.2rem 0}
+.step .more ul{margin:.3rem 0 0;padding-left:1.1rem}
+.step.last h3{color:var(--ink)}
 
-/* ---------- scene 4: the bench and the book ---------- */
-.bench-scene{position:relative;height:340vh}
-.bnote{position:absolute;left:0;right:0;top:12vh;z-index:2;margin:0;text-align:center;font-family:var(--hand);font-weight:700;font-size:clamp(2rem,4.6vw,3rem);line-height:1;padding:0 16px}
-.world{--W:min(940px,92vw);--H:calc(var(--W)*.64);--PW:calc(var(--W)/2);--BW:calc(var(--W)*1.45);--BH:calc(var(--BW)*.4);position:absolute;left:50%;top:50%;width:0;height:0;transform-origin:0 0;will-change:transform}
-.ground{position:absolute;left:-6000px;width:12000px;top:calc(var(--H)*.5 + var(--BH)*.955);height:6000px;background:linear-gradient(rgba(29,43,54,.07),rgba(29,43,54,0) 420px)}
-.bench{position:absolute;left:calc(var(--BW)*-.5);top:calc(var(--H)*.5 - var(--BH)*.07);width:var(--BW);height:var(--BH);overflow:visible}
-.book{position:absolute;left:calc(var(--W)*-.5);top:calc(var(--H)*-.5);width:var(--W);height:var(--H);perspective:calc(var(--W)*2.6)}
-.book .cover{position:absolute;inset:-11px -13px -13px -13px;background:var(--ink);border-radius:5px 8px 7px 5px;box-shadow:0 18px 40px -18px rgba(29,43,54,.5)}
-.page,.face{background:var(--paper-hi);border:1.5px solid rgba(29,43,54,.55);overflow:hidden;container-type:inline-size;padding:calc(var(--PW)*.08) calc(var(--PW)*.085)}
-.page{position:absolute;top:0;bottom:0;width:50%;display:flex;flex-direction:column}
-.page.l{left:0;border-radius:6px 2px 2px 5px;box-shadow:inset -26px 0 28px -22px rgba(29,43,54,.3)}
-.page.r{left:50%;border-radius:2px 6px 5px 2px;box-shadow:inset 26px 0 28px -22px rgba(29,43,54,.3)}
-.turn{position:absolute;top:0;bottom:0;left:50%;width:50%;transform-origin:0 50%;transform-style:preserve-3d;transform:rotateY(calc(var(--flip,1)*-180deg))}
-.face{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;display:flex;flex-direction:column}
-.face.front{border-radius:2px 6px 5px 2px;box-shadow:inset 26px 0 28px -22px rgba(29,43,54,.3)}
-.face.front::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(29,43,54,var(--shade,0)),transparent 75%);pointer-events:none}
-.face.back{transform:rotateY(180deg);border-radius:6px 2px 2px 5px;box-shadow:inset -26px 0 28px -22px rgba(29,43,54,.3)}
-.book.single .page.l{display:none}
-.book.single .page.r,.book.single .turn{left:0;width:100%}
-.kicker{font-family:var(--hand);font-weight:700;font-size:clamp(1.5rem,8.5cqi,2.6rem);line-height:1;margin:0 0 .6em;color:var(--blue-deep)}
-.pg{margin:auto 0 0;text-align:center;color:var(--ink-soft);font-size:.85rem}
-.story{list-style:none;margin:0;padding:0;display:grid;gap:.15rem}
-.story li{display:grid;grid-template-columns:4.2rem 1fr;align-items:baseline;border-bottom:1px solid rgba(29,43,54,.14);padding:.55em 0;font-size:clamp(.9rem,4.2cqi,1.08rem)}
-.story b{font-family:var(--hand);font-size:1.5em;line-height:1}
-.story li:last-child{color:var(--blue-deep);font-weight:700}
-.nc{font-family:var(--hand);font-weight:700;font-size:clamp(3rem,17cqi,6rem);line-height:.85;margin:.15em 0 .1em}
-.nc-sub{font-size:clamp(1.1rem,5.6cqi,1.5rem);font-weight:700;margin:0 0 .8em}
-.face p,.page p{font-size:clamp(.9rem,4cqi,1.05rem)}
-.seal{--sw:clamp(58px,19cqi,92px);position:absolute;right:9%;bottom:8%;width:var(--sw);aspect-ratio:1;display:grid;place-items:center;background:var(--blue);color:var(--paper-hi);font-family:var(--hand);font-weight:700;font-size:calc(var(--sw)*.37);line-height:1;white-space:nowrap;text-align:center;border-radius:4px;transform:rotate(-6deg);filter:url(#stamp);opacity:.92}
-.turn-btn,.send{display:inline-block;align-self:flex-start;font:inherit;font-weight:700;font-size:1rem;color:var(--paper-hi);background:var(--ink);border:0;border-radius:3px;padding:.6rem 1.35rem;text-decoration:none;cursor:pointer;box-shadow:0 3px 0 var(--blue)}
-.turn-btn:hover,.send:hover{background:var(--blue-deep);color:#fff}
-.reach{list-style:none;margin:0 0 1.2rem;padding:0;display:grid}
-.reach li{display:grid;grid-template-columns:5.4rem 1fr;gap:.5rem;padding:.6em 0;border-bottom:1px solid rgba(29,43,54,.14);font-size:clamp(.88rem,4cqi,1.02rem);align-items:baseline;overflow-wrap:anywhere}
-.reach span{color:var(--ink-soft);font-size:.9em}
-.dl{font-weight:700}
-form.inq{display:flex;flex-direction:column;gap:clamp(.55rem,2.6cqi,.95rem);flex:1}
-.inq label{display:block;font-weight:700;font-size:clamp(.86rem,3.8cqi,.98rem)}
-.inq input,.inq textarea{display:block;width:100%;margin-top:.15rem;font:inherit;font-size:16px;font-weight:400;color:var(--ink);background:transparent;border:0;border-bottom:1.5px solid var(--ink);border-radius:0;padding:.35rem .1rem;outline:none}
-.inq textarea{resize:none;background:repeating-linear-gradient(transparent 0 calc(1.7em - 1px),rgba(19,164,236,.25) calc(1.7em - 1px) 1.7em);line-height:1.7em;padding-top:0;border-bottom:0}
-.inq input:focus,.inq textarea:focus{border-color:var(--blue);box-shadow:0 1.5px 0 var(--blue)}
-.inq .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-.status{min-height:1.4em;margin:0;font-size:.9rem}
-.status.err{color:#b4322a}
-.sent{display:grid;place-items:center;text-align:center;flex:1}
-.book .sent .done{font-size:clamp(2.2rem,12cqi,3.4rem)}
-.form-alt{display:none;margin:.6rem 0 0;font-size:.85rem;color:var(--ink-soft)}
-.book.single .form-alt{display:block}
+/* 4. services */
+.services{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:3rem clamp(1rem,4vw,2rem) 4rem}
+.services .cards{position:relative}
+.services .cards.three{margin-top:2.2rem}
+.services .wash>*{position:relative;z-index:1}
+.services .wash>.pool-at{position:absolute;left:1.6rem;top:-1.9rem;width:2px;height:2px}
+@media (max-width:820px){.services .cards.three{padding-left:64px;margin-top:0;gap:2.2rem}.services .cards.three .wash{margin-top:0}.services .wash>.pool-at{left:-44px;top:calc(1.35rem + 10px)}.book .send{font-size:1.55rem;padding:.7rem 2.1rem .8rem}}
+.book .send{white-space:nowrap}
+@media (min-width:821px){.services .cards.three article:nth-of-type(2){margin-top:2.6rem}.services .cards.three article:nth-of-type(3){margin-top:5.2rem}}
+.services .proof{display:block;margin-top:.9rem;font-family:var(--hand);font-weight:700;font-size:1.35rem;line-height:1.1;color:var(--ink-soft)}
+.network{margin:3.2rem auto 0;max-width:46rem;text-align:center}
+.network b{display:block;font-family:var(--hand);font-weight:700;font-size:clamp(2rem,4.4vw,2.8rem);line-height:1}
+.network p{margin:.6rem 0 0;color:var(--ink-soft)}
 
-/* ---------- small screens ---------- */
+/* 5. book a consultation */
+.book{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:4rem clamp(1rem,4vw,2rem) 6rem}
+.book-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(1.6rem,4vw,3rem);align-items:start}
+.book fieldset{border:0;margin:0;padding:0;min-width:0}
+.book legend{font-family:var(--hand);font-weight:700;font-size:1.9rem;line-height:1;padding:0;margin:0 0 .7rem;color:var(--blue-deep)}
+.checks{display:grid;gap:.45rem}
+.checks label{display:flex;gap:.6rem;align-items:center;font-weight:500}
+.checks input{width:1.1rem;height:1.1rem;accent-color:var(--blue-deep)}
+.cal{border:1.5px solid rgba(29,43,54,.25);border-radius:4px;padding:.9rem}
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem}
+.cal-head b{font-family:var(--hand);font-size:1.7rem;line-height:1}
+.cal-head button{font:inherit;font-size:1.2rem;width:2.4rem;height:2.4rem;border-radius:50%;border:1.5px solid rgba(29,43,54,.35);background:transparent;color:var(--ink);cursor:pointer}
+.cal-head button:disabled{opacity:.3;cursor:default}
+.dow,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:.3rem;text-align:center}
+.dow span{font-size:.75rem;color:var(--ink-soft);font-weight:700}
+.days button{font:inherit;font-size:.95rem;aspect-ratio:1;border-radius:50%;border:0;background:transparent;color:var(--ink);cursor:pointer;min-width:0}
+.days button:hover:not(:disabled){background:rgba(19,164,236,.14)}
+.days button:disabled{color:#b8c1c7;cursor:default}
+.days button.today{box-shadow:inset 0 0 0 1.5px var(--ink-faint)}
+.days button[aria-pressed="true"]{background:var(--blue);color:#fff;font-weight:700}
+.picked{list-style:none;margin:.7rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem;min-height:1.9rem}
+.picked li{display:inline-flex;align-items:center;gap:.3rem;font-size:.85rem;padding:.2rem .3rem .2rem .7rem;border-radius:999px;background:rgba(19,164,236,.14)}
+.picked button{font:inherit;font-size:1rem;line-height:1;width:1.5rem;height:1.5rem;border-radius:50%;border:0;background:transparent;color:var(--ink);cursor:pointer}
+.need{margin:.4rem 0 0;font-size:.85rem;color:#a2541e}
+.need.ok{color:var(--blue-deep)}
+.slots{display:flex;flex-wrap:wrap;gap:.45rem}
+.slot{font:inherit;font-size:.9rem;padding:.45rem .85rem;border-radius:999px;border:1.5px solid rgba(29,43,54,.3);background:transparent;color:var(--ink);cursor:pointer}
+.slot[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.range{display:flex;flex-wrap:wrap;gap:.5rem;align-items:end;margin-top:.8rem}
+.range label{font-size:.85rem;font-weight:700}
+.range input{display:block;font:inherit;font-size:16px;padding:.35rem .4rem;border:1.5px solid rgba(29,43,54,.3);border-radius:3px;background:transparent;color:var(--ink)}
+.range button{font:inherit;font-weight:700;font-size:.9rem;padding:.45rem .9rem;border-radius:3px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.tz{margin:.6rem 0 0;font-size:.82rem;color:var(--ink-soft)}
+.book .sheet{position:relative}
+.book .lede.wide{max-width:none}
+.book .lede.wide span{display:block}
+/* the send button: one loaded stroke of sumi ink */
+.book .send{position:relative;font-family:var(--hand);font-weight:700;font-size:1.85rem;line-height:1;letter-spacing:.01em;color:var(--paper-hi);padding:.7rem 2.4rem .85rem;border-radius:0;box-shadow:none;background:var(--brush) center/100% 100% no-repeat;transition:transform .25s,filter .25s}
+.book .send::after{content:"";position:absolute;right:1.05rem;top:50%;width:.42rem;height:.42rem;margin-top:-.15rem;border-radius:50%;background:var(--blue)}
+.book .send:hover:not(:disabled){background-image:var(--brush-blue);transform:rotate(-1.2deg) scale(1.03)}
+.book .send:focus-visible{outline:2px dashed var(--blue-deep);outline-offset:6px}
+/* footer: back on the paper, with a quiet road along the bottom */
+footer.inkfoot{background:transparent;color:var(--ink);padding:3.4rem 1rem 0;text-align:center}
+footer.inkfoot::before{content:"";position:absolute;left:50%;top:0;width:min(46rem,86vw);height:14px;transform:translateX(-50%);background:var(--stroke) center/100% 100% no-repeat;opacity:.75}
+footer.inkfoot a{color:var(--ink);font-weight:500;margin:0 .7rem;text-underline-offset:4px;text-decoration-color:rgba(19,164,236,.6)}
+footer.inkfoot a:hover{color:var(--blue-deep)}
+footer.inkfoot p{margin:.6rem 0 0;color:var(--ink-soft)}
+#footRoad{display:block;width:100%;height:62px;margin-top:1.8rem}
+.preview-note{margin:1rem 0 0;font-size:.85rem;color:var(--ink-soft)}
+
 @media (max-width:820px){
-  .tl-line{left:20px}
-  .tl-head,.job{grid-template-columns:1fr;padding-left:50px}
-  .tl-head div{text-align:left}
-  .job:nth-child(n) .when{grid-column:1;grid-row:1;text-align:left;padding:0 0 .8rem}
-  .job:nth-child(n) .card{grid-column:1;grid-row:2}
-  .node{left:20px;top:calc(3rem + 1.1rem)}
-  .card{padding:1.3rem 1.2rem 1.2rem}
-  .card::before{inset:-12px -12px}
-  .grove-head{left:50%;top:70px;transform:translateX(-50%);text-align:center;max-width:none;width:max-content;padding:.3rem .8rem}
-  .grove-head h2{font-size:2.6rem}
-  .grove-head p{display:none}
+  .book-grid{grid-template-columns:1fr}
+  .cap{top:9vh;padding:.9rem 1rem 1rem;margin-left:-1rem;border-radius:1.4rem;background:radial-gradient(120% 110% at 40% 45%,rgba(244,246,245,.88) 55%,rgba(244,246,245,0) 100%)}
+  .cap.light{background:radial-gradient(120% 110% at 40% 45%,rgba(29,43,54,.7) 55%,rgba(29,43,54,0) 100%)}
+  .cap.right{left:clamp(1rem,6vw,5rem);right:auto;text-align:left}
 }
-
-/* ---------- reduced motion: every scene in its finished state ---------- */
-html.rm .sky,html.rm .grove,html.rm .bench-scene{height:auto}
-html.rm .stage,html.rm .gstage{position:relative}
+html.rm .sky,html.rm .city{height:auto}
+html.rm .stage{position:relative}
 html.rm .hint{display:none}
-html.rm .tl{margin-top:0}
-html.rm .bnote{display:none}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.node,.card,.card::before{transition:none}}
+html.rm .city .stage{height:auto;padding:4rem 1rem}
+html.rm .city canvas{display:none}
+html.rm .cap{position:relative;opacity:1!important;left:auto;right:auto;top:auto;bottom:auto;margin:0 auto 2rem;text-align:left}
 </style>
 </head>
 <body>
-<a class="skip" href="#contact">Skip to the contact form</a>
-
-<!-- watercolor and ink filters shared by every painted shape -->
+<a class="skip" href="#book">Skip to booking a consultation</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <filter id="wash" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency=".016" numOctaves="3" seed="4" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="34" xChannelSelector="R" yChannelSelector="G" result="d"/>
-      <feGaussianBlur in="d" stdDeviation="2.2" result="soft"/>
-      <feMorphology in="soft" operator="erode" radius="5" result="inner"/>
-      <feComposite in="soft" in2="inner" operator="out" result="rim"/>
-      <feGaussianBlur in="rim" stdDeviation="1.4" result="rimSoft"/>
-      <feComponentTransfer in="soft" result="body"><feFuncA type="table" tableValues="0 .52"/></feComponentTransfer>
-      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="9" result="g"/>
-      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.3 1.3" result="ga"/>
-      <feMerge result="paint"><feMergeNode in="body"/><feMergeNode in="rimSoft"/></feMerge>
-      <feComposite in="paint" in2="ga" operator="in"/>
-    </filter>
-    <filter id="washS" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="3" seed="6" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G" result="d"/>
-      <feGaussianBlur in="d" stdDeviation=".9" result="soft"/>
-      <feMorphology in="soft" operator="erode" radius="1.6" result="inner"/>
-      <feComposite in="soft" in2="inner" operator="out" result="rim"/>
-      <feComponentTransfer in="soft" result="body"><feFuncA type="table" tableValues="0 .55"/></feComponentTransfer>
-      <feMerge><feMergeNode in="body"/><feMergeNode in="rim"/></feMerge>
-    </filter>
-    <filter id="ink" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency=".06" numOctaves="2" seed="2" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/>
-      <feGaussianBlur in="d" stdDeviation=".45" result="b"/>
-      <feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="2" seed="5" result="g"/>
-      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.1 1.2" result="ga"/>
-      <feComposite in="b" in2="ga" operator="in"/>
-    </filter>
-    <filter id="inkText" x="-5%" y="-10%" width="110%" height="120%">
-      <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="11" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G" result="d"/>
-      <feGaussianBlur in="d" stdDeviation=".35"/>
-    </filter>
-    <filter id="stamp" x="-5%" y="-5%" width="110%" height="110%">
-      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3" result="g"/>
-      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.45" result="ga"/>
-      <feComposite in="SourceGraphic" in2="ga" operator="in"/>
-    </filter>
-  </defs>
+  <filter id="inkText" x="-5%" y="-10%" width="110%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="11" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G" result="d"/>
+    <feGaussianBlur in="d" stdDeviation=".35"/>
+  </filter>
 </svg>
 
 <header class="top on-ink" id="top">
   <a class="brand" href="#sky" aria-label="ohullo, back to the top">ohullo<i></i></a>
   <nav aria-label="Site">
-    <a href="#timeline">Timeline</a>
-    <a href="work.html">Work</a>
-    <a href="about.html">About</a>
-    <a class="pill" href="#contact">Contact</a>
+    <a href="#plan">How it works</a>
+    <a href="#services">Services</a>
+    <a href="mark/">About Mark</a>
+    <a class="pill" href="#book">Book a consultation</a>
   </nav>
 </header>
 
 <canvas id="living" aria-hidden="true"></canvas>
 <main>
-<!-- ===== 1. Ink clouds part, turning brand blue, to reveal the logo ===== -->
-<section class="sky" id="sky" aria-label="Welcome">
-  <div class="stage">
-    <svg class="enso" id="enso" viewBox="0 0 200 200" aria-hidden="true"></svg>
-    <div class="hero">
-      <h1 class="logo" id="logo"><span class="word">ohullo</span><span class="dot" id="logoDot"></span><span class="sr-only">. Mark Johnson</span></h1>
-      <div class="intro" id="intro">
-        <span class="hi">Hi, I'm Mark Johnson.</span>
-        <p>Director of Digital Strategy at MCDP, and twenty years of making operations work before that.</p>
-      </div>
-    </div>
-    <p class="hint" id="hint" aria-hidden="true">psst… scroll</p>
-  </div>
-</section>
-<div class="seed" id="seed" aria-hidden="true"><i></i></div>
-
-<!-- ===== 2. The blue drop falls and draws the work timeline ===== -->
-<section class="tl" id="timeline" aria-labelledby="tlTitle">
-  <div class="tl-inner">
-    <svg class="tl-line" id="tlLine" aria-hidden="true"><path class="guide"/><path class="halo"/><path class="trail"/></svg>
-    <div class="tl-head"><div>
-      <h2 id="tlTitle">Where I've been</h2>
-      <p>Newest first. Follow the blue drop.</p>
-    </div></div>
-
-    <ol class="jobs">
-      <li class="job">
-        <div class="when"><span class="dates">Oct 2026 – now</span><span class="dur" data-since="2026-10">Current role</span></div>
-        <article class="card">
-          <h3 class="role">Director of Digital Strategy</h3>
-          <p class="org"><b>MCDP</b>Motor City Dental Partners, Dallas–Fort Worth, TX</p>
-          <p class="desc">Promoted to set the digital direction for a multi-practice dental and oral surgery group, guiding how every practice chooses, builds and grows the technology it runs on.</p>
-          <ul class="wins">
-            <li>Set digital strategy across the group, aligning websites, advertising, patient-facing tools and data with business goals.</li>
-            <li>Provide advanced technical guidance to leadership and practice teams on platforms, integrations, security and vendor choices.</li>
-            <li>Direct the growth of technology across the organization, from evaluating and rolling out new systems to scaling the infrastructure behind them.</li>
-            <li>Build technology roadmaps and KPIs that tie every investment to patient growth, efficiency and return.</li>
-          </ul>
-          <ul class="tags" aria-label="Tools and focus areas">
-            <li>Digital Strategy</li>
-            <li>Technical Leadership</li>
-            <li>Technology Roadmaps</li>
-            <li>Platforms &amp; Vendors</li>
-          </ul>
-        </article>
-        <span class="node" aria-hidden="true"></span>
-      </li>
-
-      <li class="job">
-        <div class="when"><span class="dates">Feb 2026 – Oct 2026</span><span class="dur">9 mos</span></div>
-        <article class="card">
-          <h3 class="role">Director of Marketing</h3>
-          <p class="org"><b>MCDP</b>Motor City Dental Partners, Dallas–Fort Worth, TX</p>
-          <p class="desc">Led marketing and patient outreach for a multi-practice dental and oral surgery group, owning the digital path from the first ad a patient sees to the website where they book.</p>
-          <ul class="wins">
-            <li>Managed online advertising across Google Ads and social platforms, tracking conversions and KPIs so budget moved to the campaigns that brought in patients.</li>
-            <li>Designed and developed practice websites end to end, from concept and code to brand alignment, user experience and online patient intake forms.</li>
-            <li>Transferred practice websites from legacy hosts to a centralized WordPress platform, consolidating management while keeping search visibility intact.</li>
-            <li>Ran mixed-media targeting across SEO, content and paid channels, aligned with operations so marketing promises matched what each practice delivered.</li>
-          </ul>
-          <ul class="tags" aria-label="Tools and focus areas">
-            <li>Online Advertising (Google Ads, Social)</li>
-            <li>Web Design &amp; Development (WordPress)</li>
-            <li>Website Transfers (Hosting, DNS, SEO)</li>
-            <li>Analytics (KPIs, Conversions, ROI)</li>
-          </ul>
-        </article>
-        <span class="node" aria-hidden="true"></span>
-      </li>
-
-      <li class="job">
-        <div class="when"><span class="dates">Apr 2025 – Feb 2026</span><span class="dur">11 mos</span></div>
-        <article class="card">
-          <h3 class="role">Director of Operations</h3>
-          <p class="org"><b>Texas811</b>Plano, TX</p>
-          <p class="desc">Led call center operations for the largest one-call center in the US, managing lifecycle ticketing for homeowners, utility operators and excavators, including training, QA and facilities.</p>
-          <ul class="wins">
-            <li>Established a front-end AI agent that cut live-agent speed of answer from 57 seconds to 0 and reduced handle time by 7 minutes.</li>
-            <li>Designed and implemented workflows for a back-end AI agent that ran QA on 100% of tickets, up from 5% sampling.</li>
-            <li>Sourced, implemented and configured AI-driven automation to handle 30% of inbound volume.</li>
-          </ul>
-          <ul class="tags" aria-label="Tools and focus areas">
-            <li>AI Integration (NiCE)</li>
-            <li>CRM Workflow (Freshdesk)</li>
-            <li>Training Development (Easygenerator)</li>
-            <li>Customer Focus (24/7/365, 48-hour resolution)</li>
-          </ul>
-        </article>
-        <span class="node" aria-hidden="true"></span>
-      </li>
-
-      <li class="job">
-        <div class="when"><span class="dates">May 2023 – Apr 2025</span><span class="dur">2 yrs</span></div>
-        <article class="card">
-          <h3 class="role">Director of Operations</h3>
-          <p class="org"><b>Wireless CCTV</b>WCCTV, Richardson, TX</p>
-          <p class="desc">Oversaw full-lifecycle operations for mobile security solutions, from design and fabrication through 3PL, in-house and field support.</p>
-          <ul class="wins">
-            <li>Expanded deployed units 700% in two years through strategic fabrication partnerships.</li>
-            <li>Reduced operational cycle times by 75% and expenses by 16% annually through workflow optimization and vendor negotiations.</li>
-            <li>Established 3 locations in Texas and 2 in California for strategic deployment operations.</li>
-            <li>Introduced and configured Zoho CRM, cutting ticket error rates by 60% compared with spreadsheets.</li>
-          </ul>
-          <ul class="tags" aria-label="Tools and focus areas">
-            <li>Mobile Security (AXIS, Mobotix, Hikvision)</li>
-            <li>3PL (Warehousing, Last Leg, Returns)</li>
-            <li>Vendor Management (Spare Parts, Logistics)</li>
-            <li>Fabrication (Materials, Design, Licensing)</li>
-          </ul>
-        </article>
-        <span class="node" aria-hidden="true"></span>
-      </li>
-
-      <li class="job">
-        <div class="when"><span class="dates">Sep 2021 – Apr 2023</span><span class="dur">1 yr 8 mos</span></div>
-        <article class="card">
-          <h3 class="role">Director of Operations</h3>
-          <p class="org"><b>ISG Technologies</b>Arlington, TX</p>
-          <p class="desc">Responsible for all operations of a full-service, full-lifecycle mobile solution and repair hub specializing in wearables and rugged devices.</p>
-          <ul class="wins">
-            <li>Designed a customer reporting hub that increased visibility and self-service.</li>
-            <li>Worked directly on pre-sales initiatives and product sourcing.</li>
-            <li>Rewrote technical SOPs, reducing waste material by 30% and saving hours of labor.</li>
-          </ul>
-          <ul class="tags" aria-label="Tools and focus areas">
-            <li>Customer Management</li>
-            <li>Full P&amp;L Reporting</li>
-            <li>ERP / CRM (Navision, NetSuite)</li>
-          </ul>
-        </article>
-        <span class="node" aria-hidden="true"></span>
-      </li>
-
-      <li class="job">
-        <div class="when"><span class="dates">May 2017 – Jul 2021</span><span class="dur">4 yrs 3 mos</span></div>
-        <article class="card">
-          <h3 class="role">Director of Configuration Services</h3>
-          <p class="org"><b>3MD Inc.</b>Plano, TX</p>
-          <p class="desc">Established and managed global distribution centers dedicated to managed-mobility lifecycle products.</p>
-          <ul class="wins">
-            <li>Reduced overhead costs by 15% through strategic vendor negotiations.</li>
-            <li>Implemented a new inventory tracking system that raised accuracy to 99%.</li>
-            <li>Opened, staffed and trained teams across the globe (US, UK, Mexico, Australia, Japan).</li>
-            <li>Created SOPs for every stage of the products we supported: receiving, configuration, packaging, shipping, repairs and returns.</li>
-            <li>Deployed over 800,000 uniquely configured tablets globally for DoorDash, within budget and on time.</li>
-          </ul>
-          <ul class="tags" aria-label="Tools and focus areas">
-            <li>Customer Retention (Amazon, Google, DoorDash, Zillow, American Airlines, Crossmark)</li>
-            <li>White Glove Services (Amazon IDF/MDF Installation)</li>
-            <li>CRM (Cherwell)</li>
-          </ul>
-        </article>
-        <span class="node" aria-hidden="true"></span>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- ===== 3. A tree fills the screen; its leaves fall into a line of links ===== -->
-<section class="grove" id="grove" aria-labelledby="groveTitle">
-  <div class="gstage" id="gstage">
-    <canvas class="tree-canvas" id="treeCanvas" aria-hidden="true"></canvas>
-    <div class="grove-head" id="groveHead">
-      <h2 id="groveTitle">Pick a leaf</h2>
-      <p>Each one opens another part of my site.</p>
-    </div>
-    <nav class="leaves" id="leaves" aria-labelledby="groveTitle">
-      <p class="glabel" data-g="0">what I do</p>
-      <p class="glabel" data-g="1">who I am</p>
-      <p class="glabel" data-g="2">take one home</p>
-      <a class="leaf" href="work.html"><span class="t">My expertise</span></a>
-      <a class="leaf" href="about.html"><span class="t">My story</span></a>
-      <a class="leaf" href="about.html#values"><span class="t">Values</span></a>
-      <a class="leaf" href="about.html#offline"><span class="t">Off hours</span></a>
-      <a class="leaf" href="assets/Mark_Johnson_Resume_2026web.docx" download><span class="t">Résumé</span></a>
-      <a class="leaf" href="assets/Mark_Johnson_Cover_Letter_2026web.docx" download><span class="t">Cover letter</span></a>
-      <a class="leaf" href="https://www.linkedin.com/in/mark-johnson-ohullo/" rel="noopener"><span class="t">LinkedIn</span></a>
-    </nav>
-  </div>
-  <span class="anchor" id="links" aria-hidden="true"></span>
-</section>
-
-<!-- ===== 4. A book on a bench; the page turns to a contact form ===== -->
-<section class="bench-scene" id="bench" aria-labelledby="ncTitle">
-  <div class="stage">
-    <p class="bnote" id="bnote" aria-hidden="true">Add to my story?</p>
-    <div class="world" id="world">
-      <div class="ground" aria-hidden="true"></div>
-      <svg class="bench" id="benchArt" viewBox="0 0 900 360" aria-hidden="true"></svg>
-      <div class="book" id="book">
-        <div class="cover" aria-hidden="true"></div>
-
-        <div class="page l">
-          <p class="kicker">The story so far</p>
-          <ol class="story">
-            <li><b>2017</b>3MD Inc.</li>
-            <li><b>2021</b>ISG Technologies</li>
-            <li><b>2023</b>Wireless CCTV</li>
-            <li><b>2025</b>Texas811</li>
-            <li><b>2026</b>MCDP</li>
-          </ol>
-          <p class="pg">5</p>
-        </div>
-
-        <div class="page r">
-          <form class="inq" id="inq" action="https://formsubmit.co/mark@ohullo.com" method="POST">
-            <p class="kicker">Send me a note</p>
-            <label>Your name<input name="name" required autocomplete="name"></label>
-            <label>Your email<input type="email" name="email" required autocomplete="email"></label>
-            <label>What can I help with?<textarea name="message" rows="4" required></textarea></label>
-            <input type="hidden" name="_subject" value="New inquiry from ohullo.com">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://www.ohullo.com/#contact">
-            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <button class="send" type="submit">Send it</button>
-            <p class="status" id="status" role="status"></p>
-          </form>
-          <p class="form-alt">Or email <a href="mailto:mark@ohullo.com">mark@ohullo.com</a>, or call <a href="tel:+14692430387">(469) 243-0387</a>.</p>
-        </div>
-
-        <div class="turn" id="turn">
-          <div class="face front">
-            <p class="kicker">Chapter six</p>
-            <h2 class="nc" id="ncTitle">Next chapter</h2>
-            <p class="nc-sub">Your company?</p>
-            <p>I hope you enjoyed my story so far. Tell me what you're working on and I'll write back.</p>
-            <a class="turn-btn" href="#contact">Turn the page</a>
-            <span class="seal" aria-hidden="true">ohullo.</span>
-            <p class="pg">6</p>
-          </div>
-          <div class="face back">
-            <p class="kicker">Let's write it together</p>
-            <ul class="reach">
-              <li><span>Email</span><a href="mailto:mark@ohullo.com">mark@ohullo.com</a></li>
-              <li><span>Phone</span><a href="tel:+14692430387">(469) 243-0387</a></li>
-              <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/mark-johnson-ohullo/" rel="noopener">mark-johnson-ohullo</a></li>
-              <li><span>Based in</span>Wylie, Texas</li>
-            </ul>
-            <a class="dl" href="assets/Mark_Johnson_Resume_2026web.docx" download>Download my résumé</a>
-            <p class="pg">7</p>
-          </div>
+  <!-- 1. dark clouds part to reveal the logo -->
+  <section class="sky" id="sky" aria-label="Welcome">
+    <div class="stage">
+      <div class="hero">
+        <h1 class="logo" id="logo"><span class="word">ohullo</span><span class="dot"></span><span class="sr-only">. Technology consulting</span></h1>
+        <div class="tagline" id="tagline">
+          <strong>Cut through the fog.</strong>
+          <p>AI implementation, web design and security, and bespoke applications, with direction and clarity from the first question to the final outcome.</p>
         </div>
       </div>
+      <p class="hint" id="hint" aria-hidden="true">psst… scroll</p>
     </div>
-  </div>
-  <span class="anchor" id="contact" aria-hidden="true"></span>
-</section>
+  </section>
+
+  <!-- 2. the story every project goes through -->
+  <section class="city" id="city" aria-label="The problem">
+    <div class="stage">
+      <canvas id="cityCanvas" aria-hidden="true"></canvas>
+      <p class="cap" data-a=".02" data-b=".13"><b>Every company has a big idea waiting.</b><span>A smarter process, a new tool, the AI everyone keeps talking about.</span></p>
+      <p class="cap right" data-a=".14" data-b=".3"><b>But there's never enough time.</b><span>The day job doesn't stop for a new project.</span><span id="clockHint"><span class="a">Hold the clock to slow it down.</span><span class="b">Better. That's what having a partner feels like.</span></span></p>
+      <p class="cap" data-a=".31" data-b=".46"><b>Your team is already stretched thin.</b><span>Every light is on, and every person is already at capacity.</span></p>
+      <p class="cap" data-a=".6" data-b=".75" style="max-width:min(19rem,80vw)"><b>And nobody's quite sure where to start.</b><span>Which tools? Which vendor? What will it really cost?</span></p>
+      <p class="cap light" data-a=".82" data-b=".93"><b>Too many vendors. Too many promises. Too much noise.</b></p>
+    </div>
+  </section>
+
+  <!-- 3. the plan -->
+  <section class="plan" id="plan" aria-labelledby="planTitle">
+    <div class="plan-inner">
+      <h2 id="planTitle">Ohullo can help clear that noise.</h2>
+      <p class="lede">One partner from the first conversation to the result you can measure. Here's how every engagement runs.</p>
+      <div class="pipe">
+        <ol class="steps">
+          <li class="step first"><span class="knot" aria-hidden="true"></span><div class="wash">
+            <h3>ohullo<i></i></h3>
+            <p>You bring the idea or the problem. You get one point of contact who owns the whole path.</p>
+            <button type="button" aria-expanded="false">What that means</button>
+            <div class="more" hidden><p>No hand-offs between agencies, no chasing five vendors. Ohullo coordinates every specialist and tool, and answers to you.</p></div>
+          </div></li>
+          <li class="step"><span class="knot" aria-hidden="true"></span><div class="wash">
+            <h3>Requirement gathering</h3>
+            <p>We map what you need, who it's for and what success looks like, before anyone writes code or signs a contract.</p>
+            <button type="button" aria-expanded="false">What you get</button>
+            <div class="more" hidden><ul><li>Stakeholder interviews and a current-state walkthrough</li><li>Goals written as measurable outcomes</li><li>A scope you can approve in plain language</li></ul></div>
+          </div></li>
+          <li class="step"><span class="knot" aria-hidden="true"></span><div class="wash">
+            <h3>Tech stack review</h3>
+            <p>An honest look at the systems you already run: what to keep, what to connect and what to retire.</p>
+            <button type="button" aria-expanded="false">What you get</button>
+            <div class="more" hidden><ul><li>An inventory of tools, data and integrations</li><li>Security and risk notes</li><li>Quick wins you can act on right away</li></ul></div>
+          </div></li>
+          <li class="step"><span class="knot" aria-hidden="true"></span><div class="wash">
+            <h3>Vendor selection</h3>
+            <p>The right tools from a trusted network of AI and technology providers, chosen for fit, not for hype.</p>
+            <button type="button" aria-expanded="false">What you get</button>
+            <div class="more" hidden><ul><li>A short list with side-by-side trade-offs</li><li>Real cost, including licenses and upkeep</li><li>A recommendation you can defend to leadership</li></ul></div>
+          </div></li>
+          <li class="step"><span class="knot" aria-hidden="true"></span><div class="wash">
+            <h3>Implementation</h3>
+            <p>Build, integrate and launch, with your team trained along the way so nothing depends on one person.</p>
+            <button type="button" aria-expanded="false">What you get</button>
+            <div class="more" hidden><ul><li>Phased rollout with checkpoints</li><li>Integration with the systems you keep</li><li>Training and written runbooks</li></ul></div>
+          </div></li>
+          <li class="step"><span class="knot" aria-hidden="true"></span><div class="wash">
+            <h3>Transparent project reporting</h3>
+            <p>Plain-language updates on progress, budget and risks, so you always know where things stand.</p>
+            <button type="button" aria-expanded="false">What you get</button>
+            <div class="more" hidden><ul><li>Regular status updates you can forward as-is</li><li>Milestones tracked against the original scope</li><li>Risks raised early, with options</li></ul></div>
+          </div></li>
+          <li class="step last"><span class="knot" aria-hidden="true"></span><div class="wash">
+            <h3>Achieved outcome</h3>
+            <p>A measured result you can point to, and a team that knows how to run what was built.</p>
+            <button type="button" aria-expanded="false">What that looks like</button>
+            <div class="more" hidden><p>For example: a front-end AI agent that took a call center's speed of answer from 57 seconds to 0, with QA running on every ticket instead of a 5% sample.</p></div>
+          </div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. services -->
+  <section class="services" id="services" aria-labelledby="servTitle">
+    <h2 id="servTitle">What Ohullo does</h2>
+    <p class="lede">Three kinds of work, one way of running them.</p>
+    <div class="cards three">
+      <article class="wash"><span class="pool-at" aria-hidden="true"></span>
+        <h3>AI implementation</h3>
+        <p>Agents, automation and AI tools built into the way your team already works, with the training to keep them running.</p>
+        <span class="proof">Configured for your environment and your needs</span>
+      </article>
+      <article class="wash"><span class="pool-at" aria-hidden="true"></span>
+        <h3>Web design &amp; security</h3>
+        <p>Fast, accessible websites, designed, hardened and migrated without losing the search visibility you've built.</p>
+        <span class="proof">Design, build, host, protect</span>
+      </article>
+      <article class="wash"><span class="pool-at" aria-hidden="true"></span>
+        <h3>Bespoke applications</h3>
+        <p>Custom software for the problem no off-the-shelf tool quite solves, from internal dashboards to customer-facing apps.</p>
+        <span class="proof">Built around your process</span>
+      </article>
+    </div>
+    <div class="network">
+      <b>A trusted network of AI providers.</b>
+      <p>Ohullo works across a network of AI and technology partners, so you get the right tool for each need instead of whatever one vendor happens to sell.</p>
+    </div>
+  </section>
+
+  <!-- 5. book a consultation -->
+  <section class="book" id="book" aria-labelledby="bookTitle">
+    <h2 id="bookTitle">Let's find your direction.</h2>
+    <p class="lede wide"><span>Pick at least two dates and two time windows that work for you.</span><span>We will schedule your appointment and email back typically within 24 hours.</span></p>
+    <div class="sheet">
+      <form class="inq" id="consult" novalidate>
+        <div class="book-grid">
+          <div>
+            <label for="bName">Your name<input id="bName" name="name" required autocomplete="name"></label>
+            <label for="bEmail" style="margin-top:1rem">Work email<input id="bEmail" type="email" name="email" required autocomplete="email"></label>
+            <label for="bCompany" style="margin-top:1rem">Company<input id="bCompany" name="company" autocomplete="organization"></label>
+            <fieldset style="margin-top:1.4rem">
+              <legend>What are you exploring?</legend>
+              <div class="checks">
+                <label for="sAI"><input type="checkbox" id="sAI" name="service" value="AI implementation">AI implementation</label>
+                <label for="sWeb"><input type="checkbox" id="sWeb" name="service" value="Web design &amp; security">Web design &amp; security</label>
+                <label for="sApp"><input type="checkbox" id="sApp" name="service" value="Bespoke application">Bespoke application</label>
+                <label for="sUnsure"><input type="checkbox" id="sUnsure" name="service" value="Not sure yet">Not sure yet</label>
+              </div>
+            </fieldset>
+            <label for="bMsg" style="margin-top:1.4rem">Anything we should know?<textarea id="bMsg" name="message" rows="4"></textarea></label>
+          </div>
+          <div>
+            <fieldset>
+              <legend>Dates that work</legend>
+              <div class="cal">
+                <div class="cal-head"><button type="button" id="calPrev" aria-label="Previous month">‹</button><b id="calTitle" aria-live="polite"></b><button type="button" id="calNext" aria-label="Next month">›</button></div>
+                <div class="dow" aria-hidden="true"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>
+                <div class="days" id="calGrid"></div>
+              </div>
+              <ul class="picked" id="pickedDates" aria-label="Dates you picked"></ul>
+              <p class="need" id="dateNote" aria-live="polite"></p>
+            </fieldset>
+            <fieldset style="margin-top:1.4rem">
+              <legend>Times that work</legend>
+              <div class="slots">
+                <button type="button" class="slot" aria-pressed="false">8 – 10 AM</button>
+                <button type="button" class="slot" aria-pressed="false">10 AM – 12 PM</button>
+                <button type="button" class="slot" aria-pressed="false">12 – 2 PM</button>
+                <button type="button" class="slot" aria-pressed="false">2 – 4 PM</button>
+                <button type="button" class="slot" aria-pressed="false">4 – 6 PM</button>
+              </div>
+              <div class="range">
+                <label for="rangeFrom">From<input type="time" id="rangeFrom" step="900"></label>
+                <label for="rangeTo">To<input type="time" id="rangeTo" step="900"></label>
+                <button type="button" id="addRange">Add this range</button>
+              </div>
+              <p class="need" id="rangeMsg" aria-live="polite"></p>
+              <ul class="picked" id="pickedTimes" aria-label="Times you picked"></ul>
+              <p class="need" id="timeNote" aria-live="polite"></p>
+              <p class="tz">Times are in your time zone: <span id="tzName"></span></p>
+            </fieldset>
+          </div>
+        </div>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div style="margin-top:1.6rem"><button class="send" type="submit">Request a consultation</button></div>
+        <p class="status" id="bookStatus" role="status"></p>
+        <p class="preview-note">Requests go to <a href="mailto:mark@ohullo.com">mark@ohullo.com</a>.</p>
+      </form>
+    </div>
+  </section>
 </main>
 
-<footer>
-  <a href="work.html">Work</a><a href="about.html">About</a><a href="mailto:mark@ohullo.com">Email</a><a href="https://www.linkedin.com/in/mark-johnson-ohullo/" rel="noopener">LinkedIn</a>
-  <p>© 2026 Mark Johnson, Wylie, Texas</p>
+<footer class="inkfoot">
+  <nav aria-label="Footer"><a href="#plan">How it works</a><a href="#services">Services</a><a href="mark/">About Mark</a><a href="https://www.linkedin.com/in/mark-johnson-ohullo/" rel="noopener">LinkedIn</a></nav>
+  <p>© 2026 Ohullo, Wylie, Texas</p>
+  <canvas id="footRoad" aria-hidden="true"></canvas>
 </footer>
 
-<script src="assets/js/site.js"></script>
-<script src="assets/js/inkcursor.js"></script>
 <script src="assets/js/living.js"></script>
-<script>
-(() => {
-  const root = document.documentElement;
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce) root.classList.add('rm');
-
-  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
-  const NS = 'http://www.w3.org/2000/svg';
-  const INK = '#1d2b36', BLUE = '#13a4ec';
-  const DPR = Math.min(2, window.devicePixelRatio || 1);
-  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-  const lerp = (a, b, t) => a + (b - a) * t;
-  const easeIO = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-  const easeOut = t => 1 - Math.pow(1 - t, 3);
-  const back = t => { const c = 1.7; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); };
-  const rng = seed => () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
-  const el = (tag, attrs = {}) => { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); return n; };
-  const P = pts => pts.map(p => p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' L ');
-
-  /* ---------- painting helpers ---------- */
-  // a tapered brush stroke along a quadratic curve, with a little pressure wobble
-  function taper(p0, c, p1, w0, w1, r, jit = .2, N = 18) {
-    const L = [], R = [];
-    for (let i = 0; i <= N; i++) {
-      const t = i / N, u = 1 - t;
-      const x = u * u * p0[0] + 2 * u * t * c[0] + t * t * p1[0], y = u * u * p0[1] + 2 * u * t * c[1] + t * t * p1[1];
-      const dx = 2 * u * (c[0] - p0[0]) + 2 * t * (p1[0] - c[0]), dy = 2 * u * (c[1] - p0[1]) + 2 * t * (p1[1] - c[1]);
-      const len = Math.hypot(dx, dy) || 1, nx = -dy / len, ny = dx / len;
-      const w = (w0 + (w1 - w0) * t) * (1 + (r() - .5) * jit) / 2;
-      L.push([x + nx * w, y + ny * w]); R.push([x - nx * w * (.85 + r() * .3), y - ny * w * (.85 + r() * .3)]);
-    }
-    return 'M ' + P(L) + ' L ' + P(R.reverse()) + ' Z';
-  }
-  /* ---------- scene 1: ink clouds that wash to blue, on one canvas ---------- */
-  const CLOUDS = [
-    {x:12,y:14,w:40,side:-1,dist:46,lift:8},
-    {x:88,y:16,w:42,side:1,dist:46,lift:8},
-    {x:30,y:6,w:36,side:-1,dist:40,lift:12},
-    {x:72,y:5,w:38,side:1,dist:40,lift:12},
-    {x:10,y:76,w:44,side:-1,dist:52,lift:-6},
-    {x:90,y:78,w:46,side:1,dist:52,lift:-6},
-    {x:55,y:90,w:52,side:1,dist:74,lift:-8},
-    {x:30,y:40,w:62,side:-1,dist:78,lift:4},
-    {x:72,y:47,w:64,side:1,dist:78,lift:4},
-    {x:52,y:27,w:50,side:1,dist:92,lift:16},
-    {x:50,y:36,w:56,side:-1,dist:92,lift:-4},
-    {x:46,y:62,w:58,side:-1,dist:88,lift:-12,hint:true}
-  ];
-  const hint = $('#hint'), L = window.Living, live = L && L.ok;
-  if (live) root.classList.add('living');
-  let unit = 10, cs = 1;
-  const cloudBuf = new Float32Array(48);
-  // the clouds' positions, handed to the painting each frame (in viewport heights)
-  function placeClouds(part) {
-    const vw = innerWidth, vh = innerHeight;
-    CLOUDS.forEach((c, i) => {
-      const w = c.w * unit * cs;
-      const cx = c.x / 100 * vw + c.side * part * (c.dist * unit + vw * .12);
-      const cy = c.y / 100 * vh - part * c.lift * unit;
-      cloudBuf.set([cx / vh, cy / vh, w / 2 / vh, i], i * 4);
-      if (c.hint) { hint.style.fontSize = (w * .09) + 'px'; hint.style.transform = `translate3d(${cx}px, ${cy + w * .03}px, 0) translate(-50%, -50%)`; }
-    });
-  }
-  // the ensō: one breath of the brush
-  (() => {
-    const r = rng(3), L = [], R = [], a0 = -1.75, sweep = 5.55, N = 70;
-    for (let i = 0; i <= N; i++) {
-      const t = i / N, a = a0 + sweep * t, rad = 70 + Math.sin(t * 9) * 1.5;
-      const w = (2 + 16 * Math.pow(Math.sin(Math.PI * Math.min(1, t * 1.08)), .65) * (1 - .4 * t)) * (1 + (r() - .5) * .25) / 2;
-      const x = 100 + Math.cos(a) * rad, y = 100 + Math.sin(a) * rad;
-      L.push([x + Math.cos(a) * w, y + Math.sin(a) * w]); R.push([x - Math.cos(a) * w, y - Math.sin(a) * w]);
-    }
-    const g = el('g', {filter:'url(#ink)'});
-    g.appendChild(el('path', {d:'M ' + P(L) + ' L ' + P(R.reverse()) + ' Z', fill:INK}));
-    $('#enso').appendChild(g);
-  })();
-
-  const sky = $('#sky'), logoDot = $('#logoDot'), intro = $('#intro'), seed = $('#seed'), head = $('#top'), logo = $('#logo'), enso = $('#enso');
-
-  /* ---------- scene 2: timeline ---------- */
-  const tlLine = $('#tlLine'), paths = [...tlLine.querySelectorAll('path')];
-  const jobs = $$('.job');
-  let lineH = 0, trailLen = 1, nodeYs = [];
-  function layoutLine() {
-    nodeYs = jobs.map(j => j.offsetTop + j.querySelector('.node').offsetTop);
-    lineH = nodeYs[nodeYs.length - 1];
-    tlLine.setAttribute('height', lineH); tlLine.style.height = lineH + 'px';
-    const r = rng(5); let d = 'M 10 0';
-    for (let y = 70; y < lineH; y += 70) d += ` Q ${10 + (r() - .5) * 9} ${y - 35} ${10 + (r() - .5) * 4} ${y}`;
-    d += ` L 10 ${lineH}`;
-    paths.forEach(p => p.setAttribute('d', d));
-    trailLen = paths[2].getTotalLength();
-    paths[1].style.strokeDasharray = paths[2].style.strokeDasharray = trailLen;
-  }
-  $$('[data-since]').forEach(n => {
-    const [y, m] = n.dataset.since.split('-').map(Number), now = new Date();
-    const k = (now.getFullYear() * 12 + now.getMonth() + 1) - (y * 12 + m) + 1;
-    if (k > 0) n.textContent = (k < 12 ? `${k} mo${k > 1 ? 's' : ''}` : `${Math.floor(k / 12)} yr${k >= 24 ? 's' : ''}${k % 12 ? ` ${k % 12} mos` : ''}`) + ' so far';
-  });
-
-  /* ---------- scene 3: a screen-filling ink tree, painted onto one canvas ---------- */
-  const grove = $('#grove'), gstage = $('#gstage'), treeCanvas = $('#treeCanvas'), groveHead = $('#groveHead');
-  const leaves = $$('.leaf'), glabels = $$('.glabel'), GROUPS = [1, 3, 3], NL = leaves.length;
-  let base = [], slots = [], slotScale = 1, LW = 140, builtW = 0, builtH = 0;
-  leaves.forEach((lf, i) => {
-    const r = rng(300 + i), svg = el('svg', {viewBox:'0 0 160 70'});
-    const g = el('g', {filter:'url(#washS)'});
-    g.append(el('path', {d:'M 6 35 C 34 2 120 -2 154 33 C 124 70 38 72 6 35 Z', fill:BLUE, 'fill-opacity':(.62 + r() * .18).toFixed(2)}));
-    const st = el('g', {filter:'url(#ink)'});
-    st.append(el('path', {d:taper([-10, 44], [-2, 38], [10, 35], 3, 1.2, r), fill:INK}));
-    svg.append(g, st); lf.prepend(svg);
-  });
-  function buildTree() {
-    const w = gstage.clientWidth, h = gstage.clientHeight, mobile = w < 760;
-    LW = mobile ? 116 : clamp(w * .1, 124, 158);
-    $('#leaves').style.setProperty('--lw', LW + 'px');
-    if (base.length && Math.abs(w - builtW) < 2 && Math.abs(h - builtH) < 140) { placeSlots(w, h); return; }
-    builtW = w; builtH = h;
-    const r = rng(2026), br = [], spread = w / h > 1 ? 1.45 : .78;
-    (function grow(x, y, ang, len, wid, d) {
-      const ex = x + Math.cos(ang) * len, ey = y + Math.sin(ang) * len, bend = (r() - .5) * len * .4;
-      br.push({d, x, y, cx:(x + ex) / 2 + Math.cos(ang + Math.PI / 2) * bend, cy:(y + ey) / 2 + Math.sin(ang + Math.PI / 2) * bend, ex, ey, w0:wid, w1:wid * .6});
-      if (d >= 7 || len < 16) return;
-      const n = d < 1 ? 2 : (r() < .4 ? 3 : 2);
-      for (let i = 0; i < n; i++) {
-        const s = n === 2 ? (i ? 1 : -1) * (.3 + r() * .38) : (i - 1) * (.42 + r() * .22);
-        let na = ang + s * spread + (r() - .5) * .22;
-        na = Math.max(-Math.PI + .12, Math.min(-.12, na));
-        grow(ex, ey, na, len * (.7 + r() * .14) * (mobile ? 1 : 1.07), wid * .62, d + 1);
-      }
-    })(w * (mobile ? .5 : .46), h + 30, -Math.PI / 2 + .06, h * (mobile ? .17 : .21), Math.max(30, Math.min(w, h) * .075), 0);
-
-    paintTree(w, h, br, r);
-
-    // pick well-spread spots along the branches for the leaves, clear of the heading
-    const sr = gstage.getBoundingClientRect(), hr = groveHead.getBoundingClientRect();
-    const hx0 = hr.left - sr.left - 30, hx1 = hr.right - sr.left + 30, hy0 = hr.top - sr.top - 30, hy1 = hr.bottom - sr.top + 30;
-    const along = (b, t) => [(1 - t) * (1 - t) * b.x + 2 * (1 - t) * t * b.cx + t * t * b.ex, (1 - t) * (1 - t) * b.y + 2 * (1 - t) * t * b.cy + t * t * b.ey];
-    const cand = br.filter(b => b.d >= 2 && b.d <= 6).flatMap(b => [along(b, .55), along(b, 1)])
-      .filter(([x, y]) => x > LW * .6 && x < w - LW * .6 && y > 125 && y < h * .8 && !(x > hx0 && x < hx1 && y > hy0 && y < hy1));
-    const picked = [];
-    if (cand.length) {
-      picked.push(cand.reduce((a, b) => b[1] < a[1] ? b : a));
-      while (picked.length < NL && picked.length < cand.length) {
-        let best = null, bd = -1;
-        for (const c of cand) { const dm = Math.min(...picked.map(p => Math.hypot((p[0] - c[0]) / LW, (p[1] - c[1]) / (LW * .46)))); if (dm > bd) { bd = dm; best = c; } }
-        picked.push(best);
-      }
-    }
-    while (picked.length < NL) picked.push([w * (.2 + .6 * r()), h * (.2 + .4 * r())]);
-    picked.sort((a, b) => a[1] - b[1]);
-    base = picked.map(([x, y], i) => ({x, y, r:(r() - .5) * 50, sway:i % 2 ? 1 : -1}));
-    placeSlots(w, h);
-  }
-  // where the leaves come to rest: one straight column, grouped
-  function placeSlots(w, h) {
-    const mobile = w < 760, top = mobile ? 132 : 96, bottom = h - 36, gap = .75;
-    const rowH = Math.min(LW * .58, (bottom - top) / (NL + 2 * gap));
-    slotScale = Math.min(1, rowH / (LW * .48));
-    const colX = mobile ? w * .62 : w * .5 + 70;
-    let y = top + ((bottom - top) - rowH * (NL + 2 * gap)) / 2 + rowH / 2;
-    slots = []; const labelY = [];
-    GROUPS.forEach(n => { labelY.push(y); for (let k = 0; k < n; k++) { slots.push([colX, y]); y += rowH; } y += rowH * gap; });
-    const labelRight = w - (colX - LW * slotScale / 2 - 18);
-    glabels.forEach((l, gi) => { l.style.right = labelRight + 'px'; l.style.top = labelY[gi] + 'px'; });
-  }
-  // paint the branches with plain canvas paths: four depth layers into one RGBA texture,
-  // blossoms and the pale limb wash into a second. The living painting does the watercolor.
-  function paintTree(w, h, br, r) {
-    const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
-    const cx = cv.getContext('2d', {willReadFrequently:true});
-    const A = new Uint8Array(w * h * 4), B = new Uint8Array(w * h * 4);
-    const grab = (arr, ch) => { const d = cx.getImageData(0, 0, w, h).data; for (let i = 3, j = ch; i < d.length; i += 4, j += 4) arr[j] = d[i]; cx.clearRect(0, 0, w, h); };
-    const stroke = (b, k) => cx.fill(new Path2D(taper([b.x, b.y], [b.cx, b.cy], [b.ex, b.ey], b.w0 * k, b.w1 * k, r)));
-    cx.fillStyle = '#000';
-    for (let k = 0; k < 4; k++) { br.filter(b => Math.min(3, b.d >> 1) === k).forEach(b => stroke(b, 1)); grab(A, k); }
-    br.filter(b => (b.d >> 1) < 2).forEach(b => stroke(b, 2.2)); grab(B, 1);
-    br.filter(b => b.d >= 5 && r() < .5).forEach(b => {
-      cx.globalAlpha = .45 + r() * .55; cx.beginPath();
-      cx.arc(b.ex + (r() - .5) * 12, b.ey + (r() - .5) * 12, 4 + r() * 10, 0, Math.PI * 2); cx.fill();
-    });
-    cx.globalAlpha = 1; grab(B, 0);
-    if (live) { L.tree(A, B, w, h); return; }
-    // no WebGL: show the branches as flat ink on the fallback canvas
-    treeCanvas.width = w; treeCanvas.height = h;
-    const tc = treeCanvas.getContext('2d'), img = tc.createImageData(w, h);
-    for (let i = 0; i < w * h; i++) { const a = Math.max(A[i * 4] * .95, A[i * 4 + 1] * .86, A[i * 4 + 2] * .74, A[i * 4 + 3] * .62); img.data.set([29, 43, 54, a], i * 4); }
-    tc.putImageData(img, 0, 0);
-  }
-  // where a sticky stage sits in the viewport right now
-  const stageTop = rect => rect.top > 0 ? rect.top : (rect.bottom < innerHeight ? rect.bottom - innerHeight : 0);
-
-  /* ---------- scene 4: bench and book ---------- */
-  const bench = $('#bench'), world = $('#world'), book = $('#book'), turn = $('#turn'), bnote = $('#bnote');
-  (() => {
-    const svg = $('#benchArt'), r = rng(77);
-    const wash = el('g', {filter:'url(#wash)'});
-    wash.append(
-      el('rect', {x:16, y:22, width:868, height:66, rx:4, fill:INK, 'fill-opacity':.09}),
-      el('rect', {x:112, y:88, width:146, height:252, fill:INK, 'fill-opacity':.1}),
-      el('rect', {x:642, y:88, width:146, height:252, fill:INK, 'fill-opacity':.1}),
-      el('rect', {x:-900, y:342, width:2700, height:40, fill:INK, 'fill-opacity':.07}));
-    const ink = el('g', {filter:'url(#ink)'});
-    [
-      [[18, 22], [450, 12], [882, 24], 10, 6],
-      [[24, 88], [450, 93], [878, 86], 5, 3],
-      [[18, 22], [16, 56], [24, 88], 6, 4],
-      [[882, 24], [884, 56], [878, 86], 6, 4],
-      [[112, 90], [106, 210], [114, 340], 8, 5],
-      [[258, 90], [263, 210], [256, 340], 5, 3],
-      [[642, 90], [637, 210], [644, 340], 8, 5],
-      [[788, 90], [793, 210], [786, 340], 5, 3],
-      [[-760, 344], [450, 352], [1660, 342], 4, 1.5]
-    ].forEach(([a, c, b, w0, w1]) => ink.appendChild(el('path', {d:taper(a, c, b, w0, w1, r), fill:INK})));
-    ink.appendChild(el('path', {d:taper([90, 52], [250, 46], [380, 54], 2, .6, r), fill:INK, 'fill-opacity':.35}));
-    ink.appendChild(el('path', {d:taper([530, 44], [680, 60], [820, 52], 2, .6, r), fill:INK, 'fill-opacity':.35}));
-    svg.append(wash, ink);
-  })();
-  let BH = 0, BHt = 0, s0 = .45, single = false, bookOpen = false;
-  function layoutBook() {
-    const vw = innerWidth, vh = innerHeight;
-    single = vw < 760;
-    let W, H, PW;
-    if (single) { W = PW = Math.min(vw - 32, 440); H = Math.min(W * 1.5, vh * .8); }
-    else { H = Math.min(vh * .82, 640); W = Math.min(vw * .92, H / .64, 980); H = W * .64; PW = W / 2; }
-    const BW = W * (single ? 1.7 : 1.45); BH = BW * .4; BHt = H;
-    const st = world.style;
-    st.setProperty('--W', W + 'px'); st.setProperty('--H', H + 'px'); st.setProperty('--PW', PW + 'px');
-    st.setProperty('--BW', BW + 'px'); st.setProperty('--BH', BH + 'px');
-    book.classList.toggle('single', single);
-    s0 = Math.min(.48, vw * .86 / BW, vh * .62 / (H + BH * .9));
-  }
-
-  /* ---------- per-frame scroll choreography ---------- */
-  let ticking = false, pgNow = 0;
-  function frame() {
-    ticking = false;
-    const vw = innerWidth, vh = innerHeight, tipY = vh * .62;
-
-    // 1. clouds part and wash from black ink to brand blue
-    const span = sky.offsetHeight - vh;
-    const ps = reduce || span <= 0 ? 1 : clamp(-sky.getBoundingClientRect().top / span);
-    const part = easeIO(clamp(ps / .6)), tint = clamp(ps / .45);
-    const sr = sky.getBoundingClientRect();
-    if (!reduce && live) {
-      placeClouds(part);
-      hint.style.opacity = clamp(1 - ps * 7);
-      intro.style.opacity = clamp((ps - .4) / .18);
-      logo.style.opacity = clamp((part - .12) / .4).toFixed(3);   // the logo comes through as the ink clears
-      enso.style.opacity = clamp((part - .2) / .4).toFixed(3);
-    } else if (!live) { hint.style.display = 'none'; }
-    const live_ = {scroll:scrollY / vh, clouds:cloudBuf, cloud: !live || reduce || part > .995 ? 0 : 1, tint, skyB:(stageTop(sr) + vh) / vh};
-    head.classList.toggle('on-ink', !reduce && ps < .12);
-    head.classList.toggle('solid', sky.getBoundingClientRect().bottom < vh * .7);
-
-    // 2. the blue trail always reaches the drop
-    const lr = tlLine.getBoundingClientRect(), lineX = lr.left + 10;
-    const drawn = reduce ? lineH : clamp(tipY - lr.top, 0, lineH);
-    const off = trailLen * (1 - drawn / (lineH || 1));
-    paths[1].style.strokeDashoffset = paths[2].style.strokeDashoffset = off;
-    jobs.forEach((j, i) => j.classList.toggle('inked', reduce || drawn >= nodeYs[i] - 4));
-
-    let show = false, falling = false, sx = 0, sy = 0, size = 20;
-    if (!reduce && ps >= .7) {
-      if (ps < 1) {
-        const f = clamp((ps - .7) / .3), dr = logoDot.getBoundingClientRect();
-        show = true; falling = f > .04 && f < .97;
-        sx = lerp(dr.left + dr.width / 2, lineX, easeOut(f));
-        sy = lerp(dr.top + dr.height / 2, tipY, f * f);
-        size = lerp(dr.width, 20, f);
-      } else if (drawn < lineH) { show = true; sx = lineX; sy = Math.max(tipY, lr.top); }
-    }
-    logoDot.style.opacity = reduce || ps < .7 ? 1 : 0;
-    seed.style.display = show ? 'block' : 'none';
-    seed.classList.toggle('falling', falling);
-    if (show) { seed.style.width = seed.style.height = size + 'px'; seed.style.transform = `translate3d(${sx - size / 2}px, ${sy - size / 2}px, 0)`; }
-
-    // 3. paint the tree, bloom the leaves, then let them fall into a line
-    const gr = grove.getBoundingClientRect(), gspan = grove.offsetHeight - vh;
-    const pg = pgNow = reduce || gspan <= 0 ? 1 : clamp(-gr.top / gspan);
-    if (gr.bottom > 0 && gr.top < vh) {
-      const fade = 1 - .78 * clamp((pg - .66) / .16);
-      treeCanvas.style.opacity = fade.toFixed(3);
-      live_.tree = [stageTop(gr) / vh, 1, fade, 1];
-      live_.ta = [0, 1, 2, 3].map(k => clamp((pg - (.005 + k * .04)) / .06));
-      live_.tb = clamp((pg - .165) / .06);
-      const onBranch = vw < 760 ? .82 : 1;
-      leaves.forEach((lf, i) => {
-        const b = base[i], s = slots[i];
-        if (!b || !s) return;
-        const bloom = back(clamp((pg - (.16 + i * .009)) / .08));
-        const f = clamp((pg - (.42 + i * .022)) / .16), e = easeIO(f), fade = 1 - f;
-        const x = lerp(b.x, s[0], e) + Math.sin(f * Math.PI * 2.5) * 46 * fade * b.sway;
-        const y = lerp(b.y, s[1], e) + Math.sin(f * Math.PI) * 70;
-        const rot = lerp(b.r, 0, e) + Math.sin(f * Math.PI * 3) * 24 * fade;
-        const sc = lerp(onBranch, slotScale, e) * bloom;
-        lf.style.transform = `translate3d(${(x - LW / 2).toFixed(1)}px, ${(y - LW * .219).toFixed(1)}px, 0) rotate(${rot.toFixed(1)}deg) scale(${sc.toFixed(3)})`;
-      });
-      glabels.forEach(l => l.style.opacity = clamp((pg - .8) / .06).toFixed(3));
-    }
-
-    else live_.tree = [0, 1, 1, 0];
-    live_.tl = tlLine.getBoundingClientRect().top / vh;
-
-    // 4. zoom in on the book, then turn the page
-    const brc = bench.getBoundingClientRect(), bspan = bench.offsetHeight - vh;
-    const pb = reduce || bspan <= 0 ? 1 : clamp(-brc.top / bspan);
-    const z = easeIO(clamp(pb / .42)), s = lerp(s0, 1, z), ty = -BH * .45 * s0 * (1 - z);
-    world.style.transform = `translate3d(0, ${ty}px, 0) scale(${s})`;
-    const groundY = stageTop(brc) + vh / 2 + ty + s * (BHt / 2 + BH * .955);
-    live_.bench = brc.bottom > 0 && brc.top < vh ? [groundY / vh, 1] : [0, 0];
-    if (live) L.set(live_);
-    const flip = easeIO(clamp((pb - .48) / .3));
-    turn.style.setProperty('--flip', flip.toFixed(4));
-    turn.style.setProperty('--shade', (Math.sin(flip * Math.PI) * .28).toFixed(3));
-    turn.style.opacity = single ? clamp(1 - (flip - .7) / .3) : 1;
-    turn.style.visibility = single && flip > .99 ? 'hidden' : 'visible';
-    bnote.style.opacity = clamp(1 - z * 2.5);
-    bookOpen = flip > .98;
-  }
-  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
-  let lastW = 0, lastH = 0;
-  function layout() {
-    const changed = Math.abs(innerWidth - lastW) > 1 || Math.abs(innerHeight - lastH) > 140;
-    unit = Math.max(innerWidth / 100, innerHeight * .0062);
-    cs = innerWidth / innerHeight < .75 ? 1.3 : 1;
-    if (changed) { lastW = innerWidth; lastH = innerHeight; }
-    layoutLine(); buildTree(); layoutBook();
-    frame();
-  }
-  addEventListener('scroll', onScroll, {passive:true});
-  let rt = 0;
-  addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(layout, 150); });
-  layout();
-  if (document.fonts) document.fonts.ready.then(() => { layoutLine(); placeSlots(gstage.clientWidth, gstage.clientHeight); frame(); });
-
-  // keyboard users land on the finished scene
-  $('#leaves').addEventListener('focusin', () => { if (pgNow < .82 && !reduce) $('#links').scrollIntoView(); });
-  $('#inq').addEventListener('focusin', () => { if (!bookOpen && !reduce) $('#contact').scrollIntoView(); });
-
-})();
-</script>
+<script src="assets/js/road.js"></script>
+<script src="assets/js/story.js"></script>
+<script src="assets/js/book.js"></script>
+<script src="assets/js/inkcursor.js"></script>
 </body>
 </html>
