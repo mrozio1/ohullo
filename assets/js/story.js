@@ -85,32 +85,151 @@
   function paintBoardroom() {
     const c = brCv.getContext('2d'), rr = rng(5);
     c.setTransform(1.5, 0, 0, 1.5, 0, 0);
+    const ink = a => `rgba(${INK},${a})`, paper = a => `rgba(${PAPER},${a})`;
+    const shape = (pts, fill) => { c.beginPath(); pts.forEach(([x, y], i) => i ? c.lineTo(x, y) : c.moveTo(x, y)); c.closePath(); c.fillStyle = fill; c.fill(); };
+    const blob = (x, y, rx, ry, fill, rot = 0) => { c.beginPath(); c.ellipse(x, y, rx, ry, rot, 0, Math.PI * 2); c.fillStyle = fill; c.fill(); };
+    // the room: a warm wall wash, a floor, a sumi-e plant in the corner
     c.fillStyle = `rgb(${PAPER})`; c.fillRect(0, 0, 1600, 1000);
-    const g = c.createLinearGradient(0, 0, 0, 1000); g.addColorStop(0, `rgba(${BLUE},.10)`); g.addColorStop(.7, `rgba(${INK},.03)`); g.addColorStop(1, `rgba(${INK},.12)`);
+    const g = c.createLinearGradient(0, 0, 0, 1000); g.addColorStop(0, `rgba(${BLUE},.10)`); g.addColorStop(.7, ink(.03)); g.addColorStop(1, ink(.12));
     c.fillStyle = g; c.fillRect(0, 0, 1600, 1000);
-    brush(c, 0, 760, 1600, 770, 5, 3, `rgba(${INK},.55)`, rr);                       // floor line
-    // the TV, with a question nobody can answer
-    c.fillStyle = `rgba(${INK},.92)`; c.fillRect(TV.x - 16, TV.y - 16, TV.w + 32, TV.h + 32);
-    c.fillStyle = `rgba(${INK},.18)`; c.fillRect(TV.x, TV.y, TV.w, TV.h);
-    c.fillStyle = `rgb(${PAPER})`; c.globalAlpha = .9; c.fillRect(TV.x, TV.y, TV.w, TV.h); c.globalAlpha = 1;
-    c.font = '700 230px Caveat, "Bradley Hand", cursive'; c.textAlign = 'center'; c.textBaseline = 'middle';
-    c.fillStyle = `rgb(${INK})`; c.fillText('?', TV.x + TV.w / 2, TV.y + TV.h / 2 + 8);
-    brush(c, 790, TV.y + TV.h + 16, 790, TV.y + TV.h + 60, 10, 14, `rgba(${INK},.8)`, rr);
-    // the table, in a little perspective
+    const w2 = c.createRadialGradient(800, 280, 40, 800, 280, 700); w2.addColorStop(0, 'rgba(255,214,140,.10)'); w2.addColorStop(1, 'rgba(255,214,140,0)');
+    c.fillStyle = w2; c.fillRect(0, 0, 1600, 1000);
+    brush(c, 0, 760, 1600, 770, 5, 3, ink(.55), rr);
+    // plant: a pot and a few loaded strokes of bamboo
+    shape([[86, 760], [96, 660], [176, 660], [186, 760]], ink(.7));
+    [[120, 660, 96, 360], [140, 660, 150, 300], [158, 660, 196, 390]].forEach(([x0, y0, x1, y1]) => brush(c, x0, y0, x1, y1, 7, 4, ink(.55), rr));
+    for (let i = 0; i < 16; i++) {                       // slender bamboo leaves, each one press-and-lift of the brush
+      const side = i % 2 ? 1 : -1, x = 128 + side * (8 + rr() * 40), y = 300 + rr() * 280, a = side * (.25 + rr() * .5) + (side < 0 ? Math.PI : 0);
+      c.save(); c.translate(x, y); c.rotate(a); c.beginPath(); c.moveTo(0, 0); c.quadraticCurveTo(26, -8, 58, 2); c.quadraticCurveTo(26, 6, 0, 0); c.fillStyle = ink(.4 + rr() * .35); c.fill(); c.restore();
+    }
+    // the screen on the wall (its slides are painted live), on a slim mount
+    c.fillStyle = ink(.92); c.fillRect(TV.x - 16, TV.y - 16, TV.w + 32, TV.h + 32);
+    c.fillStyle = `rgb(${PAPER})`; c.fillRect(TV.x, TV.y, TV.w, TV.h);
+    brush(c, 790, TV.y + TV.h + 16, 790, TV.y + TV.h + 60, 10, 14, ink(.8), rr);
+
+    // a seated person facing us: chair back, shoulders, neck, head and hair
+    const seated = (x, s, a, hair, top) => {
+      const y = 640;
+      c.beginPath(); c.roundRect(x - 54 * s, y - 175 * s, 108 * s, 190 * s, 26 * s); c.fillStyle = ink(a * .38); c.fill();      // chair back
+      shape([[x - 70 * s, y + 4], [x - 66 * s, y - 64 * s], [x - 44 * s, y - 92 * s], [x - 13 * s, y - 104 * s], [x + 13 * s, y - 104 * s], [x + 44 * s, y - 92 * s], [x + 66 * s, y - 64 * s], [x + 70 * s, y + 4]], ink(a));
+      if (top === 'collar') { shape([[x - 14 * s, y - 103 * s], [x, y - 70 * s], [x + 14 * s, y - 103 * s]], paper(.75)); brush(c, x, y - 78 * s, x + 1, y - 30 * s, 7 * s, 3 * s, `rgba(${BLUE},.7)`, rr); }
+      if (top === 'sweater') brush(c, x - 18 * s, y - 100 * s, x + 18 * s, y - 100 * s, 4 * s, 4 * s, paper(.4), rr);
+      if (top === 'blazer') { brush(c, x - 12 * s, y - 102 * s, x - 4 * s, y - 40 * s, 3 * s, 2 * s, paper(.45), rr); brush(c, x + 12 * s, y - 102 * s, x + 4 * s, y - 40 * s, 3 * s, 2 * s, paper(.45), rr); }
+      c.fillStyle = ink(a * .92); c.fillRect(x - 10 * s, y - 118 * s, 20 * s, 20 * s);                                            // neck
+      if (hair === 'long') shape([[x - 30 * s, y - 175 * s], [x - 36 * s, y - 100 * s], [x - 20 * s, y - 92 * s], [x + 20 * s, y - 92 * s], [x + 36 * s, y - 100 * s], [x + 30 * s, y - 175 * s]], ink(a * 1.05));
+      blob(x, y - 146 * s, 25 * s, 31 * s, ink(a));                                                                                 // head
+      blob(x - 25 * s, y - 144 * s, 4 * s, 7 * s, ink(a)); blob(x + 25 * s, y - 144 * s, 4 * s, 7 * s, ink(a));                 // ears
+      const hc = ink(Math.min(1, a + .22));
+      if (hair === 'short') { c.beginPath(); c.ellipse(x, y - 160 * s, 27 * s, 21 * s, 0, Math.PI * 1.02, Math.PI * 1.98); c.lineTo(x + 24 * s, y - 150 * s); c.quadraticCurveTo(x, y - 166 * s, x - 24 * s, y - 150 * s); c.fillStyle = hc; c.fill(); }
+      if (hair === 'long') { c.beginPath(); c.ellipse(x, y - 158 * s, 28 * s, 24 * s, 0, Math.PI, 0); c.quadraticCurveTo(x + 6 * s, y - 164 * s, x - 20 * s, y - 142 * s); c.fillStyle = hc; c.fill(); }
+      if (hair === 'bun') { blob(x, y - 182 * s, 13 * s, 11 * s, hc); c.beginPath(); c.ellipse(x, y - 156 * s, 26 * s, 20 * s, 0, Math.PI, 0); c.fillStyle = hc; c.fill(); }
+      if (hair === 'bald') { brush(c, x - 26 * s, y - 140 * s, x - 22 * s, y - 118 * s, 6 * s, 3 * s, hc, rr); brush(c, x + 26 * s, y - 140 * s, x + 22 * s, y - 118 * s, 6 * s, 3 * s, hc, rr); }
+    };
+    // arms resting on the table, with something in front of each person
+    const onTable = (x, s, a, prop) => {
+      const y = 650;
+      brush(c, x - 56 * s, y - 50 * s, x - 34 * s, y + 18, 30 * s, 22 * s, ink(a), rr); brush(c, x + 56 * s, y - 50 * s, x + 34 * s, y + 18, 30 * s, 22 * s, ink(a), rr);
+      blob(x - 26 * s, y + 22, 13 * s, 8 * s, ink(a)); blob(x + 26 * s, y + 22, 13 * s, 8 * s, ink(a));
+      if (prop === 'laptop') { shape([[x - 44 * s, y - 2], [x + 44 * s, y - 2], [x + 38 * s, y - 58 * s], [x - 38 * s, y - 58 * s]], ink(.55)); blob(x, y - 30 * s, 6 * s, 6 * s, paper(.5)); shape([[x - 56 * s, y + 4], [x + 56 * s, y + 4], [x + 50 * s, y - 2], [x - 50 * s, y - 2]], ink(.8)); }
+      if (prop === 'papers') { c.save(); c.translate(x - 10 * s, y + 36); c.rotate(-.12); c.fillStyle = paper(.85); c.fillRect(-34 * s, -20 * s, 68 * s, 40 * s); c.restore(); }
+      if (prop === 'mug') { c.fillStyle = paper(.8); c.fillRect(x + 48 * s, y + 6, 20 * s, 24 * s); c.strokeStyle = paper(.8); c.lineWidth = 4 * s; c.beginPath(); c.arc(x + 70 * s, y + 18, 7 * s, -1.4, 1.4); c.stroke(); }
+    };
+    const seats = [[455, 1, .6, 'short', 'collar', 'laptop'], [610, .97, .66, 'long', 'blazer', 'papers'], [995, .97, .66, 'bun', 'sweater', 'mug'], [1145, 1, .6, 'bald', 'collar', 'laptop']];
+    seats.forEach(([x, sc, a, h, t]) => seated(x, sc, a, h, t));
+    // the table, in a little perspective, with a darker front edge
     c.beginPath(); c.moveTo(380, 640); c.lineTo(1220, 640); c.lineTo(1390, 860); c.lineTo(210, 860); c.closePath();
-    c.fillStyle = `rgba(${INK},.72)`; c.fill();
-    brush(c, 380, 642, 1220, 642, 6, 4, `rgba(${INK},.95)`, rr);
-    // people around it: heads and shoulders in a few strokes
-    const person = (x, y, s, a) => { c.fillStyle = `rgba(${INK},${a})`; c.beginPath(); c.arc(x, y, 30 * s, 0, Math.PI * 2); c.fill();
-      c.beginPath(); c.ellipse(x, y + 78 * s, 62 * s, 50 * s, 0, Math.PI, 0); c.fill(); };
-    [[460, 560, 1, .62], [600, 556, 1, .66], [1000, 556, 1, .66], [1140, 560, 1, .62]].forEach(a => person(...a));
-    [[300, 830, 1.5, .9], [1300, 830, 1.5, .9]].forEach(a => person(...a));
-    // the presenter, pointing at the question
-    c.fillStyle = `rgba(${INK},.9)`; c.beginPath(); c.arc(1300, 330, 34, 0, Math.PI * 2); c.fill();
-    brush(c, 1300, 368, 1296, 600, 70, 52, `rgba(${INK},.9)`, rr);
-    brush(c, 1296, 600, 1280, 760, 26, 18, `rgba(${INK},.9)`, rr); brush(c, 1306, 600, 1330, 760, 26, 18, `rgba(${INK},.9)`, rr);
-    brush(c, 1282, 410, 1060, 330, 20, 10, `rgba(${INK},.9)`, rr);
-    brush(c, 1300, 380, 1302, 470, 12, 4, `rgba(${BLUE},.85)`, rr);                    // a blue tie
+    c.fillStyle = ink(.72); c.fill();
+    brush(c, 380, 642, 1220, 642, 6, 4, ink(.95), rr); brush(c, 210, 858, 1390, 858, 10, 8, ink(.9), rr);
+    const shine = c.createLinearGradient(0, 640, 0, 860); shine.addColorStop(0, paper(.12)); shine.addColorStop(1, paper(0));
+    c.fillStyle = shine; c.beginPath(); c.moveTo(420, 650); c.lineTo(1180, 650); c.lineTo(1240, 720); c.lineTo(360, 720); c.closePath(); c.fill();
+    seats.forEach(([x, sc, a, , , p]) => onTable(x, sc, a, p));
+    // two people nearest us, seen from behind, over the tops of their chairs
+    const back = (x, s, a, hair) => {
+      const y = 860;
+      shape([[x - 78 * s, y + 140], [x - 72 * s, y - 40 * s], [x - 40 * s, y - 70 * s], [x + 40 * s, y - 70 * s], [x + 72 * s, y - 40 * s], [x + 78 * s, y + 140]], ink(a * .9));
+      c.fillStyle = ink(a); c.fillRect(x - 12 * s, y - 92 * s, 24 * s, 26 * s);
+      blob(x, y - 118 * s, 27 * s, 32 * s, ink(a));
+      blob(x - 27 * s, y - 114 * s, 4 * s, 8 * s, ink(a)); blob(x + 27 * s, y - 114 * s, 4 * s, 8 * s, ink(a));
+      if (hair === 'curly') for (let i = 0; i < 11; i++) { const t = Math.PI * (1 + i / 10); blob(x + Math.cos(t) * 24 * s, y - 126 * s + Math.sin(t) * 26 * s, 10 * s, 9 * s, ink(Math.min(1, a + .1))); }
+      if (hair === 'pony') { brush(c, x, y - 112 * s, x + 6 * s, y - 52 * s, 18 * s, 6 * s, ink(Math.min(1, a + .1)), rr); blob(x, y - 112 * s, 7 * s, 6 * s, `rgba(${BLUE},.8)`); }
+      c.beginPath(); c.roundRect(x - 74 * s, y - 34 * s, 148 * s, 200 * s, 30 * s); c.fillStyle = ink(Math.min(1, a + .08)); c.fill();   // chair back
+      brush(c, x - 50 * s, y - 20 * s, x + 50 * s, y - 20 * s, 3 * s, 3 * s, paper(.18), rr);
+    };
+    back(300, 1.45, .88, 'curly'); back(1300, 1.45, .88, 'pony');
+    // the presenter: suit, tie, clicker in one hand, pointing at the screen with the other
+    const P = ink(.9), PD = ink(.97);
+    brush(c, 1286, 560, 1272, 742, 30, 24, P, rr); brush(c, 1314, 560, 1330, 742, 30, 24, P, rr);                 // trousers
+    shape([[1250, 742], [1292, 742], [1290, 756], [1244, 758]], PD); shape([[1316, 742], [1356, 744], [1362, 758], [1318, 756]], PD);   // shoes
+    shape([[1262, 372], [1338, 372], [1350, 430], [1344, 586], [1256, 586], [1252, 430]], P);                       // jacket
+    shape([[1284, 372], [1300, 438], [1316, 372]], paper(.85));                                                     // shirt
+    brush(c, 1300, 384, 1301, 470, 11, 5, `rgba(${BLUE},.9)`, rr);                                                  // tie
+    brush(c, 1286, 376, 1278, 470, 3, 2, paper(.4), rr); brush(c, 1314, 376, 1322, 470, 3, 2, paper(.4), rr);       // lapels
+    c.fillStyle = PD; c.fillRect(1290, 348, 20, 28);
+    blob(1298, 318, 30, 36, P); blob(1270, 322, 5, 9, P);
+    c.beginPath(); c.ellipse(1302, 300, 32, 24, -.15, Math.PI * .95, Math.PI * 2.05); c.quadraticCurveTo(1290, 300, 1268, 316); c.fillStyle = PD; c.fill();   // hair
+    brush(c, 1266, 384, 1176, 352, 26, 20, P, rr); brush(c, 1176, 352, 1078, 326, 20, 14, P, rr);                  // pointing arm
+    blob(1070, 324, 12, 9, P, -.25); brush(c, 1062, 322, 1036, 316, 6, 4, P, rr);                                    // hand, finger
+    brush(c, 1336, 386, 1356, 470, 24, 20, P, rr); brush(c, 1356, 470, 1318, 506, 20, 16, P, rr);                  // other arm
+    blob(1312, 508, 11, 9, P); c.fillStyle = `rgba(${BLUE},.9)`; c.fillRect(1300, 496, 6, 18);                       // clicker
+  }
+
+  // slides on the screen: a deck of downward trends that ends on the one question nobody can answer
+  const SLIDES = [
+    {title:'Productivity', sub:'Output per person, last 6 quarters', kind:'line', pts:[.82, .78, .7, .64, .5, .34, .22]},
+    {title:'SEO', sub:'Organic search traffic', kind:'bars', pts:[.86, .8, .66, .58, .44, .3]},
+    {title:'Tech Fatigue', sub:'Tools your team actually uses', kind:'area', pts:[.74, .72, .6, .52, .46, .3, .18]},
+    {kind:'question'}
+  ];
+  const slideCv = document.createElement('canvas'), slc = slideCv.getContext('2d');
+  function drawSlide(c, sl, ox, grow) {
+    const SW = 1800, SH = 1000;
+    c.save(); c.translate(ox, 0);
+    c.fillStyle = '#f7f8f7'; c.fillRect(0, 0, SW, SH);
+    if (sl.kind === 'question') {
+      c.font = '700 720px Caveat, "Bradley Hand", cursive'; c.textAlign = 'center'; c.textBaseline = 'middle';
+      c.fillStyle = `rgb(${INK})`; c.fillText('?', SW / 2, SH / 2 + 30); c.restore(); return;
+    }
+    c.textAlign = 'left'; c.textBaseline = 'alphabetic';
+    c.fillStyle = `rgb(${INK})`; c.font = '700 150px Caveat, "Bradley Hand", cursive'; c.fillText(sl.title, 120, 190);
+    c.fillStyle = 'rgba(29,43,54,.6)'; c.font = '500 50px "Zen Kaku Gothic New", sans-serif'; c.fillText(sl.sub, 124, 262);
+    const X0 = 170, X1 = 1650, Y0 = 340, Y1 = 900, n = sl.pts.length;
+    c.strokeStyle = 'rgba(29,43,54,.12)'; c.lineWidth = 3;
+    for (let k = 1; k <= 3; k++) { const y = lerp(Y1, Y0, k / 3.4); c.beginPath(); c.moveTo(X0, y); c.lineTo(X1, y); c.stroke(); }
+    c.strokeStyle = `rgba(${INK},.85)`; c.lineWidth = 7; c.lineCap = 'round';
+    c.beginPath(); c.moveTo(X0, Y0 - 10); c.lineTo(X0, Y1); c.lineTo(X1, Y1); c.stroke();
+    const px = i => lerp(X0 + 70, X1 - 60, i / (n - 1)), py = v => lerp(Y1, Y0, v);
+    const shown = clamp(grow) * (n - 1);
+    if (sl.kind === 'bars') {
+      const bw = (X1 - X0) / n * .56;
+      sl.pts.forEach((v, i) => { const k = clamp(shown - i + 1); if (k <= 0) return; const h = (Y1 - py(v)) * k, x = lerp(X0 + 50, X1 - 50 - bw, i / (n - 1));
+        c.fillStyle = `rgba(${BLUE},${.25 + .5 * (1 - i / n)})`; c.fillRect(x, Y1 - h, bw, h); c.fillStyle = `rgba(${BLUE},.9)`; c.fillRect(x, Y1 - h, bw, 8); });
+    } else {
+      const pts = []; for (let i = 0; i <= shown + 1e-6 && i < n; i++) pts.push([px(i), py(sl.pts[i])]);
+      const f = shown - Math.floor(shown), i0 = Math.floor(shown);
+      if (i0 < n - 1 && f > 0) pts.push([lerp(px(i0), px(i0 + 1), f), lerp(py(sl.pts[i0]), py(sl.pts[i0 + 1]), f)]);
+      if (pts.length > 1) {
+        if (sl.kind === 'area') { c.beginPath(); c.moveTo(pts[0][0], Y1); pts.forEach(p => c.lineTo(...p)); c.lineTo(pts[pts.length - 1][0], Y1); c.closePath(); c.fillStyle = `rgba(${BLUE},.18)`; c.fill(); }
+        c.strokeStyle = `rgba(${BLUE},1)`; c.lineWidth = 16; c.lineJoin = 'round';
+        c.beginPath(); pts.forEach((p, i) => i ? c.lineTo(...p) : c.moveTo(...p)); c.stroke();
+        c.fillStyle = `rgb(${BLUE})`; pts.slice(0, -1).forEach(p => { c.beginPath(); c.arc(p[0], p[1], 15, 0, Math.PI * 2); c.fill(); });
+        if (grow >= 1) {                                                              // a downward arrowhead at the end
+          const [ax, ay] = pts[pts.length - 1], [bx, by] = pts[pts.length - 2], an = Math.atan2(ay - by, ax - bx);
+          c.beginPath(); c.moveTo(ax + Math.cos(an) * 30, ay + Math.sin(an) * 30); c.lineTo(ax + Math.cos(an + 2.5) * 46, ay + Math.sin(an + 2.5) * 46); c.lineTo(ax + Math.cos(an - 2.5) * 46, ay + Math.sin(an - 2.5) * 46); c.closePath(); c.fill();
+        }
+      }
+    }
+    c.restore();
+  }
+  // the deck advances as the screen grows: one slide holds, then slides past; the question lands at half the window
+  function paintScreen(t, fill) {
+    const sw = t.w * camS, cw = Math.round(clamp(sw * DPR, 90, 2200)), ch = Math.round(cw * TV.h / TV.w);
+    if (slideCv.width !== cw || slideCv.height !== ch) { slideCv.width = cw; slideCv.height = ch; }
+    const u = span(pcNow, .585, .765) * (SLIDES.length - 1), k = Math.floor(u), f = u - k;
+    const pos = Math.min(SLIDES.length - 1, k + easeIO(clamp((f - .4) / .6)));
+    slc.setTransform(cw / 1800, 0, 0, cw / 1800, 0, 0);
+    slc.fillStyle = `rgb(${INK})`; slc.fillRect(0, 0, 1800, 1000);
+    SLIDES.forEach((sl, i) => { const d = i - pos; if (Math.abs(d) < 1.05) drawSlide(slc, sl, d * 1860, i < k ? 1 : i === k ? clamp(f / .4) : 0); });
+    ctx.drawImage(slideCv, t.x, t.y, t.w, t.h);
   }
 
   // rain: blue drops that land on the city as it rises
@@ -272,8 +391,9 @@
       // the room inside resolves out of the light as we get close
       ctx.globalAlpha = clamp(z1 * 1.5 - .05); ctx.drawImage(brCv, WIN.x, WIN.y, WIN.w, WIN.h);
       ctx.globalAlpha = .45 * (1 - z1); ctx.fillStyle = `rgb(${WARM})`; ctx.fillRect(WIN.x, WIN.y, WIN.w, WIN.h); ctx.globalAlpha = 1;
+      if (z1 > .02) paintScreen(tvWorld(), tvWorld().w * camS / W);
       // static on the TV once we are close enough
-      const st = span(pc, .8, .88);
+      const st = span(pc, .82, .89);
       if (st > 0) {
         for (let i = 0; i < sid.data.length; i += 4) { const v = Math.random() * 255; sid.data[i] = sid.data[i + 1] = sid.data[i + 2] = v * .55 + 40; sid.data[i + 3] = 255; }
         sctx.putImageData(sid, 0, 0);
@@ -293,7 +413,7 @@
   const SVGNS = 'http://www.w3.org/2000/svg';
   const el = (tag, attrs, parent) => { const e = document.createElementNS(SVGNS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
   let flowId = 0;
-  function Flow(box, anchors, {start = [0, -80], rx = 17, ry = 7, fill = 70, mode = 'down'} = {}) {
+  function Flow(box, anchors, {start = [0, -80], from = null, rx = 17, ry = 7, fill = 70, mode = 'down'} = {}) {
     const id = 'fl' + (++flowId);
     const svg = el('svg', {class:'flow', 'aria-hidden':'true'}); box.prepend(svg);
     const defs = el('defs', {}, svg);
@@ -320,6 +440,8 @@
       const br = box.getBoundingClientRect();
       pools.forEach(p => { const r = p.a.getBoundingClientRect(); p.x = r.left + r.width / 2 - br.left; p.y = r.top + r.height / 2 - br.top; });
       const P = pools.map(p => [p.x, p.y]), s0 = [P[0][0] + start[0], P[0][1] + start[1]];
+      // the drop starts just under the text above it, never inside it
+      if (from) s0[1] = Math.min(P[0][1] - 14, Math.max(s0[1], from.getBoundingClientRect().bottom - br.top + 14));
       let d = `M ${s0[0].toFixed(1)} ${s0[1].toFixed(1)} L ${P[0][0]} ${P[0][1]}`;
       for (let i = 1; i < P.length; i++) {
         const [x0, y0] = P[i - 1], [x1, y1] = P[i];
@@ -372,8 +494,8 @@
   }
 
   const pipe = $('.pipe'), stages = $$('.step');
-  const pipeFlow = Flow(pipe, stages.map(s => s.querySelector('.knot')), {start:[0, -56], rx:21, ry:8.5, fill:60, mode:'down'});
-  const servBox = $('#services .cards'), servFlow = Flow(servBox, $$('#services .cards .pool-at'), {start:[0, -42], rx:21, ry:8.5, fill:50, mode:'auto'});
+  const pipeFlow = Flow(pipe, stages.map(s => s.querySelector('.knot')), {start:[0, -56], from:$('#plan .lede'), rx:21, ry:8.5, fill:60, mode:'down'});
+  const servBox = $('#services .cards'), servFlow = Flow(servBox, $$('#services .cards .pool-at'), {start:[0, -42], from:$('#services .lede'), rx:21, ry:8.5, fill:50, mode:'auto'});
   const servCards = $$('#services .cards .wash');
   const layoutPipe = () => { pipeFlow.layout(); servFlow.layout(); };
   stages.forEach(s => {
